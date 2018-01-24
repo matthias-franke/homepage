@@ -1,0 +1,129 @@
+
+<!-- saved from url=(0013)about:internet -->
+<html lang="en">
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+                <title>platform</title>
+                <script language="javascript" src="https://trade.loginandtrade.com/itp/loadASP/flashDetect.js"></script>
+                <script language="javascript" src="https://trade.loginandtrade.com/itp/loadASP/flashObject.js"></script>
+
+                <script language="javascript" src="https://trade.loginandtrade.com/itp/loadASP/AC_RunActiveContent.js"></script>
+                        <script language="VBScript" type="text/vbscript">
+                <!-- // Visual basic helper required to detect Flash Player ActiveX control version information
+                Function VBGetSwfVer(i)
+                  on error resume next
+                  Dim swControl, swVersion
+                  swVersion = 0
+
+                  set swControl = CreateObject("ShockwaveFlash.ShockwaveFlash." + CStr(i))
+                  if (IsObject(swControl)) then
+                        swVersion = swControl.GetVariable("$version")
+                  end if
+                  VBGetSwfVer = swVersion
+                End Function
+                // -->
+        </script>
+
+        </head>
+        <script language="javascript">
+
+                function onBodyLoad()
+                {
+
+                        try
+                        {
+                                window.document.platform.focus();
+                        }
+                        catch(e)
+                        {
+
+                        }
+                }
+
+        </script>
+        <script language="JavaScript">
+                //document.onkeydown = checkKeycode
+                //document.onkeypress = checkKeycode
+                function checkKeycode(e)
+                {
+                        var keycode;
+                        if (window.event) keycode = window.event.keyCode;
+                        else if (e) keycode = e.which;
+
+                        window.event.keyCode=0;
+                        return false;
+                }
+
+        </script>
+        <body bgcolor="" style="margin:0;" onload="onBodyLoad()" width="100%" height="100%">
+
+                <!--url's used in the movie-->
+                <!--text used in the movie-->
+                <!-- Screen builder        -->
+                <div id="getFlashDiv" style="position:absolute;left:0px;top:00px;z-index:1;width:100%;height:100%;">
+  <table border=0 width="100%" height="1" cellpadding=0 cellspacing=0>
+        <tr><td><img src="loadASP/PCICFD_header.gif"></td></tr>
+  </table>
+  <div id="Layer1"  style="position:absolute;left:220px;top:250px;z-index:1;width: 300px;">
+  <h1>Flash Plugin Not Detected </h1>
+
+  <p>You require a Flash plugin to use the Trading Platform.  Please click <a href="https://www.macromedia.com/go/getflashplayer">here</a> on the link to proceed to the Flash download page.</p>
+  <p><a href="javascript:window.close();">Close window  </a></p>
+  </div>
+</div>
+
+                <script language="JavaScript">
+                        document.getElementById('getFlashDiv').style.visibility="hidden";
+
+                        var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+
+
+            if(hasRightVersion)
+            {
+                var flashVarsParams = 'passParams=' + 'BU~height~width~InputAccountNumber1' + '&BU=' + 'PCICFD' + '&InputAccountNumber1=' + '' + '&movieName=' + 'https://trade.loginandtrade.com/itp/loadASP/platform_2_3_0_9.swf' + '&progressLabel=' + 'Loading' + '';
+
+
+                                AC_FL_RunContent(
+                        'id', 'platform',
+                    'name', 'platform',
+                    'width', '1019',
+                    'height', '690',
+                    'codebase', 'https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab',
+                    'quality', 'high',
+                    'FlashVars', flashVarsParams,
+                    'menu', 'true',
+                    'wmode_renamed', 'transparent',
+                    'movie', 'preloader',
+                    'align', 'middle',
+                    'play', 'true',
+                    'loop', 'false',
+                    'allowScriptAccess', 'sameDomain',
+                    'pluginspage', 'https://www.macromedia.com/go/getflashplayer');
+
+            }
+            else
+            {
+                document.getElementById('getFlashDiv').style.visibility="visible";
+            }
+
+
+                </script>
+                <noscript>
+                        <div id="getFlashDiv" style="position:absolute;left:0px;top:00px;z-index:1;width:100%;height:100%;">
+  <table border=0 width="100%" height="1" cellpadding=0 cellspacing=0>
+        <tr><td><img src="loadASP/PCICFD_header.gif"></td></tr>
+  </table>
+  <div id="Layer1"  style="position:absolute;left:220px;top:250px;z-index:1;width: 300px;">
+  <h1>Flash Plugin Not Detected </h1>
+  <p>You require a Flash plugin to use the Trading Platform.  Please click <a href="https://www.macromedia.com/go/getflashplayer">here</a> on the link to proceed to the Flash download page.</p>
+  <p><a href="javascript:window.close();">Close window  </a></p>
+  </div>
+</div>
+                </noscript>
+
+        <script language="javascript" src="https://trade.loginandtrade.com/itp/v1_2/PCICFD_PlatformLinks.js"></script>
+
+
+
+        </body>
+</html>

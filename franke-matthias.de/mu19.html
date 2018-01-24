@@ -1,0 +1,177 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML>
+<HEAD>
+
+
+<TITLE>Collection-Framework</TITLE>
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<meta name="generator" content="handgestrickt von Matthias Franke">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8559-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="stylesheet" href="indmstyl.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+if(top.frames.length > 0)
+top.location.href=self.location;
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+     IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+function popUp(){return};
+function popDown(){return};
+if (!ver4) event=null;
+//-->
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="indslink.js" TYPE="text/javascript"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="indsncon.js" TYPE="text/javascript"></SCRIPT>
+
+</HEAD>
+<BODY>
+
+<div class="meta">
+matthias franke | 30.06.2003
+</div>
+
+<div class="menubox">
+<A HREF="javascript:void(0)" onMouseOver="popUp('elMenu1',event)" onMouseOut="popDown('elMenu1')" onClick="return false" class="menulink">
+<img src="indptarw.gif" width="9" height="9" border="0" alt="NAVIGATION">
+[NAVIGATION&nbsp;&nbsp;&nbsp;franke-matthias.de]</A>
+&nbsp;&gt;&nbsp;
+<A HREF="javascript:void(0)" onMouseOver="popUp('elMenu1_5',event)" onMouseOut="popDown('elMenu1_5')" onClick="return false" class="menulink">
+[Lebenslauf]</A>
+&nbsp;&gt;&nbsp;
+Collection-Framework
+</div>
+
+
+
+<span class="navibox">
+<a href="index.html" class="menulink">
+<img src="indptarw.gif" width="9" height="9" border="0" alt="NAVIGATION">
+[INDEX]</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="javascript:history.back()"><img src="indparbl.gif" width="9" height="9" border="0" alt="im Verlauf zur&uuml;ck"></a>
+&nbsp;
+<a href="javascript:history.forward()"><img src="indparbr.gif" width="9" height="9" border="0" alt="im Verlauf weiter"></a>
+</span>
+
+<div class="txt">
+
+
+
+<h1>Projektskizze</h1>
+<h2>ACF - Advanced Collection-Framework</h2>
+
+<p>01.10.2002 - 30.05.2003</p>
+
+<p>Das gesamte Projekt wurde alleinverantwortlich durchgef&uuml;hrt.</p>
+
+<p>Zur Implementierung von Echtzeitsystemen sind hochgradig effiziente Datenstrukturen erforderlich. Datenstrukturen des JDK gen&uuml;gen diesem Anspruch nicht, so dass zur Vorbereitung zuk&uuml;nftiger Projekte die Implementierung eines eigenen Collection-Frameworks ACF n&ouml;tig ist:</p>
+
+<ul>
+
+<li>
+<b>konsistentes Design</b><br>
+
+Nicht alle tats&auml;chlichen Collections des JDK besitzen die im Collection-Interface definierten Schnittstellen. Diverse Methoden, die f&uuml;r die jeweilige Datenstruktur nicht realisierbar sind, l&ouml;sen daher beim Aufruf eine Exception vom Typ "UnsupportedOperation-Exception" aus. Dieser Designansatz ist &auml;u&szlig;erst fragw&uuml;rdig.*<br>
+Das Design von ACF orientiert sich an den in der Informatik etablierten Definitionen abstrakter Datentypen (ADT). Bei entsprechend modularer Architektur implementiert jede Datenstruktur ausschlie&szlig;lich Schnittstellen, die der jeweilige Algorithmus effizient unterst&uuml;tzt. Dadurch ist eine ungeschickte oder fehlerhafte Benutzung des API ausgeschlossen.
+</li>
+
+<li>
+<b>
+performante Implementierung</b><br>
+
+F&uuml;r die JDK-Collections wurde die jeweils einfachste Implementierung gew&auml;hlt. In den meisten F&auml;llen bedeutet das den Verzicht auf eine performante Implementierung.*<br>
+Das ACF stellt effizientere Implementierungen bereit. So wird hier beispielsweise ein dynamisches Hashverfahren unterst&uuml;tzt, das dem derzeitigen Wissensstand der Informatik entspricht.
+</li>
+
+<li>
+<b>Bereitstellen aller wichtigen Datenstrukturen</b><br>
+
+Vielfach wird die geringe Vielseitigkeit der JDK-Collections kritisiert.* Nur wenige der wichtigsten abstrakten Datentypen stehen als JDK-Collection zur Verf&uuml;gung.<br>
+Das ACF beinhaltet eine Reihe komplexerer Datenstrukturen. So unterst&uuml;tzt ein AVL-Tree die effiziente Suche in einer ausgeglichenen Baumstruktur, ein Heap dient als Priorit&auml;tswarteschlange und ein Suffix-Trie erm&ouml;glicht performantes Verwalten von Strings.
+</li>
+
+</ul>
+
+
+
+<h2>API</h2>
+<p>Das API des ACF hat folgende Eigenschaften:</p>
+
+<ul>
+
+<li><b>Konsistenz der Strukturen</b><br>
+
+Ein Update-Handling erm&ouml;glicht es der jeweiligen Datenstruktur, selbst&auml;ndig auf &Auml;nderungen an seinen Elementen zu reagieren und die Struktur konsistent zu halten. Es ist zum Beispiel m&ouml;glich, ein Objekt in verschiedenen sortierten Listen zu speichern. Das f&uuml;r die Sortierreihenfolge relevante Attribut (Membervariable) des Objekts k&ouml;nnte sich zur Laufzeit &auml;ndern. In allen Listen wird in diesem Fall das ge&auml;nderte Objekt an die neue, der korrekten Sortierreihenfolge entsprechende Position verschoben. Die Datenstrukturen sind damit adjustiert und konsistent.
+</li>
+
+<li><b>Persistenz</b><br>
+Die Datenstrukturen implementieren Schnittstellen, welche die Verwendung diverser Persistency-Frameworks erm&ouml;glichen. Die konkrete Persistenzl&ouml;sung agiert dabei im Hintergrund, so dass die Benutzung des API einfach bleibt.</li>
+
+<li><b>Zugriff durch mehrere Benutzer</b><br>
+
+Ein Iterator-Konzept wie im JDK erlaubt die Mehrfachbenutzung der selben Datenstruktur. Die Datenstruktur kann von mehreren Iteratoren unabh&auml;ngig voneinander durchlaufen werden.</li>
+
+<li><b>Thread-Sicherheit</b><br>
+
+Das Durchlaufen der Datenstruktur, das Einf&uuml;gen neuer Elemente und das L&ouml;schen von Elementen ist thread-sicher.</li>
+
+<li><b>Generische Typen</b><br>
+
+Auf die Elemente der Datenstrukturen wird generisch zugegriffen. Minimaler Mehraufwand beim Implementieren erspart beim Zugriff auf die gespeicherten Elemente das aus dem JDK bekannte Casting. R&uuml;ckgabewerte von Zugriffsmethoden sind bei solchen Datenstrukturen nicht einfach vom Typ der Basisklasse "Object", sondern entsprechen dem konkreten Typ der eingef&uuml;gten Objekte. Die Datenstrukturen sind typsicher.
+</li>
+
+</ul>
+
+
+
+
+
+<h2>ADT</h2>
+<p>Das Verhalten der Datenstrukturen wird gem&auml;&szlig; der verbreiteten Konvention jeweils als ADT (abstrakter Datentyp, abstract datatyp) spezifiziert. ACF stellt f&uuml;r die folgenden ADTs mehr als eine konkrete Implementierung zur Verf&uuml;gung.</p>
+<ul>
+<li>Search Tree: AVLTree, BinaryTree</li>
+<li>Trie: Trie, SuffixTrie</li>
+<li>Hash Table: HashTable (Hashing nach dem Divisionsverfahren, dynamische Behandlung von Kollisionen)</li>
+<li>Priority Queque: ArrayHeap, LinkedHeap, FibonacciHeap</li>
+<li>Queque: ArrayQueque, LinkedQueque</li>
+<li>Stack: ArrayStack, LinkedStack</li>
+<li>sorted List: ArrayList, LinkedList, BinaryArrayList (bin&auml;rer Zugriff auf Listenelemente)</li>
+</ul>
+
+
+
+<h2>Ausblick</h2>
+<ul>
+<li>Bereits jetzt stehen im ACF alle wichtigen Datenstrukturen bereit, die zur Implementierung fundamentaler Algorithmen aus bekannten Problemklassen ben&ouml;tigt werden. Trotzdem wird ACF fortlaufend um neue Datenstrukturen erweitert.
+</li>
+<li>
+Die Integration eines Persistency-Frameworks erspart die zweckfremde Verwendung von relationalen Datenbanksystemen zur blo&szlig;en Sicherung der Persistenz. Dadurch wird die Software-Entwicklung in diesem Bereich wesentlich effektiver.
+</li>
+<li>
+Dass verf&uuml;gbare Collection-Frameworks gewisse Schw&auml;chen aufweisen, gilt nicht nur f&uuml;r die Sprache Java. Die Gestaltung des ACF erm&ouml;glicht eine einfache Portierung auf die meisten anderen objektorientierten Sprachen. F&uuml;r .Net wird bald eine Implementierung von ACF in C# bereitstehen.
+</li>
+</ul>
+
+
+<br>
+<br>
+<br>
+<hr noshade size="1">
+<p>* Vgl. Guido Kr&uuml;ger, Handbuch der Java-Programmierung, Addison-Wesley, 2002, Kapitel 15</p>
+
+</div>
+
+</BODY>
+</HTML>

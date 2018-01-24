@@ -1,0 +1,39 @@
+/**
+ * This file provides styles for the image detail page (detail.php).
+ */
+
+.detail-wrapper {
+  overflow: hidden;
+}
+
+.detail-img {
+  width: 75%;
+  max-width: inherit;
+  float: left;
+}
+
+.detail-img a:hover {
+  border-bottom: 0;
+}
+
+.detail-meta {
+  width: 20%;
+  float: right;
+}
+
+.detail-meta dt {
+  font-size: .8em;
+  color: @ini_breadcrumb_hover;
+}
+
+.detail-meta dd {
+  margin: 0;
+  margin-bottom: .5em;
+}
+
+.detail-tools {
+  margin-top: 1em;
+  display: block;
+  list-style: none;
+  padding-left: 0;
+}

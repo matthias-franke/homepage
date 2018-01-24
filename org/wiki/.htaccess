@@ -1,0 +1,5 @@
+#######################################################################
+#      Diese .htaccess wurde vom STRATO-APS Installer erstellt        #
+#######################################################################
+
+AddType application/x-httpd-php55 .php .php4 .php3 .php5

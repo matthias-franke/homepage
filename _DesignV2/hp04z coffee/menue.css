@@ -1,0 +1,227 @@
+/* = = = = = = = = = = = = = = = = = datei menue.css = = = = = = = = = = = = = = = = = = = = = = = = = */
+
+
+/* ############################################################ */
+/* diese datei enthält das hauptmenü */
+/* alle anderen menüs sowie auch allgemeine links im text bzw. eventuelle "Weiter-Links"
+sind in der Datei "format.css" direkt beim jeweiligen abschnitt (z.b. Logo, Info, Inhalt, Fuss o.ä.) definiert */
+/* ############################################################ */
+
+
+
+
+/* = = = = = = = = = = = = = = = = = MENÜ 1 = = = = = = = = = = = = = = = = = = = = = = = = = */
+
+
+/*===== menue 1 =====  */
+
+* {
+margin : 0;
+padding : 0;
+}
+
+#nav-menue {width :100%;
+display:block;position:absolute;top:0rem;left:0rem;
+z-index:1;
+}
+
+
+.menue-button {
+position:absolute;
+top:16.5rem;left:2rem;
+z-index:1;
+text-align:center;
+box-shadow:inset 0rem 0rem .2rem #4F4F4F ,0rem 0rem 0.1rem #000;
+padding-top:1rem;
+font-size:2.5rem;
+border-radius:36rem;
+border:solid 0.2rem #fff;
+height:5rem;
+line-height:5rem;
+width:5rem;
+}
+
+.menue-button-open {
+margin-top:0rem;
+background:white;
+}
+
+.menue-button-open .fa {
+color:peru;
+}
+
+.menue-button-open:hover {background:black;
+}
+
+.menue-button-zu {visibility:hidden;
+display:block;
+background:peru;
+margin-top:0rem;
+}
+
+.menue-button-zu .fa {
+color:white
+}
+
+.menue-button-zu:hover {background:firebrick;
+}
+
+
+#menu1 {visibility:hidden;
+position:absolute;
+top:0rem;
+left:0rem;
+overflow:hidden;
+background:#313131;
+padding-top:1rem;
+padding-right:1rem;
+width:100%;
+height:100vh;
+margin:0 auto;
+margin-top:0rem;
+margin-left:-40rem;
+-webkit-transition: all 2.5s ease-in-out;
+transition: all 2.5s ease-in-out;
+}
+
+#menu1 li {display:inline-block;
+width : 100%;
+list-style-type : none;
+}
+
+#menu1 a {
+display:inline-block;
+width : 100%;
+padding : .6rem;
+text-decoration : none;
+color :#EFEDE2;
+font-size:1.8rem;
+height:4rem;
+letter-spacing:0.2rem;
+}
+
+
+
+
+#menu1 a:hover {
+color : white;
+text-decoration:underline;
+}
+
+#menu1 #aktuell a   {
+color : peru;
+font-size:1.8rem;
+}
+
+
+   /* Menü einblenden */
+#nav-menue:target #menu1  {visibility:visible;
+margin-top:0rem;
+margin-left:0rem;
+}
+
+   /*  Menü-Button-Schliessen einblenden */
+#nav-menue:target .menue-button-zu  {visibility:visible;
+margin-top:0rem;
+}
+
+   /*  Menü-Button-Öffnen ausblenden */
+#nav-menue:target .menue-button-open {visibility:hidden;
+margin-top:0rem;
+}
+
+
+/* ==================================== ab 480 pixel ================================== */
+@media (min-width: 480px) {
+
+#menu1 {
+width:50%;
+height:47rem;
+}
+
+
+}
+
+
+/* ==================================== ab 600 pixel ================================== */
+@media (min-width: 600px) {
+
+.menue-button {
+top:12rem;left:6rem;
+}
+
+#menu1 {
+height:49rem;
+}
+
+}
+
+/* ==================================== ab 768 pixel ================================== */
+@media (min-width: 768px) {
+
+.menue-button {display:none;
+}
+
+#nav-menue {width :100%;
+display:block;position:relative;
+}
+
+#menu1 {visibility:visible;
+position:relative;
+background:transparent;
+padding-top:0rem;
+width:100%;
+height:4rem;
+line-height:4rem;
+margin:0 auto;
+-webkit-transition: none;
+transition: none;
+}
+
+
+#menu1 li {display:inline;
+width : 100%;
+list-style-type : none;
+}
+
+#menu1 a {
+display:inline;
+width : 100%;
+padding : .2rem;margin:.3rem;
+text-decoration : none;
+color : #313131;
+font-size:1.8rem;
+letter-spacing:0rem;
+}
+
+
+#menu1 a:hover {
+color : black;
+background :white;
+text-decoration:none;
+}
+
+#menu1 #aktuell a   {
+color :white;
+background:black;
+}
+
+}
+
+/* ==================================== ab 1024 pixel ================================== */
+@media (min-width: 1024px) {
+
+#menu1 a {
+padding-left: .8rem;
+padding-right: .8rem;
+}
+
+
+
+
+}
+
+
+
+
+/* = = = = = = = = = = = = = = = = = = = = = Code Ende = = = = = = = = = = = = = = = = = = = = = */

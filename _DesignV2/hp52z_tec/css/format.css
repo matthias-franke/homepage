@@ -1,0 +1,1032 @@
+
+
+/* = = = = = = = = = = = = = = = = = datei format.css = = = = = = = = = = = = = = = = = = = = = = = = = */
+
+
+/* ############################################################ */
+/* allgemein */
+/* ############################################################ */
+
+*, *:before, *:after {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+
+html, body {
+font-family:'open_sanslight',georgia, tahoma, arial, Verdana, Segoe, 'Open Sans',helvetica,roboto ,sans-serif;
+font-size:62.5%;
+line-height:1.4;
+font-weight:normal;
+height:100%;
+}
+
+body {
+font-size:1.7rem;
+margin: 0 auto;
+}
+
+/* zusätzliche zeilenabstände, absatz */
+.content br {
+line-height:.6;
+}
+
+p.break  {
+line-height:7rem;margin:0;
+}
+
+
+/* überschriften */
+
+h1, h2, h3, h4, h5 {
+font-family:'open_sanslight',georgia, tahoma, arial, Verdana, Segoe, 'Open Sans',helvetica,roboto ,sans-serif;
+color:#000;
+text-transform:uppercase;letter-spacing:2px;
+}
+
+h1 {text-align:left;
+font-size:3.5rem;
+line-height: 3.7rem;
+margin-top: 0rem;
+margin-bottom: 4.2rem;
+
+}
+
+h2 {
+text-align:center;
+color:#1F1F1F;
+font-size:2.4rem;
+line-height: 3rem;
+margin-top: 0rem;
+margin-bottom: 3.5rem;
+font-weight:normal;
+}
+
+h2:after {
+margin:0 auto;
+font-family:fontawesome;
+display: block;
+content: " \f141 ";
+font-weight:normal;
+
+}
+
+
+h3 {text-align:left;
+font-family:'open_sanslight',georgia, tahoma, arial, Verdana, Segoe, 'Open Sans',helvetica,roboto ,sans-serif;
+font-size:1.8rem;
+line-height: 2.3rem;
+margin-top: 2.1rem;
+margin-bottom:1.4rem;
+letter-spacing:.1rem;
+font-weight:normal;
+text-transform:none;
+}
+
+/* allgemeine links  */
+
+a {background-color:transparent;
+color:#000;
+text-decoration: underline;
+}
+
+a:hover  {color:#000;
+background-color:transparent;
+text-decoration:none;
+}
+
+/* quelltext-erklärungen - wenn vorhanden */
+pre {white-space:pre-wrap;position:relative;
+font-size:1.5rem;
+padding:1rem 0.5rem 1rem 0.5rem;
+margin:2rem auto;
+text-align:center;
+background:#414141;
+color:#CFCFCF;
+font-family:'open_sanslight',georgia, tahoma, arial, Verdana, Segoe, 'Open Sans',helvetica,roboto ,sans-serif;
+}
+
+pre .extra {display:inline-block;position:absolute;left:0rem;top:1rem;font-size:2rem;
+color:#BFBFBF;font-weight:bold;
+transform:rotate(-45deg);
+}
+
+
+/* ############################################################ */
+/*  speziell*/
+/* ############################################################ */
+
+
+.container_haupt {
+margin:0 auto;
+padding:0;
+width:100%;
+}
+
+.wrapper {
+margin:0 auto;
+width:100%;padding:0rem;
+}
+
+/* bilder  anpassen der grösse  */
+/* wenn sie eigene einzelne bilder einbauen, unabhängig von unserem bilderstystem,
+ dann werden diese bilder maximal (max-width) so gross wie die original-abmessungen des bildes
+ bwz. des umschliessenden containers wenn vorhanden */
+
+img {max-width: 100%;
+height: auto;
+margin:0 auto;
+}
+
+
+
+
+
+
+/* ############################################################ */
+/* bereich logo */
+/* ############################################################ */
+
+.section-logo {position:relative;
+width:100%;height:100vh;
+background:#25241f;/* IE9*/
+background: linear-gradient(to bottom,#5A584B , #121210 , #25241f );
+overflow:hidden;
+}
+
+.logo {font-family:'old_standard_ttitalic';position:absolute;top:0;display:table;
+width:100%;height:100%;
+text-align:center;
+color:#737060;
+text-shadow: 1px 1px 1px #000;
+margin:0 auto;
+background:transparent;
+margin:0 auto;
+}
+
+.logo-inhalt {width:100%;height:100%;
+display:table-cell;overflow:hidden;
+text-align:center;
+vertical-align:middle;
+padding:0rem;
+}
+
+.name {display:block;
+color:#7F7F7F;
+font-size:3rem;
+line-heigh.3.2rem;
+padding:0rem 0 1rem 0;
+}
+
+
+.seitentitel {display:block;
+font-family:'open_sanslight',georgia, tahoma, arial, Verdana, Segoe, 'Open Sans',helvetica,roboto ,sans-serif;
+margin:0 auto;
+text-align:center;
+color:#7F7F7F;
+text-shadow: 1px 1px 1px #000;
+font-size:1.7rem;
+line-height:2rem;
+padding:1rem 0 0rem 0;
+letter-spacing:3px;
+}
+
+
+/* bilder im logo-bereich */
+
+.logo .wrapper-box {display:block;
+text-align:center;
+padding: 0 0rem;margin:0;
+}
+
+
+.logo .box {display:inline-block;
+width:100%;
+vertical-align:top;
+padding:0 .2rem;
+margin:0 -.25rem 0rem -.25rem ;/* ausgleich ( minus-margin) für INLINE-BLOCK-WHITESPACE-BUG*/
+}
+
+.logo .box-1_of_3_logo {
+width:33.33%;
+}
+
+.logo .box img {
+box-shadow:0 0  1px black;
+border:none;
+}
+
+
+/* ############################################################ */
+/* bereich content */
+/* ############################################################ */
+
+
+.content-wrapper {
+width:100%;
+}
+
+.section-content {
+width:100%;
+margin:0;
+padding:0;
+}
+
+.content {
+display:block;
+width:100vw;
+min-height:60vh;
+margin: 0 auto;
+text-align:left;
+padding:3rem 3rem 7rem 3rem ;
+}
+
+
+
+/* - - - - - - - - - -  der erste abschnitt und davon ausgehend jeder dritte abschnitt, also abschnitt 1, abschnitt 4, abschnitt 7 usw - - - - - - - - - -  */
+
+.section-content:nth-child(3n+1)  {
+background:#4F4F4F;
+color:#BFBFBF;
+}
+
+.section-content:nth-child(3n+1) h2 ,
+.section-content:nth-child(3n+1) h3{
+color:#EBEBE7;
+}
+
+.section-content:nth-child(3n+1) a {
+color:#D8D8D8;
+text-decoration:underline;
+}
+
+.section-content:nth-child(3n+1) a:hover {
+text-decoration:none;
+}
+
+.section-content:nth-child(3n+1) .dreieck {
+margin:0 auto;
+width: 0px;
+height: 0px;
+border-bottom: 0rem solid transparent;
+border-left: 5rem solid transparent;
+border-right: 5rem solid transparent;
+border-top: 5rem solid #25241f;
+}
+
+/* - - - - - - - - - -  der zweite abschnitt und davon ausgehend jeder dritte abschnitt, also abschnitt 2, abschnitt 5, abschnitt 8 usw - - - - - - - - - -  */
+
+.section-content:nth-child(3n+2) {
+background:#908F80;
+color:#000;
+}
+
+.section-content:nth-child(3n+2) h2 ,
+.section-content:nth-child(3n+2) h3{
+color:#000;
+}
+
+.section-content:nth-child(3n+2) a {
+color:#000;
+text-decoration:underline;
+}
+
+.section-content:nth-child(3n+2) a:hover {
+text-decoration:none;
+}
+
+.section-content:nth-child(3n+2) .dreieck {
+margin:0 auto;
+width: 0px;
+height: 0px;
+border-bottom: 0rem solid transparent;
+border-left: 5rem solid transparent;
+border-right: 5rem solid transparent;
+border-top: 5rem solid #4F4F4F;
+}
+
+
+/* - - - - - - - - - -  der dritte abschnitt und davon ausgehend jeder dritte abschnitt, also abschnitt 3, abschnitt 6, abschnitt 9 usw - - - - - - - - - -  */
+
+.section-content:nth-child(3n+3) {
+background:#25241f;
+color:#8B8A7A;
+}
+
+.section-content:nth-child(3n+3) h2 ,
+.section-content:nth-child(3n+3) h3{
+color:#BABAAF;
+}
+
+.section-content:nth-child(3n+3) a {
+color:#8B8A7A;
+text-decoration:underline;
+}
+
+.section-content:nth-child(3n+3) a:hover {
+text-decoration:none;
+}
+
+.section-content:nth-child(3n+3) .dreieck {
+margin:0 auto;
+width: 0px;
+height: 0px;
+border-bottom: 0rem solid transparent;
+border-left: 5rem solid transparent;
+border-right: 5rem solid transparent;
+border-top: 5rem solid #908F80;
+}
+
+
+
+
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+/* BILDER IM INHALTSBEREICH - GRID-SYSTEM #1   */
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+/* hinweis: erklärt wird es hier im template auf der seite index4.html (quartus) */
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+
+
+/* = = = = =  */
+/* GRID-SYSTEM #1  - mit DISPLAY:INLINE-BLOCK */
+/* = = = = = */
+
+.wrapper-box {display:block;
+text-align:center;
+padding:0rem;
+}
+
+.box {display:inline-block;
+width:100%;
+vertical-align:top;
+padding:.6rem;
+margin:0 -.25rem 0rem -.25rem ;/* ausgleich ( minus-margin) für INLINE-BLOCK-WHITESPACE-BUG*/
+}
+
+
+.box-1_of_1 ,
+.box-1_of_2 ,
+.box-1_of_3 ,
+.box-1_of_4 ,
+.box-1_of_3_icons
+{
+width:100%;
+}
+
+.box img {
+border:solid 1rem #596666;
+box-shadow:0 0  3px black;
+}
+
+.box a img:hover {
+border:solid 1rem #9F9F9F;
+filter:grayscale(1) ;
+}
+
+
+
+
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+/* GRID-SYSTEM #2  - mit DISPLAY:TABLE  */
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+/* hinweis: erklärt wird es hier im template auf der seite index4.html (quartus) */
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+
+
+.wrapper-box-table {width:100%;border-spacing:1rem 0.5rem ;border-collapse:separate ;
+display:table;
+text-align:center;
+padding:0;
+margin:0;
+
+}
+
+.box-tabcell ,
+.box-tabcell-2 ,
+.box-tabcell-3 ,
+.box-tabcell-4
+{display:table-cell;
+width: 100%;
+height:22rem;
+vertical-align:middle;
+padding: 1rem 2rem ;
+}
+
+
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+/* BILDER IM INHALTSBEREICH - BILD-SYSTEM mit FLOAT */
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+/* hinweis: erklärt wird es hier im template auf der seite index4.html (quartus) */
+/* = = = = = = = = = =  = = = = = = = = = =  = = = = = = = = = = = = = = = = = = = = */
+
+
+/* = = = = =  */
+/* BILD-SYSTEM  - mit FLOAT */
+/* = = = = = */
+
+/*  bild steht links, text fliesst rechts herum  */
+.box-text-re {float:none;
+padding:0;
+width: 100%;
+margin:0 auto;
+margin-bottom:3rem;
+margin-top:3rem;
+border:solid 1rem #596666;
+box-shadow:0 0  2px black;
+}
+
+/*  bild steht rechts, text fliesst links herum  */
+.box-text-li {float:none;
+padding:0;
+width: 100%;
+margin:0 auto;
+margin-bottom:3rem;
+margin-top:3rem;
+border:solid 1rem #596666;
+box-shadow:0 0  2px black;
+}
+
+/* = = = = =  */
+/*  X X X ---------------- ENDE  BILD-SYSTEM  - mit FLOAT -------------------- X X X */
+/* = = = = =  */
+
+
+
+
+
+
+/* --------------------  box #about  --------------------   */
+
+
+#about {text-align:center;
+font-size:1.4rem;
+}
+
+#about .box-1_of_3_icons {
+padding: 1rem 1rem 3rem 1rem;
+}
+
+#about h3 {text-align:center;font-weight:bold;
+color:#fff;margin:1rem 0 0  0;
+font-size:1.7rem;
+}
+
+#about  a  {text-decoration: none;
+}
+
+#about .fa {display:block;
+font-family:'FontAwesome';
+font-size:4.4rem;
+color:#B3AFA6 ;
+background:#59564D;
+border-radius:1rem;
+text-align:center;
+margin:0 auto;margin-bottom:2rem;
+width:8rem;
+height:8rem;
+line-height:8rem;
+border-radius:36rem;
+box-shadow: 0 0 2px #000;
+transition:all 1s;
+}
+
+#about  .fa:hover {
+color:#000 ;
+transform: rotate(720deg);
+}
+
+
+/* --------------------   box #featuring  --------------------   */
+
+/* tabellenzelle-reihe  */
+#featuring .tabrow1 ,
+#featuring .tabrow2 ,
+#featuring .tabrow3
+{display:table-row; }
+
+#featuring  {text-align:center;
+font-size:1.3rem;
+}
+
+#featuring  h3 {text-align:center;
+color:#E2E1DE;margin:0;font-size:1.3rem;
+text-transform:uppercase;
+}
+
+#featuring .box-tabcell-4 {background:#59564D;
+color:#C5C2BC;
+box-shadow: 0 0 2px #000;
+}
+
+
+/* box #featuring hintergrundgrafiken  */
+#featuring .back1 {
+background-image:url(../images/picture02.jpg);
+background-position:50% 50%;
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+#featuring .back2 {
+background-image:url(../images/picture10.jpg);
+background-position:50% 50%;
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+
+/* Weiter lesen */
+
+#featuring .weiter  a {margin:.5rem 0;display:inline-block;
+background:#2E2825;
+color : white;
+padding: .3rem .7rem;text-decoration:none;
+box-shadow: 0 0 1px #000;
+}
+
+#featuring .weiter a:hover {
+}
+
+#featuring .weiter  a .fa {
+color :#2E924F;
+}
+
+#featuring .weiter  a:hover  .fa {
+color : #fff;
+animation: wenden  3s;
+}
+
+
+/* --------------------   box #specials  --------------------   */
+
+/* tabellenzelle-reihe  */
+#specials .tabrow1 ,
+#specials .tabrow2 ,
+#specials .tabrow3
+{display:table-row; }
+
+#specials  {text-align:center;
+font-size:1.3rem;
+}
+
+#specials  h3 {text-align:center;
+color:#000;margin:0;font-size:1.3rem;
+text-transform:uppercase;
+}
+
+#specials .box-tabcell-4 {background:#908F80;
+color:#000;box-shadow: 0 0 2px #000;
+}
+
+
+
+/* box #specials hintergrundgrafiken  */
+
+#specials .back3 {
+background-image:url(../images/picture01.jpg);
+background-position:50% 50%;
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+#specials .back4 {
+background-image:url(../images/picture03.jpg);
+background-position:50% 50%;
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+/* Weiter lesen */
+
+#specials .weiter  a {margin:.5rem 0;display:inline-block;
+background:#C4C2BB;
+color:#000;
+padding: .3rem .7rem;
+text-decoration:none;
+box-shadow: 0 0 1px #000;
+}
+
+#specials .weiter a:hover {
+}
+
+#specials .weiter  a .fa {
+color : #2E924F;
+}
+
+#specials .weiter  a:hover  .fa {
+color : #000;
+animation: wenden 3s ;
+}
+
+
+/* --------------------  box #service (auf index3.html) --------------------   */
+
+
+#service {text-align:center;
+font-size:1.3rem;
+}
+
+
+#service h3 {text-align:center;
+color:#fff;
+margin:1rem 0 0  0;
+font-size:1.6rem;
+}
+
+#service span {display:block;
+margin: 0 0  2rem 0;
+}
+
+
+
+/* ############################################################ */
+/* bereich fuss */
+/* ############################################################ */
+
+
+.section-fuss {
+width:100%;
+background:#171a1a;
+color:#111011;
+}
+
+.fuss {display:table;
+margin: 0rem auto;text-align:center;
+padding:1rem;width:100%;
+height:20rem;
+}
+
+.fussbox-1a  {
+display:table-cell;
+vertical-align:middle;text-align:center;
+text-align:center;
+padding:0rem 0rem;
+font-size:1.6rem;
+line-height:1.9rem;
+}
+
+/* fussname */
+.fussname {display:block;
+font-family:'old_standard_ttitalic';
+text-shadow:1px 1px 1px #000;
+text-align:center;
+padding:.6rem;
+font-size:1.4rem;
+line-height:1.5rem;
+letter-spacing:0.2rem;
+color:#687979;
+}
+
+/* dreieck im fussbereich für die STARTSEITE  */
+/* je nachdem, wieviele abschnitte sie anlegen, passen sie ggfls. die farbe des dreiecks an  */
+.dreieck-fuss-startseite {
+margin:0 auto;
+width: 0px;
+height: 0px;
+border-bottom: 0rem solid transparent;
+border-left: 5rem solid transparent;
+border-right: 5rem solid transparent;
+border-top: 5rem solid #25241f;
+}
+
+/* dreieck im fussbereich für alle UNTERSEITEN  */
+.dreieck-fuss {
+margin:0 auto;
+width: 0px;
+height: 0px;
+border-bottom: 0rem solid transparent;
+border-left: 5rem solid transparent;
+border-right: 5rem solid transparent;
+border-top: 5rem solid #4f4f4f;
+}
+
+
+
+/* ############################################################ */
+/* bereich fussmenu */
+/* ############################################################ */
+
+
+.fussmenu  {width:100%;margin:0 auto;padding-bottom:1rem;padding-top:1rem;}
+
+.fussmenu ul {padding:0;margin:0}
+
+.fussmenu li { display:block;list-style: none;
+width:100%;
+line-height:2rem;
+margin-left:0rem;
+padding-left:.5rem;
+padding-right:.5rem;
+}
+
+.fussmenu a {font-size:1.4rem;
+line-height:1.6rem;
+width : 100%;
+text-align:left;
+color:#B5BFBF;
+
+text-decoration:none;
+padding:0rem;
+letter-spacing:.2rem;
+}
+
+.fussmenu a:hover {
+color:#fff;
+text-decoration: underline;
+}
+
+.fuss .icons a .fa {display:inline-block;
+width:3rem;
+height:3rem;
+line-height:3rem;
+vertical-align:middle;
+margin:0 .6rem;
+border-radius:36rem;
+background:#616055;
+color:#fff;
+text-decoration: none;
+font-size:1.4rem;
+text-shadow: 1px 1px 1px #1A9F4F;
+}
+
+
+.fuss .icons a:hover .fa {
+color:white;animation:wenden 1s;
+}
+
+
+
+
+/* ############################################################ */
+/* M E D I A   Q U E R I E S - RESPONSIVE-BILDSCHIRMABFRAGEN*/
+/* ############################################################ */
+
+/* ==================================== ab 320 pixel ================================== */
+
+
+/* - - - - -  nur info - - - - - */
+/*  für die kleinste smartphone-auflösung von 320pixel benötigen wir KEINE bildschirmabragen (media queries), denn hierfür gilt ja automtisch der gesamte vorstehende quelltext-code - weil wir das template ja 'mobile-first' angelegt haben */
+
+
+
+/* ==================================== ab 360 pixel ================================== */
+
+@media (min-width: 360px) {
+
+/* keine angabe */
+
+.section-logo {
+height:37rem;
+}
+
+
+}
+
+
+/* ==================================== ab 400 pixel ================================== */
+
+@media (min-width: 400px) {
+
+.content,  .fuss {
+width:90vw;
+}
+
+
+}
+
+
+/* ==================================== ab 480 pixel ================================== */
+
+@media (min-width: 480px) {
+
+/* - - - - -   BILDER IM INHALTSBEREICH - GRID-SYSTEM #1 - - - - - */
+.box-1_of_2 {width: 80%; }
+.box-1_of_1 {width: 80%; }
+.box-1_of_3 {width: 80%; }
+.box-1_of_4 {width: 80%; }
+/* - - - - - ende  BILDER IM INHALTSBEREICH - GRID-SYSTEM #1 - - - - - */
+
+/* - - - - -   BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+.content  .box-text-re ,
+.content .box-text-li
+{
+width: 80%;
+}
+
+/* - - - - - ende  BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+
+.fussmenu li { display:inline;
+}
+
+
+}
+
+
+/* ==================================== ab 600 pixel ================================== */
+@media (min-width: 600px) {
+
+.logo {
+padding: 1rem 2rem;
+}
+
+/* - - - - -   BILDER IM INHALTSBEREICH - GRID-SYSTEM #1   - - - - - */
+.box-1_of_1 {width: 50%; }
+.box-1_of_2 {width: 50%; }
+.box-1_of_3 {width: 33.33%; }
+.box-1_of_4 {width: 50%; }
+/* - - - - - ende  BILDER IM INHALTSBEREICH - GRID-SYSTEM #1 - - - - - */
+
+
+/* - - - - -   BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+.content  .box-text-re ,
+.content .box-text-li
+{
+width: 50%;
+}
+/* - - - - - ende  BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+
+}
+
+
+/* ==================================== ab 640 pixel ================================== */
+@media (min-width: 640px) {
+
+/* keine angabe */
+
+
+}
+
+
+/* ==================================== ab 768 pixel ================================== */
+@media (min-width: 768px) {
+
+html {font-size:70%;}
+
+.content,   .fuss  {
+width:96vw;
+}
+
+
+.content {
+text-align:justify;
+}
+
+/* - - - - -   GRID-SYSTEM #1 - BILDER IM INHALTSBEREICH  - - - - - */
+.box-1_of_2 {width: 50%;  }
+.box-1_of_3 {width: 33.33%;  }
+.box-1_of_3_icons {width: 33.33%;  }
+/* - - - - - ende  GRID-SYSTEM #1 -BILDER IM INHALTSBEREICH   - - - - - */
+
+/* - - - - - GRID-SYSTEM #2 -BILDER IM INHALTSBEREICH   - - - - - */
+.box-tabcell-2 {width: 50%; }
+.box-tabcell-3 {width: 33.33%;  }
+.box-tabcell-4 {width: 25%;  }
+
+/*  tabellenzelle-reihe  ausschalten */
+#featuring .tabrow1 ,
+#featuring  .tabrow3
+{ display:none }
+
+#specials .tabrow1 ,
+#specials  .tabrow3
+{ display:none }
+
+/* - - - - - ende  GRID-SYSTEM #2 -BILDER IM INHALTSBEREICH   - - - - - */
+
+/* - - - - - BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+.content  .box-text-re {width: 30%;
+float:left;
+text-align:justify;
+margin-right:2rem;
+margin-bottom:1rem;
+margin-top:1rem;
+}
+
+.content .box-text-li {width: 30%;
+float:right;
+text-align:justify;
+margin-left:2rem;
+margin-bottom:1rem;
+margin-top:1rem;
+}
+/* - - - - - ende  BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+
+
+}
+
+
+/* ==================================== ab 800 pixel ================================== */
+
+@media (min-width: 800px) {
+
+/* keine angabe */
+
+
+}
+
+
+/* ===================================== ab 1024 pixel ================================= */
+
+@media (min-width: 1024px) {
+
+
+.section-logo {
+height:44rem;
+}
+
+.logo {
+padding: 1rem 6rem;
+}
+
+
+/* - - - - -  GRID-SYSTEM #1 -BILDER IM INHALTSBEREICH   - - - - - */
+.box-1_of_2 {width: 50%;  }
+.box-1_of_4 {width: 25%;  }
+/* - - - - - ende  GRID-SYSTEM #1 -BILDER IM INHALTSBEREICH   - - - - - */
+
+
+
+
+/* - - - - -  BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+.content  .box-text-re {
+margin-right:3rem;
+margin-bottom:2rem;
+margin-top:2rem;
+}
+
+.content .box-text-li{
+margin-left:3rem;
+margin-bottom:2rem;
+margin-top:2rem;
+}
+/* - - - - - ende  BILDER IM INHALTSBEREICH - mit FLOAT - - - - - */
+
+
+
+}
+
+
+/* ===================================== ab 1100 pixel ================================= */
+
+@media (min-width: 1100px) {
+
+html {
+font-size:75%;
+}
+
+.content,  .fusstop, .fuss  {
+width:93vw;
+}
+
+pre {width:50vw;
+}
+
+
+}
+
+
+/* ===================================== ab 1300 pixel ================================= */
+
+@media (min-width: 1300px) {
+
+.content, .fuss {
+width:90vw;
+}
+
+/* - - - - -  GRID-SYSTEM #2 -BILDER IM INHALTSBEREICH   - - - - - */
+.box-tabcell ,
+.box-tabcell-2 ,
+.box-tabcell-3 ,
+.box-tabcell-4
+{
+padding: 1rem 5rem ;
+}
+/* - - - - - ende  GRID-SYSTEM #2 -BILDER IM INHALTSBEREICH   - - - - - */
+
+
+}
+
+
+/* ===================================== ab 1400 pixel ================================= */
+
+@media (min-width: 1400px) {
+
+html {
+font-size:80%;
+}
+
+
+.content, .fuss {
+width:86vw;
+}
+
+.logo {
+padding: 1rem 10rem;
+}
+
+
+}
+
+
+/* +  +  +  +  + +  +  +  +  +  C O D E ENDE  +  +  +  +  +  +  +  +  +  + */

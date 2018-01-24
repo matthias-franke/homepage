@@ -1,0 +1,94 @@
+body{
+        clip : rect(   );
+ font-family: Arial, Helvetica, sans-serif;
+ background-color: #FFFFFF;
+ background-image:url(indpback.gif);
+        }
+
+.txt {
+ font-family: Arial, Helvetica, sans-serif;
+ border: 1pt #333333 solid;
+ background-color: #FFFFFF;
+ layer-background-color: #FFFFFF;
+ width: 100%;
+ padding-bottom: 5pt;
+ padding-top: 5pt;
+ padding-left: 5pt;
+ padding-right: 5pt;
+ margin-bottom: 3pt;
+ margin-top: 6pt;
+ margin-left: 0pt;
+ margin-right: 0pt;
+ color: #000000;
+}
+
+p.V{
+        clip : rect(   );
+        font-size : 11px;
+        text-align : left;
+        width : 95%;
+        }
+
+p.Ua{
+        clip : rect(   );
+        font-size : 11px;
+        text-align : left;
+        margin-top: 2px;
+        margin-bottom: 7px;
+        }
+
+p.Ub{
+        clip : rect(   );
+        font-size : 11px;
+        margin-left: 10px;
+        text-align : left;
+        margin-top: 2px;
+        margin-bottom: 5px;
+        }
+
+p.Uc{
+        clip : rect(   );
+        font-size : 10px;
+        margin-left: 20px;
+        text-align : left;
+        margin-top: 2px;
+        margin-bottom: 4px;
+        }
+
+p.Ud{
+        clip : rect(   );
+        font-size : 10px;
+        margin-left: 30px;
+        text-align : left;
+        margin-top: 2px;
+        margin-bottom: 3px;
+        }
+
+p.Ue{
+        clip : rect(   );
+        font-size : 9px;
+        margin-left: 40px;
+        text-align : left;
+        margin-top: 2px;
+        margin-bottom: 3px;
+        }
+
+a:active{
+        color : #FF0000;
+        text-decoration : none;
+        }
+
+a:visited{
+        color : #333333;
+        text-decoration : none;
+        }
+
+a:link{
+        color : #333333;
+        text-decoration : none;
+        }
+
+a:hover{
+        color : #FF0000;
+        text-decoration : none;
+        }

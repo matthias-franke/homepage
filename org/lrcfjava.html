@@ -1,0 +1,158 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 //EN">
+<html>
+<head>
+<title></title>
+<meta name="author" content="Matthias Franke">
+
+
+<script language="JavaScript">
+<!--
+/* MEDIA wuerfeln! */
+
+/* Anzahl Konfigration */
+var anzahlgif = 1006;
+var anzahljpg = 531;
+var anzahlswf = 57;
+var anzahlmid = 97;
+var anzahlmp3 = 22;
+var anzahlwav = 33;
+var anzahlau = 15;
+var anzahlmp2 = 6;
+var anzahlwrl = 3;
+var anzahlaif = 4;
+
+
+/* Wahrscheinlichkeiten Konfigration */
+var gif = 1006;
+var jpg = 531;
+var swf = 57;
+var mid = 97;
+var mp3 = 22;
+var wav = 33;
+var au = 15;
+var mp2 = 6;
+var wrl = 3;
+var aif = 4;
+
+
+var anzahl;
+var mime;
+var datei;
+
+var wahrgesamt = gif + jpg + mid + mp3 + mp2 + wav + swf + wrl + aif + au - 1;
+var z = Math.random();
+z = wahrgesamt * z;
+z = Math.round(z);
+
+if (z >= 0 && z < gif)
+   {
+   zufall(anzahlgif, "gif", "http://www.geocities.com/particularium5/gif/");
+   Ieinfuegen(datei);
+   }
+else{
+
+if (z >= gif && z < gif + jpg)
+   {
+   zufall(anzahljpg, "jpg", "http://www.geocities.com/particularium4/jpg/");
+   Ieinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg && z < gif + jpg + mid)
+   {
+   zufall(anzahlmid, "mid", "http://www.geocities.com/particularium3/mid/");
+   Meinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg + mid && z < gif + jpg + mid + mp3)
+   {
+   zufall(anzahlmp3, "mp3", "http://www.geocities.com/particularium3/mp3/");
+   Meinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg + mid + mp3 && z < gif + jpg + mid + mp3 + mp2)
+   {
+   zufall(anzahlmp2, "mp2", "http://www.geocities.com/particularium4/mp2/");
+   Meinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg + mid + mp3 + mp2 && z < gif + jpg + mid + mp3 + mp2 + wav)
+   {
+   zufall(anzahlwav, "wav", "http://www.geocities.com/particularium3/wav/");
+   Meinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg + mid + mp3 + mp2 + wav && z < gif + jpg + mid + mp3 + mp2 + wav + swf)
+   {
+   zufall(anzahlswf, "swf", "http://www.geocities.com/particularium3/swf/");
+   Meinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg + mid + mp3 + mp2 + wav + swf && z < gif + jpg + mid + mp3 + mp2 + wav + swf + wrl)
+   {
+   zufall(anzahlwrl, "wrl", "http://www.geocities.com/particularium3/wrl/");
+   Meinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg + mid + mp3 + mp2 + wav + swf + wrl && z < gif + jpg + mid + mp3 + mp2 + wav + swf + wrl + aif)
+   {
+   zufall(anzahlaif, "aif", "http://www.geocities.com/particularium5/aif/");
+   Meinfuegen(datei);
+   }
+else{
+
+if (z >= gif + jpg + mid + mp3 + mp2 + wav && z <= wahrgesamt)
+   {
+   zufall(anzahlau, "au", "http://www.geocities.com/particularium5/au/");
+   Meinfuegen(datei);
+   }
+
+}}}}}}}}}
+
+
+
+function zufall(anzahl, mime, url)
+{
+var xmax = anzahl - 1;                        /* nötig, denn z.b. bei anzahl = 1  */
+if (xmax == 0)                                /* resultiert wegen round           */
+   {                                          /* x = 0 oder x = 1                 */
+   datei = url + "1." + mime;
+   return datei;
+   }
+else
+   {
+   var x = Math.random();
+   x = xmax * x;
+   x = Math.round(x) + 1;
+   datei = url + x + "." + mime;
+   return datei;
+   }
+}
+
+
+function Meinfuegen(datei)
+{
+document.write("<embed src='" + datei + "' width='100%' height='100%' style='margin: 0px'>");
+}
+
+function Ieinfuegen(datei)
+{
+document.write("<br><div align='center'><img src='" + datei + "'></div>");
+}
+
+//-->
+</script>
+
+
+</head>
+<body>
+
+
+</BODY>
+</html>

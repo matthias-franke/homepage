@@ -1,0 +1,749 @@
+
+
+/* = = = = = = = = = = = = = = = = = datei format.css = = = = = = = = = = = = = = = = = = = = = = = = = */
+
+
+
+
+/* ############################################################ */
+/* allgemein */
+/* ############################################################ */
+
+*, *:before, *:after {
+
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+-moz-transition: width .75s ease-out;
+-webkit-transition: width .75s ease-out;
+transition: width .75s ease-out;
+}
+
+.clearfix:before,
+.clearfix:after {
+content: " ";
+display: table;
+}
+
+
+.clearfix:after { clear:both; }
+.clearfix { *zoom: 1; }
+
+.section { clear: both;
+margin: 0rem;
+}
+
+html, body {
+font-family: tahoma, arial, Verdana, Segoe, "Open Sans",helvetica,roboto ,sans-serif;
+font-size:62.5%;
+line-height:1.4;
+height:100%;
+}
+
+body {
+font-size:1.7rem;
+margin: 0 auto;
+color:#313131;
+background:#EAE7DE;
+}
+
+
+/* überschriften */
+h1, h2 {
+text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+font-weight:normal;
+}
+
+
+h2 {
+font-size:2.5rem;
+line-height: 2.8rem;
+margin-top: 0rem;
+margin-bottom: 3rem;
+letter-spacing:.1rem;
+}
+
+
+h3 {
+font-size:1.9rem;
+line-height: 2.3rem;
+margin-top: 3rem;
+margin-bottom:1rem;
+letter-spacing:.0rem;
+}
+
+/* === allgemeine links  === */
+a {
+color:#313131;
+text-decoration: underline;
+font-size:1.5rem;
+}
+
+a:hover  {
+color:#313131;
+text-decoration:none;
+font-style:normal;
+}
+
+/* quelltext-erklärungen */
+pre {white-space:pre-wrap;font-size:1.5rem;padding:1rem 0rem 1rem 0rem;
+margin-bottom:2rem;text-align:center;border:solid 0.1rem #FFFFFF;
+background:whitesmoke ;
+color:#313131;
+}
+
+/* ############################################################ */
+/*  speziell*/
+/* ############################################################ */
+
+
+
+.container_haupt {
+margin:0 auto;
+height:100%;
+width:100%;
+}
+
+.name {display:block;
+letter-spacing:0.2rem;
+padding:0rem 0rem 0rem 0rem;
+font-size:3.5rem;
+line-height: 3.5rem;
+color:peru;
+text-transform:uppercase;
+}
+
+.slogan {display:block;
+letter-spacing:0.2rem;
+padding:0.5rem 0rem 0rem 0rem;
+font-size:1.8rem;
+line-height:2.2rem;
+color:firebrick;
+text-transform:none;
+}
+
+.seitentitel-mobil {display:inline;
+letter-spacing:0.2rem;
+padding:0rem 1rem 0rem 1rem;
+font-size:2.8rem;
+line-height:6rem;
+height:6rem;
+color:000;
+background:white;
+text-transform:none;
+opacity:0.7;
+}
+
+/* normale fotos/bilder  */
+img {max-width: 100%;display:block;
+margin:0 auto;
+height: auto;
+}
+
+.col {width: 100%;
+margin: 0 auto;
+padding: 1.5rem;
+}
+
+.icons .fa {display:inline-block;
+margin:0.5rem;
+text-align:center;
+font-size:2.5rem;
+height:5rem;
+line-height:5rem;
+width:5rem;
+}
+
+.icons.vers1 .fa {background:peru;
+color:#fff;
+}
+
+
+.icons.vers2 .fa {background:#313131;
+color:peru;
+}
+
+
+/* ############################################################ */
+/* bereich kopf */
+/* ############################################################ */
+
+.kopf-main {min-height:20rem;
+margin:0 auto;
+background:#EBEADF;
+color:#313131;
+text-align:center;
+padding:0rem 0rem 0rem 0rem;
+}
+
+.kopf {
+width:100%;
+padding:2rem 2rem 0rem 2rem;
+}
+
+.kopfbox {padding:1rem;
+}
+
+.kopfbox-a {padding-bottom:1rem;
+text-align:left;display:block;
+}
+
+.kopfbox-b {
+text-align:right;height:4rem;
+}
+
+
+
+/* ############################################################ */
+/* bereich logo */
+/* ############################################################ */
+
+.logo-main {background:ghostwhite;
+margin:0 auto;
+color:#313131;
+text-align:center;
+padding:0rem 0rem 0rem 0rem;
+background-image:url(images/logo.jpg);
+background-repeat:no-repeat;
+background-position:50% 50%;
+background-size:cover;
+}
+
+.logo {
+width:100%;
+padding:2rem 2rem 2rem 2rem;
+}
+
+.logobox {
+min-height:23rem;
+text-align:left;
+padding:1rem;
+}
+
+.logo-bottom {
+min-height:5rem;
+line-height:5rem;
+padding:0rem 0rem 0rem 0rem;
+text-align:left;
+width:100%;
+color:#313131;
+text-transform:none;
+letter-spacing:.2rem;
+background:peru;
+}
+
+
+
+/* ############################################################ */
+/* bereich inhalt */
+/* ############################################################ */
+
+.inhalt-main {margin:0 auto;
+min-height:50rem;
+background:#EBEADF;
+text-align:center;
+padding:0rem 0rem 0rem 0rem;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* info */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+.info {
+width:100%;
+padding:2rem 2rem 2rem 1rem;
+}
+
+.info .span_1_of_3 {padding:0rem;}
+
+.infobox {
+text-align:left;
+padding:1rem 1rem 1rem 0rem;
+}
+
+.info .fa {display:inline-block;
+color:#313131;
+background:transparent;
+margin:0.5rem;
+text-align:center;
+font-size:2.4rem;
+height:5rem;
+line-height:5rem;
+width:5rem;
+}
+
+.info h3 {margin-top: 1.5rem;
+margin-bottom:1.5rem;
+}
+
+.infobox-a {display:table-cell;vertical-align:top;width:5rem;
+}
+
+.infobox-b {display:table-cell;width:100%;vertical-align:top;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* bilder */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.bilder-startseite , .bilder-unterseite {background:#F8F7F3;
+padding:2rem 2rem 2rem 2rem;
+}
+
+.bilder-startseite .span_1_of_4 {width:100%;padding:0rem;}
+
+.bilder-unterseite .span_1_of_1 {max-width:100%;height:auto;padding:0rem; 0rem 1rem 0rem;margin-bottom:2rem}
+.bilder-unterseite .span_1_of_2 {width:100%;padding:0rem;}
+.bilder-unterseite .span_1_of_3 {width:100%;padding:0rem;}
+.bilder-unterseite .span_1_of_4 {width:100%;padding:0rem;}
+
+.bildbox {
+text-align:left;
+padding:1rem;
+}
+
+.bildbox.header .h3 {
+text-align:right;
+padding:0rem 0rem 0rem 2rem;
+}
+
+.bilder-startseite h3 , .bilder-unterseite h3 {
+margin-top: 0rem;
+margin-bottom:0rem;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* info 2 */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+.info2 {
+width:100%;
+padding:2rem 2rem 2rem 1rem;
+color:#313131;
+}
+
+.info2 .span_1_of_2 {padding:0rem;}
+
+.infobox2 {
+text-align:left;
+padding:1rem 1rem 1rem 0rem;
+}
+
+.info2 .fa {
+color:#313131;
+background:transparent;
+margin:0.5rem;
+text-align:center;
+font-size:2.4rem;
+height:5rem;
+line-height:5rem;
+width:5rem;
+}
+
+.infobox2 h3 {
+margin-top: 1.5rem;
+margin-bottom:1.5rem;
+}
+
+.infobox2-a {display:table-cell;
+vertical-align:top;
+width:5rem;
+}
+
+.infobox2-b {display:table-cell;
+width:100%;
+vertical-align:top;
+padding-left:.5rem;
+}
+
+
+
+/* ############################################################ */
+/* bereich content */
+/* ############################################################ */
+
+
+.content {
+width:100%;
+padding:2rem 2rem 2rem 2rem;
+}
+
+.contentbox {
+min-height:23rem;
+text-align:left;
+padding:1rem;
+}
+
+
+
+/* ############################################################ */
+/* bereich fuss */
+/* ############################################################ */
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* fuss*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* === fuss === */
+
+
+.fuss-main {margin:0 auto;
+min-height:10rem;
+background:#313131;
+text-align:center;
+padding:0rem 0rem 0rem 0rem;
+text-shadow:none;
+border-top:solid .5rem peru;
+}
+
+
+.fuss {padding:1rem 0rem 2rem 0rem;
+width:100%;
+color:#B0B0B0;
+}
+
+.fuss .span_1_of_3 {padding:0rem;}
+
+.fussbox {
+text-align:center;
+padding:1rem;
+}
+
+.fussbox h3 {
+color:#E5E5E5;
+text-align:center;
+margin-top:1.5rem;
+margin-bottom:1rem;
+}
+
+.fuss-bottom {height:5rem;
+line-height:5rem;
+background:#1E1E1E;
+color:#5D5D5D;
+}
+
+.fuss-bottom span {color:#919191;
+}
+
+
+
+
+/*===== fussmenu 2  =====  */
+
+
+.fussmenu2 ,
+.fussmenu2  ul,
+.fussmenu2  li {
+list-style: none;
+margin: 0;
+padding: 0;
+border: 0;
+}
+
+.fussmenu2  {width:100%;padding-bottom:0rem;
+padding-top:0rem;
+}
+.fussmenu2 ul {
+text-align:center;
+}
+
+.fussmenu2 li { display: block;
+width:100%;
+line-height:2.6rem;
+margin-left:0rem;
+padding-left:0.1rem;
+}
+
+.fussmenu2 a {
+display : inline;
+width : 100%;
+font-size:1.6rem;
+text-align:left;
+color:#B0B0B0;
+text-decoration: none;
+padding:.6rem;
+border-radius:0.8rem;
+}
+
+.fussmenu2 a:hover {
+color:#fff;
+text-shadow:none;
+background:transparent;
+text-decoration: none;
+}
+
+/*  die icons im fussmenu2 */
+
+.fussbox a .fa {
+font-size:2rem;
+line-height:2.5rem;
+height:2.5rem;
+width:2.5rem;
+padding-left:.5rem;
+padding-right:.5rem;margin:0;
+color:#B0B0B0;
+background:transparent;
+}
+
+.fussbox a:hover .fa  {
+color:#313131;
+background:white;
+text-shadow:none;
+}
+
+
+
+
+
+/* ############################################################ */
+/* M E D I A   Q U E R I E S */
+/* ############################################################ */
+
+/* ==================================== ab 360 pixel ================================== */
+@media (min-width: 360px) {
+
+/* keine angabe */
+
+}
+
+/* ==================================== ab 480 pixel ================================== */
+@media (min-width: 480px) {
+
+/* keine angabe */
+
+}
+
+
+/* ==================================== ab 600 pixel ================================== */
+@media (min-width: 600px) {
+
+.logo-bottom {
+padding:0rem 8rem 0rem 8rem;
+}
+
+.kopf  {
+padding:3rem 6rem 0rem 6rem;
+}
+
+.logo , .info , .bilder-startseite , .info2 , .content  {
+padding:3rem 6rem 3rem 6rem;
+}
+
+.fuss {
+padding:1rem 3rem 2rem 3rem;
+}
+
+
+
+}
+
+
+/* ==================================== ab 640 pixel ================================== */
+@media (min-width: 640px) {
+
+/* keine angabe */
+
+}
+
+
+/* ==================================== ab 680 pixel ================================== */
+@media (min-width: 680px) {
+
+html {
+font-size:64%;
+}
+
+
+
+}
+
+/* ==================================== ab 768 pixel ================================== */
+@media (min-width: 768px) {
+
+html {
+font-size:68%;}
+
+.col  {
+float: left;
+}
+
+.seitentitel-mobil {display:none;
+}
+
+.kopf-main {min-height:16rem;
+}
+
+.bilder-startseite .span_1_of_4 {width: 50%; }
+.bilder-unterseite .span_1_of_2 {width: 50%; }
+.bilder-unterseite .span_1_of_3 {width:33.33%; }
+.bilder-unterseite .span_1_of_4 {width: 50%; }
+
+.fuss .span_1_of_3 {width: 33.33%;padding:0rem; }
+
+.fussbox {
+text-align:left;
+}
+
+.fussbox h3 {
+text-align:left;
+}
+
+.fussmenu2 ul {
+text-align:left;
+}
+
+.fussmenu2 li {
+margin-left:-0.6rem;
+}
+
+}
+
+
+/* ==================================== ab 800 pixel ================================== */
+@media (min-width: 800px) {
+
+html {
+font-size:69%;}
+
+.contentbox {
+text-align:justify;
+}
+.bilder-unterseite .span_1_of_1 {max-width:50%;height:auto;padding:1rem 3rem 1rem 0rem;float:left;margin-bottom:0rem;}
+}
+
+
+/* ===================================== ab 1024 pixel ================================= */
+
+@media (min-width: 1024px) {
+
+html {
+font-size:70%;}
+
+.bilder-startseite .span_1_of_4 {
+width: 25%;
+font-size:1.4rem;
+line-height:1.8rem;
+}
+
+.bilder-unterseite .span_1_of_4 {width:50%;}
+
+.info .span_1_of_3 {width:33.33%;padding:0; }
+
+.info2 .span_1_of_2 {width:50%;padding:0; }
+
+.fuss .span_1_of_3 {width: 33.33%; }
+
+.logo-bottom {
+padding:0rem 6rem 0rem 6rem;
+}
+
+.kopf  {
+padding:3rem 4rem 0rem 4rem;
+}
+
+.logo , .info , .bilder-startseite , .info2 , .content  {
+padding:3rem 4rem 3rem 4rem;
+}
+.bilder-unterseite  {
+padding:2rem 8rem 2rem 8rem;
+}
+.fuss {
+padding:2rem 4rem 3rem 4rem;
+}
+
+
+}
+
+
+/* ===================================== ab 1100 pixel ================================= */
+
+@media (min-width: 1100px) {
+
+
+.logo-bottom {
+padding:0rem 10rem 0rem 10rem;
+}
+
+.kopf  {
+padding:3rem 9rem 0rem 9rem;
+}
+
+.logo , .info , .bilder-startseite , .info2 , .content  {
+padding:3rem 9rem 3rem 9rem;
+}
+
+.fuss {
+padding:2rem 9rem 3rem 9rem;
+}
+
+}
+
+
+/* ===================================== ab 1200 pixel ================================= */
+
+@media (min-width: 1200px) {
+
+html {
+font-size:74%;}
+
+.logo-bottom {
+padding:0rem 14rem 0rem 14rem;
+}
+
+.kopf  {
+padding:4rem 12rem 0rem 12rem;
+}
+
+.logo , .info , .bilder-startseite , .info2 , .content {
+padding:4rem 12rem 4rem 12rem;
+}
+
+.bilder-unterseite  {
+padding:1rem 8rem 1rem 8rem;
+}
+
+.fuss {
+padding:3rem 12rem 4rem 12rem;
+}
+
+
+}
+
+
+/* ===================================== ab 1480 pixel ================================= */
+
+@media (min-width: 1480px) {
+
+html {
+font-size:82%;
+}
+
+.logo-bottom {
+padding:0rem 17rem 0rem 17rem;
+}
+
+.kopf  {
+padding:4rem 15rem 0rem 15rem;
+}
+
+.logo , .info , .bilder-startseite , .info2 , .content  {
+padding:4rem 15rem 4rem 15rem;
+}
+
+.fuss {
+padding:3rem 15rem 4rem 15rem;
+}
+
+}
+
+
+/* +  +  +  +  + +  +  +  +  +  C O D E ENDE  +  +  +  +  +  +  +  +  +  + */

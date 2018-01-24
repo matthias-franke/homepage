@@ -1,0 +1,62 @@
+
+/* = = = = = = = = = = = = = = = = = datei animation.css = = = = = = = = = = = = = = = = = = = = = = = = = */
+
+/* diese datei regelt die css-animationen  */
+
+
+/* ############################################################ */
+/* Vermerk | In diesem Template sind keine CSS-Keyframes-Animation   */
+/* ############################################################ */
+
+
+
+
+/* ############################################################ */
+/* Hinweis | Animation mit Transition  */
+/* das animierte menü wird in der datei MENUE.CSS angelegt und dort per css-transition ausgelöst  */
+/* die animation beim menü-schalter wird in der datei datei MENUE.CSS angelegt und dort per css-transition ausgelöst  */
+/* ############################################################ */
+
+
+
+
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*
+
+Kurzer Überblick: ANIMATIONEN mit CSS
+* * * * *
+
+Es gibt 2 Arten von CSS Animationen, nämlich
+
+(1) CSS TRANSITION
+
+(2) CSS ANIMATION (auch KEYFRAMES-ANIMATION genannt).
+
+Bei einer einfachen Animation wie z.b Drehung um 360grad bei Mouseover (hover) ausgelöst, kann man von aussen nicht erkennen, ob diese mit (1) oder (2) gemacht ist.
+
+
+(1)=
+- Erlaubt nur 2 Zustände, Anfangs- und Endzustand
+- Braucht zur Auslösung einen sog. Trigger (z.b.hover oder focus), in der Regel also eine Mausberührung oder Touch.
+- Loop (zb. spiele 8x ab) ist NICHT erlaubt.
+- Nach Beendigung einer Mausberührung-Aktion mit hover läuft die Transition-Animation dann bei Nicht-Mehr-Mausberührung AUCH animiert wieder zurück.
+
+
+(2)=
+- Erlaubt die 2 Zustände (bzw. die  sind Pflicht) wie bei 1), dann jedoch viele mögliche Zustände dazwischen, eben Keyframes, wie beim Film.
+- Startet im Gegensatz zu 1) auch automatisch (z.b. Foto-Slideshow) beim Laden der Seite.
+- Loop-Angabe ist ERLAUBT.
+- Nach Beendigung einer Mausberührung-Aktion mit hover läuft die Keyframes-Animation dann bei Nicht-Mehr-Mausberührung leider NICHT animiert wieder zurück (sondern springt abrupt zurück).
+[ Hinweis dazu: Wenn die Animation AUTOMATISCH (also nicht per Mausberührung) startet so, läuft diese auch animiert wieder zurück (sofern man es ensprechend programmiert oder die Anweisung 'alternate`dazu verwendet. ]
+
+
+GEMEINSAM (1. und 2.) HABEN BEIDE :
+- Zeitangabe für kompletten Durchlauf
+- Zeitverzögernung (delay), also starte erst nach X sec
+- Geschwindigkeitssteuerung , verschiedene, wie : // starte schnell, ende langsam // starte langsam ende schnell // spiele gleichmässig (linear) ab  o.ä.
+
+*/
