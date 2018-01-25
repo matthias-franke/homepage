@@ -1,2 +1,0 @@
-  * [[start|start]]
-  * [[justus::white_paper|White Paper]]

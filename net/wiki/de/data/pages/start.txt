@@ -1,5 +1,0 @@
-english wiki: [[http://conetex.net/wiki/en|http://conetex.net/wiki/en]]
-
-Projekt bei GitHub: [[http://github.com/conetex/Justus|http://github.com/conetex/Justus]]
-
-Lies das [[justus:white_paper|White Paper]]!
