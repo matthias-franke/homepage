@@ -1,0 +1,1384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <!-- <meta content="IE=8.0000" http-equiv="X-UA-Compatible"> -->
+    <!-- <script src='http://code.jquery.com/jquery-1.8.3.min.js'></script> -->
+    <!-- <script src='../jsencrypt-master/bin/jsencrypt.min.js'></script> -->
+    <!-- <script src='jsencrypt-master/bin/jsencrypt.js'></script> -->
+    <script src='FileSaver.js-master/FileSaver.js'></script>
+    <script src='jsencrypt-master/jsrsasign/asn1-1.0.js'></script>
+    <script src='jsbn/base64.js'></script>
+    <script src='jsbn/prng4.js'></script>
+    <script src='jsbn/rng.js'></script> <!-- prng4.js -->
+    <script src='jsbn/jsbn.js'></script>
+    <script src='jsbn/rsa.js'></script>   <!-- // Depends on jsbn.js and rng.js ok -->
+    <script src='jsbn/jsbn2.js'></script> <!--wegen jsbn benutzt toRadix-->
+    <script src='jsbn/rsa-async.js'></script>
+    <script src='jsencrypt-master/asn1js/asn1.js'></script>
+    <script src='jsencrypt-master/asn1js/base64.js'></script>
+    <script src='jsencrypt-master/asn1js/hex.js'></script>
+    <script src='jsbn/rsa2.js'></script>  <!-- Depends on rsa.js and jsbn2.js ok -->
+    <script src='jsbn/me.js'></script>
+    <script>
+			/** GLOBAL VARS **/  
+      var dragged = null;
+      var currentMsgDiv = null;
+      var currentThread = null;
+      var currentThreadLinkAlpha = null;
+      var currentThreadLinkManuel = null;
+      //var uiStateReceiveOpen = false;
+      //var uiStateReceiveCreate = false;
+      //var newPrivateKey = null;
+      //var opendPrivateKey = null;
+      //var opendPubKey = null;   
+			/** Get Public Keys **/      
+      function downloadKeyCurrent(){
+        if(currentThread !== null){
+          var idStr = currentThread.id;
+          idStr = idStr.substring(1, idStr.length);
+          var el = document.getElementById( 'z' + idStr );
+          downloadKey(idStr, el.firstChild);
+        }
+      }
+      function downloadKeyNew(){                                    //newcontactID
+        var contactID = document.getElementById('newcontactID').value;
+        var keyTarget = document.getElementById( 'newKey' );
+        downloadKey(contactID, keyTarget.firstChild);
+      }
+      function downloadKey(contactID, keyTarget){
+        // TODO warteanzeigen aus
+        if (contactID!=null && contactID!=''){
+            var req = getReq();
+            if (req!=null){
+                req.onreadystatechange = function () {
+                    alert(req.status);
+                    alert(req.responseText);
+                    if(req.readyState==4 && req.status==200){
+                          alert(req.responseText);
+                          keyTarget.data = req.responseText;//openPubKey(req.responseText);
+                    }
+                }            
+                req.open("GET", 'http://conetex.com/cgi-bin/primeDownloadPubKey.py?a='+contactID+'&x='+Math.random(), false);
+                alert('http://conetex.com/cgi-bin/primeDownloadPubKey.py?a='+contactID+'&x='+Math.random());
+                req.send(null);
+            }
+            else{
+                alert("Your browser does not support XMLHTTP.");
+            }
+        }
+        else{
+           // TODO: enterAddress
+        }
+      } 
+			/** Encrypt Messages **/      
+      function encryptMsg() {
+        if(currentThread === null){
+          alert("Sorry! No To Address...");
+          return;
+        }
+        var toAddress = currentThread.id.substring(1, currentThread.id.length);
+        var keyElement = document.getElementById("z" + toAddress);
+        var pubKeyText = keyElement.firstChild.data;
+        if(pubKeyText == ''){
+          // TODO Sorry no pub-Key loaded!
+          alert("Sorry no pub-Key loaded!");
+          return;
+        }
+        var opendPubKey = new RSAKey();
+        if(! opendPubKey.parseKey(pubKeyText)){
+          // TODO: Sorry can not parse this key!
+          alert("Sorry can not parse this key!");
+          return;
+        }
+        var msg = removeWhiteSpace( document.getElementById('msg').value );
+        if(msg != ''){
+          var encrypted = opendPubKey.encrypt(msg);
+          document.getElementById('msg').value = encrypted;
+        }
+      }               
+			/** Send Messages **/      
+      function sendMsg(){
+        // TODO warteanzeigen aus
+        if(currentThread === null){
+          alert("Sorry! No To Address...");
+          return;
+        }
+        var toAddress = currentThread.id.substring(1, currentThread.id.length);
+        var fromAddress = document.getElementById('Address').value;
+        if (fromAddress!=null && fromAddress!=''){
+          if (toAddress!=null && toAddress!=''){
+              var req = getReq();
+              if (req!=null){
+                  var m = document.getElementById('msg').value;
+                  req.open("GET", 'http://conetex.com/cgi-bin/primeUploadMsg.py?f=' + fromAddress + '&t=' + toAddress + '&m=' + m + '&x=' + Math.random(), true);
+                  req.onreadystatechange = function () {
+                      if(req.readyState==4  && req.status==200){
+                          alert(req.responseText);
+                      }
+                  }
+                  req.send(null);
+              }
+              else{
+                  alert("Your browser does not support XMLHTTP.");
+              }
+          }
+          else{
+             // TODO: enterAddress
+             alert("No to Address");
+          }
+        }
+        else{
+           // TODO: enterAddress
+           alert("No from Address");
+        }
+      }      
+			/** Create Private Key **/         
+      function createPrivateKeyFinished(){
+        // TODO warteanzeigen aus
+        document.getElementById('creatingBar').style.animationPlayState="paused";
+      }
+      function createPrivateKey() {
+        if(newPrivateKey==null){
+          newPrivateKey = new RSAKey();
+          var bits = 512;
+          if (document.getElementById('1024').checked) {
+            bits = 1024;
+          }
+          else if (document.getElementById('2048').checked) {
+            bits = 2048;
+          }
+          else if (document.getElementById('4096').checked) {
+            bits = 4096;
+          }
+          newPrivateKey.generateAsync(bits, '010001', createPrivateKeyFinished); //65537 default openssl public exponent for rsa key type
+          document.getElementById('creatingBar').style.animationPlayState="running";// todo warteanzeigen an mit TEXT!!!
+        }
+        else{
+          // TODO Fehler ...
+          alert("Error createPrivateKey");
+        }
+      }
+      function savePrivateKey() {
+        if(newPrivateKey){
+          var prkPrinted = newPrivateKey.getPrivateKey();
+          var name = removeWhiteSpace(document.getElementById('Address').value);
+          if(name==''){
+            name = 'privateKey';
+          }
+          name = name + ".pem";
+          saveAs(getKeyBlob(prkPrinted), name);
+          newPrivateKey=null;
+        }
+        else{
+          //TODO Fehlerbehandlung
+          alert("Error savePrivateKey");
+        }
+      }         
+			/** Manage Private Key **/
+      function savePriKey(){
+        if (document.getElementById('localStorePriKey')) {
+          if (document.getElementById('localStorePriKey').checked) {
+            localStorage.localStorePriKey = 'Y';
+            var k = document.getElementById('key');
+            if(k){
+              localStorage.priKey = k.value;
+              localStorage.address = document.getElementById('Address').value;
+              localStorage.pubKey = document.getElementById('publicKey').value;
+            }
+            else{
+              alert("No Key");
+            }
+          }
+          else{
+            localStorage.localStorePriKey = 'N';
+          }
+        }
+        else{
+          alert('No Loc Store!');
+        }
+      }
+      function loadPriKey(){
+        if (document.getElementById('localStorePriKey')) {
+          if (localStorage.localStorePriKey === 'Y') {
+            document.getElementById('localStorePriKey').checked = true;
+            var k = document.getElementById('key');
+            if(k){
+              if(localStorage.priKey){
+                k.value = localStorage.priKey;
+                document.getElementById('Address').value = localStorage.address;
+                document.getElementById('publicKey').value = localStorage.pubKey;
+                handleAddressChanged();
+              }
+              else{
+                alert("No stored Key!");
+              }
+            }
+            else{
+              alert("No Init?");
+            }
+          }
+          else{
+            document.getElementById('localStorePriKey').checked = false;
+            alert("Not stored!!!");
+          }
+        }
+        else{
+          alert('No Loc Store!');
+        }
+      }
+      function getKeyBlob(keyStr) {
+        return new Blob([ keyStr ], {type: "text/plain;charset=utf-8"});
+      }
+      function readFileSelect(aFile) {
+        var aFileName = escape(aFile.name);
+        if(aFile.size > 4550){
+          document.getElementById('msg').firstChild.data = "Sorry! This File is to big!";
+        }
+        else if( !(aFileName.endsWith('.pem')) && !(aFileName.endsWith('.txt')) ){
+          document.getElementById('msg').firstChild.data = "Sorry! We expect am pem-File!";
+        }
+        else{
+          document.getElementById('key').value = "";
+          document.getElementById('publicKey').value = "";
+          var reader = new FileReader();
+          reader.onload = (function(theFile) {
+            return function(e) {
+              opendPrivateKey = new RSAKey();
+              if(opendPrivateKey.parseKey(e.target.result)){
+                var prkPrinted = opendPrivateKey.getPrivateKey();
+                document.getElementById('key').value = prkPrinted;
+                if(! opendPrivateKey.encrypt){
+                	// TODO Fehlerbehandlung
+                  alert("opendPrivateKey.encrypt");
+                }
+                if(! opendPrivateKey.decrypt){
+                	// TODO Fehlerbehandlung
+                  alert("opendPrivateKey.decrypt");
+                }
+                if(! opendPrivateKey.generateAsync){
+                	// TODO Fehlerbehandlung
+                  alert("opendPrivateKey.generateAsync");
+                }
+                // TODO: nur bei Setup mode
+                var pubPrinted = opendPrivateKey.getPublicKey();
+                document.getElementById('publicKey').value = pubPrinted;
+              }
+              else{
+                // TODO: Sorry can not parse this key!
+                alert("Sorry can not parse this key!");
+                opendPrivateKey = null;
+              }
+            };
+          })(aFile);
+          reader.readAsText(aFile);
+          document.getElementById('Address').value = aFileName.substr(0, aFileName.length-4);
+          document.getElementById('keyfile').firstChild.data = aFile.name;
+          handleKeyChanged(); //TODO: Nur im Open - Mode
+          handleAddressChanged();
+        }
+      }
+      function handleFileSelect(evt) {
+        readFileSelect( evt.target.files[0] );
+      }
+      function handleFileDrop(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        readFileSelect( evt.dataTransfer.files[0] );
+      }
+      function handleFileDragOver(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+      }      
+			/** Receive Messages **/      
+      function receiveMsg(){
+        // TODO warteanzeigen aus
+        var fromAddress = document.getElementById('Address').value;
+        if (fromAddress!=null && fromAddress!=''){
+              var req = getReq();
+              if (req!=null){
+                  var m = document.getElementById('msg').value;
+                  req.open("GET", 'http://conetex.com/cgi-bin/primeDownloadMsg.py?a=' + fromAddress + '&x=' + Math.random(), true);
+                  req.onreadystatechange = function () {
+                      if(req.readyState==4  && req.status==200){
+                          var msgChunks = req.responseText.split("|");
+                          var i = 1;
+                          for(var i = 1; i < msgChunks.length; i = i + 2){
+                            var contactMsgs = document.getElementById("u" + msgChunks[i-1]);  // FROM
+                            if(! contactMsgs){
+                              var contactKey = "";
+                              saveNewContactParam(msgChunks[i-1], contactKey, msgChunks[i-1]);
+                              contactMsgs = document.getElementById("u" + msgChunks[i-1]);
+                            }
+                            createMsgTag(contactMsgs, msgChunks[i]);                          // MSG
+                          }
+                      }
+                  }
+                  req.send(null);
+              }
+              else{
+                  alert("Your browser does not support XMLHTTP.");
+              }
+        }
+        else{
+           // TODO: enterAddress
+           alert("No from Address");
+        }
+      }
+      function createMsgTag(contactMsgsNode, msg){
+        var msgDiv = document.createElement('div');
+        msgDiv.class = "messageCrypted";
+        msgDiv.appendChild( document.createTextNode(msg) );
+        msgDiv.onclick = handleSelectMsg;
+        contactMsgsNode.appendChild(msgDiv);
+      }          
+			/** Decrypt Message **/          
+      function decryptMsg() {
+        if(currentMsgDiv){
+          if(currentMsgDiv.class === "messageCrypted"){
+            opendPrivateKey = new RSAKey();
+            if( document.getElementById('key') && opendPrivateKey.parseKey( document.getElementById('key').value) ) {
+              var prkPrinted = opendPrivateKey.getPrivateKey();
+              var msg = currentMsgDiv.firstChild.data;
+              if(msg != ''){
+                var decrypted = opendPrivateKey.decrypt(msg);
+                currentMsgDiv.firstChild.data = decrypted;
+                currentMsgDiv.class = "message";
+                document.getElementById('buttonDecrypt').style.display='none';
+              }
+            }
+            else{
+              // TODO Sorry no pri-Key loaded!
+              alert("Sorry no pri-Key loaded!");
+            }
+          }
+          else{
+            alert("Sorry  Message already decrypted!");
+          }
+        }
+        else{
+          alert("Sorry no Message selected!");
+        }
+      }   
+			/** Server-Communication **/
+      function getReq(){
+        var req = null;
+        // Browser compatibility check
+        if (window.XMLHttpRequest) {
+            req = new XMLHttpRequest();
+        }
+        else if (window.ActiveXObject) {
+            try {
+              req = new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            catch (e) {
+               try {
+                 req = new ActiveXObject("Microsoft.XMLHTTP");
+               }
+               catch (e) {
+                 //alert("Microsoft.XMLHTTP");
+               }
+            }
+        }
+        return req;
+      }               
+			/** Persistence **/ 		  
+      function saveThreadsPriKey() {
+        savePriKey();
+        saveThreads();
+      }       	          
+      function saveThreads(){
+        if (document.getElementById('localStoreMessages')) {
+          if (document.getElementById('localStoreMessages').checked) {
+            localStorage.localStoreMessages = 'Y';
+            localStorage.threads = document.getElementById("threads").innerHTML;
+            //LocalStorage.threadsAlpha = JSON.stringify(threadsAlpha);
+            localStorage.threadsAlpha = document.getElementById("menuFromAlpha").innerHTML;
+            localStorage.threadsManuel = document.getElementById("menuFromManuel").innerHTML;
+          }
+          else{
+            localStorage.localStoreMessages = 'N';
+          }
+        }
+        else{
+          alert('No Loc Store!');
+        }
+      }
+      function loadThreads(){
+        if (document.getElementById('localStoreMessages')) {
+          if (localStorage.localStoreMessages === 'N') {
+            document.getElementById('localStoreMessages').checked = false;
+            alert("Not stored!!!");
+            return;
+          }
+          document.getElementById('localStoreMessages').checked = true;
+        }
+        else{
+          alert('No Loc Store!');
+          return;
+        }
+        var savedThreads = localStorage.threads;
+        if(savedThreads !== null){
+          document.getElementById("threads").innerHTML = savedThreads; // UEBERSCHREIBEN! Nicht leer machen, um es neu zu erstellen ...
+        }
+        var savedThreadsManuel = localStorage.threadsManuel;
+        if(savedThreadsManuel !== null){
+          var parentNode = document.getElementById("menuFromManuel");
+          parentNode.innerHTML = savedThreadsManuel;                   // UEBERSCHREIBEN! Nicht leer machen, um es neu zu erstellen ...
+          var nodes = parentNode.childNodes;
+          for(var i = 0; i < nodes.length; i++){
+            if(! nodes[i].onclick){
+              nodes[i].onclick = handleSelectThread;
+              nodes[i].ondrop = drop;
+              nodes[i].draggable = "true";
+              nodes[i].ondragover = allowDrop;
+              nodes[i].ondragstart = drag;
+            }
+            if( nodes[i].style.fontWeight === 'bold' ){
+              var idStr = nodes[i].id.substring(1, nodes[i].id.length);
+              currentThread = document.getElementById( 'x' + idStr );
+              currentThreadLinkManuel = nodes[i];
+              document.getElementById('formEditContact').style.display='block';
+              document.getElementById('formSend').style.display='block';
+              hideContactsOrder();
+            }
+          }
+        }
+        var savedThreadsAlpha = localStorage.threadsAlpha;
+        if(savedThreadsAlpha !== null){
+          var parentNode = document.getElementById("menuFromAlpha");
+          parentNode.innerHTML = savedThreadsAlpha;                     // UEBERSCHREIBEN! Nicht leer machen, um es neu zu erstellen ...
+          var nodes = parentNode.childNodes;
+          for(var i = 0; i < nodes.length; i++){
+            if(! nodes[i].onclick){
+              nodes[i].onclick = handleSelectThread;
+            }
+            if( nodes[i].style.fontWeight === 'bold' ){
+              currentThreadLinkAlpha = nodes[i];
+            }
+          }
+        }
+        // TODO Listener installieren!!!
+      }           
+			/** Manage Contacts **/ 		        	          
+      function saveNewContact(){
+        var contactKey = document.getElementById('newKey').firstChild.data;
+        var contactNick = document.getElementById('newContactNick').value;
+        var contactID = document.getElementById('newcontactID').value;
+        if((!contactKey) || contactKey === "" || contactKey === " " || contactKey === "&nbsp;"){
+          alert("no key");
+          return;
+        }
+        if(contactKey.length < 96){
+          alert("no key 2");
+          return;
+        }        
+        saveNewContactParam(contactID, contactKey, contactNick);
+        hideNewContact();
+        handleSelectThreadE(contactDiv, aA, a, contactID, contactNick);        
+      }
+      function saveNewContactParam(contactID, contactKey, contactNick){
+        var ea = document.getElementById( "w" + contactID );
+        if(ea !== null){
+          alert("Sorry! Schon vorhanden!");
+          return;
+        }
+        document.getElementById('newKey').firstChild.data = '';
+        document.getElementById('newcontactID').value = '';
+        var aA = document.createElement('a');
+        aA.id = "w" + contactID;
+        aA.href = "#";
+        aA.addEventListener('click', handleSelectThread, false);
+        aA.appendChild( document.createTextNode(contactNick) );
+        if(! insertAlpha(document.getElementById("menuFromAlpha"), aA) ){
+          alert("Sorry! Name schon vorhanden!");
+          return;        	
+        }
+        var a = document.createElement('a');
+        a.id = "v" + contactID;
+        a.href = "#";
+        a.onclick = handleSelectThread;
+        a.ondrop = drop;
+        a.draggable = "true";
+        a.ondragover = allowDrop;
+        a.ondragstart = drag;
+        a.appendChild( document.createTextNode(contactNick) );
+        document.getElementById("menuFromManuel").appendChild( a );
+        
+        var contactDiv = document.createElement('div');
+        contactDiv.id = "x" + contactID;
+        
+        var editDiv = document.createElement('div');
+        editDiv.class = "contactEdit";
+        
+        var contactsPrimeID = document.createElement('div');
+        contactsPrimeID.class = "contactsPrimeID";
+        contactsPrimeID.appendChild( document.createTextNode(contactID) );
+        editDiv.appendChild( contactsPrimeID );
+        editDiv.appendChild( document.createElement('br') );
+        
+        var keyTextarea = document.createElement('pre');
+        keyTextarea.id = "z" + contactID;
+        keyTextarea.class = "contactsPubKey";
+        keyTextarea.appendChild( document.createTextNode(contactKey) );
+        editDiv.appendChild( keyTextarea );
+        
+        contactDiv.appendChild( editDiv );
+        var msgDiv = document.createElement('div');
+        msgDiv.class = "contactMsg";
+        msgDiv.id = "u" + contactID;
+        contactDiv.appendChild( msgDiv );
+        document.getElementById("threads").appendChild(contactDiv);
+      }
+      function deleteCurrentThread() {
+          document.getElementById('showCurrentThread').firstChild.data = "";
+          hideCurrentThreadMessage();
+      		var p = currentThread.parentNode;
+          p.removeChild( currentThread );
+      		p = currentThreadLinkAlpha.parentNode;
+          p.removeChild( currentThreadLinkAlpha );
+      		p = currentThreadLinkManuel.parentNode;
+          p.removeChild( currentThreadLinkManuel );      	
+    	}
+      function handleNickChanged() {
+      	document.getElementById('showCurrentThread').firstChild.data = document.getElementById('Nick').value;
+      	if(currentThreadLinkAlpha){
+      		currentThreadLinkAlpha.firstChild.data = document.getElementById('Nick').value;
+      		var p = currentThreadLinkAlpha.parentNode;
+          var cutted = p.removeChild( currentThreadLinkAlpha );
+          insertAlpha(p, cutted);
+      	}
+      	if(currentThreadLinkManuel){
+      		currentThreadLinkManuel.firstChild.data = document.getElementById('Nick').value;
+      	}      	      	
+    	}   	
+    	function insertAlpha(parentNode, nodeToInsert) {
+        var minIndex = 0;
+        var maxIndex = parentNode.childNodes.length - 1;
+        var currentIndex;
+        var currentNode;
+        while (minIndex <= maxIndex) {
+	        currentIndex = (minIndex + maxIndex) / 2 | 0;
+	        currentNode = parentNode.childNodes[currentIndex];
+          if ( !(currentNode.firstChild) || currentNode.firstChild.data == null) {
+            minIndex = currentIndex + 1;
+          }
+          else{
+            if (currentNode.firstChild.data < nodeToInsert.firstChild.data) {
+	            minIndex = currentIndex + 1;
+            }
+            else{
+              if (currentNode.firstChild.data > nodeToInsert.firstChild.data) {
+  	            maxIndex = currentIndex - 1;
+              }
+              else {
+                alert("Sorry! schon vorhanden! " + currentNode.firstChild.data);
+                return false;
+              }
+            }
+          }
+	    	}
+				if(minIndex == currentIndex + 1){    //After
+          if(currentNode.nextSibling == null){
+            parentNode.appendChild(nodeToInsert);
+          }
+          else{
+            parentNode.insertBefore(nodeToInsert, currentNode.nextSibling);//After
+          }
+          return true;//minIndex;
+        }
+        else{                               //Before
+          parentNode.insertBefore(nodeToInsert, currentNode);
+          return true;//currentIndex;
+        }
+			}      
+			/** UI Drag-Drop Contacts **/
+      function allowDrop(ev){
+        ev.preventDefault();
+      }
+      function drag(ev){
+        ev.dataTransfer.effectAllowed = 'move';
+        ev.dataTransfer.dropEffect = 'move';
+        ev.dataTransfer.setData('text/html', '...');
+        dragged = ev.target;
+      }
+      function drop(ev){
+        ev.preventDefault();
+        if(dragged){
+          if(dragged !== ev.target){
+            var cutted = dragged.parentNode.removeChild( dragged );
+            dragged = null;
+            ev.target.parentNode.insertBefore(cutted, ev.target);
+          }
+          else{
+            alert("so nich");
+          }
+        }
+      }
+			/** Manage Messages **/ 
+      function deleteMsg() {
+        if(currentMsgDiv){
+          currentMsgDiv.parentElement.removeChild(currentMsgDiv);
+          currentMsgDiv = null;
+          document.getElementById('buttonDecrypt').style.display='none';
+          document.getElementById('buttonDeleteMsg').style.display='none';
+        }
+      }
+			/** Tools **/      
+      function removeWhiteSpace(str) {
+        return str;//TODO implement!
+      } 
+			/** UI Setup **/
+      function init(){
+        initUiNodes();
+        loadPriKey();
+        loadThreads();
+        showSelectAddress();
+      }           
+      function initUiNodes(){
+      	//document.getElementById('Address').value = "";
+        var localStorePriKey = document.getElementById('localStorePriKey');
+        var localStoreMessages = document.getElementById('localStoreMessages');
+        document.getElementById("formPers").innerHTML = null; // leer machen, um es neu zu erstellen ...
+        if(localStorage){
+          document.getElementById('formPers').appendChild( document.createElement('br') );
+          if(! localStorePriKey){
+            localStorePriKey = document.createElement('input');
+            localStorePriKey.type="checkbox";
+            localStorePriKey.id="localStorePriKey";
+            localStorePriKey.name="localStorePriKey";
+            localStorePriKey.value="localStorePriKey";
+            if(! localStorage.localStorePriKey){
+              localStorage.localStorePriKey = 'Y';
+            }
+          }
+          document.getElementById('formPers').appendChild( localStorePriKey );
+          document.getElementById('formPers').appendChild( document.createTextNode("use localStorage to store your Private Key") );
+          document.getElementById('formPers').appendChild( document.createElement('br') );
+          if(! localStoreMessages){
+            localStoreMessages = document.createElement('input');
+            localStoreMessages.type="checkbox";
+            localStoreMessages.id="localStoreMessages";
+            localStoreMessages.name="localStoreMessages";
+            localStoreMessages.value="localStoreMessages";
+            if(! localStorage.localStoreMessages){
+              localStorage.localStoreMessages = 'Y';
+            }
+          }
+          document.getElementById('formPers').appendChild( localStoreMessages );
+          document.getElementById('formPers').appendChild( document.createTextNode("use localStorage to store your Messages") );
+        }
+        var FileApiOk = false;
+        // Check for the various File API support.
+        if (! window.File) {
+          alert('The File APIs are not fully supported in this browser (File).');
+        }
+        else if (! window.FileReader) {
+          alert('The File APIs are not fully supported in this browser (FileReader).');
+        }
+        else if (! window.FileList) {
+          alert('The File APIs are not fully supported in this browser (FileList).');
+        }
+        else if (! window.Blob) {
+          alert('The File APIs are not fully supported in this browser (Blob).');
+        }
+        else {
+          // Great success! All the File APIs are supported.
+          FileApiOk = true;
+        }
+        if (typeof String.prototype.endsWith !== 'function') {
+          String.prototype.endsWith = function(suffix) {
+              return this.indexOf(suffix, this.length - suffix.length) !== -1;
+          };
+        }
+        if(window.Blob){
+          document.getElementById('saveAs').style.display='block';
+        }
+        var pasteText = "Use Ctrl + V to paste your key-string here:";
+        var dropText = "Drop your private pem-file here:";
+        var openText = "Use the File-Dialog to open your private pem-file:";
+        var keyTextarea = document.getElementById('key');
+        if(! keyTextarea){
+          keyTextarea = document.createElement('textarea');
+          keyTextarea.name='key';
+          keyTextarea.id='key';
+          keyTextarea.cols='65';
+          keyTextarea.rows='6';
+        }
+        document.getElementById("formOpenKey").innerHTML = null; // leer machen, um es neu zu erstellen ...
+        if(keyTextarea.addEventListener){// TODO Listener schon da?
+          keyTextarea.addEventListener('change', handleKeyChanged);
+        }
+        if(FileApiOk){
+          var fileSelectorOK = false;
+          var fileDropDiv = document.createElement('div');
+          if( fileDropDiv.addEventListener && typeof(fileDropDiv.addEventListener) == "function" ){
+            fileDropDiv.id = 'drop_zone';
+            var hintPasteSpan = document.createElement('span');
+            hintPasteSpan.className='hint';
+            hintPasteSpan.appendChild( document.createTextNode(pasteText) );
+            fileDropDiv.appendChild( hintPasteSpan );
+            fileDropDiv.appendChild( document.createElement('br') );
+            fileDropDiv.appendChild( keyTextarea );
+            fileDropDiv.addEventListener('dragover', handleFileDragOver, false);
+            fileDropDiv.addEventListener('drop', handleFileDrop, false);
+            var hintDropSpan = document.createElement('span');
+            hintDropSpan.className='hint';
+            hintDropSpan.appendChild( document.createTextNode(dropText) );
+            document.getElementById('formOpenKey').appendChild( hintDropSpan );
+            document.getElementById('formOpenKey').appendChild( document.createElement('br') );
+            document.getElementById('formOpenKey').appendChild(fileDropDiv);
+            fileSelectorOK = true;
+          }
+          else{
+            document.getElementById('formOpenKey').appendChild( keyTextarea );
+          }
+          var fileInput = document.createElement('input');
+          if( fileInput.addEventListener && typeof(fileInput.addEventListener) == "function" ){
+            fileInput.id = 'fileInput';
+            fileInput.type = 'file';
+            fileInput.name = 'files[]';
+            fileInput.addEventListener('change', handleFileSelect, false);
+            var hintOpenSpan = document.createElement('span');
+            hintOpenSpan.className='hint';
+            hintOpenSpan.appendChild( document.createTextNode(openText) );
+            document.getElementById('formOpenKey').appendChild( hintOpenSpan );
+            document.getElementById('formOpenKey').appendChild( document.createElement('br') );
+            document.getElementById('formOpenKey').appendChild(fileInput);
+            fileSelectorOK = true;
+          }
+          if(fileSelectorOK){
+            var selectedFileP = document.createElement('p');
+            selectedFileP.id = 'selectedFile';
+            document.getElementById('formOpenKey').appendChild(selectedFileP);
+          }
+        }
+        else{
+          var hintPasteSpan = document.createElement('span');
+          hintPasteSpan.className='hint';
+          hintPasteSpan.appendChild( document.createTextNode(pasteText) );
+          document.getElementById('formOpenKey').appendChild( hintPasteSpan );
+          document.getElementById('formOpenKey').appendChild( document.createElement('br') );
+          document.getElementById('formOpenKey').appendChild( keyTextarea );
+        }
+      }                
+			/** UI Manipulation Handle User-Actions **/ 
+      function handleAddressChanged(){
+        var name = removeWhiteSpace(document.getElementById('Address').value);
+        if(name==''){//TODO white-space ...
+          document.getElementById('showSelectAddress').firstChild.data = 'Address';
+        }
+        else{
+          document.getElementById('showSelectAddress').firstChild.data = name;
+          document.getElementById('a').value = name;
+        }
+      }
+      function handleKeyChanged(){
+        showSelectAddress();
+      }     	          
+      function handleSelectMsg(e){
+        var ea = e.target;
+        if(ea !== null){
+          if(currentMsgDiv){
+            currentMsgDiv.style.fontWeight='normal';
+            if(currentMsgDiv === ea){
+              currentMsgDiv = null;
+              document.getElementById('buttonDecrypt').style.display='none';
+              document.getElementById('buttonDeleteMsg').style.display='none';
+              return;
+            }
+          }
+          currentMsgDiv = ea;
+          currentMsgDiv.style.fontWeight='bold';
+          if(currentMsgDiv.class === "messageCrypted"){
+            document.getElementById('buttonDecrypt').style.display='block';
+          }
+          document.getElementById('buttonDeleteMsg').style.display='block';
+        }
+      }
+      function handleSelectThread(e){
+        var ea = e.target;
+        if(ea != null){
+          if(currentMsgDiv){
+            currentMsgDiv.style.fontWeight='normal';
+            currentMsgDiv = null;
+            document.getElementById('buttonDecrypt').style.display='none';
+            document.getElementById('buttonDeleteMsg').style.display='none';
+          }
+          var idStr = ea.id;
+          idStr = idStr.substring(1, idStr.length);
+          nameStr = ea.firstChild.data;
+          document.getElementById('Nick').value = nameStr;
+          var el = document.getElementById( 'x' + idStr );
+          threadLinkAlpha = document.getElementById( 'w' + idStr );
+          threadLinkManuel = document.getElementById( 'v' + idStr );
+          handleSelectThreadE(el, threadLinkAlpha, threadLinkManuel, idStr, nameStr);
+       }
+      }
+      function handleSelectThreadE(el, threadLinkAlpha, threadLinkManuel, idStr, nameStr){
+        if(currentThread == null){
+          document.getElementById('showCurrentThread').firstChild.data = nameStr;
+          document.getElementById('showCurrentThread').style.fontWeight='bold';
+          document.getElementById('formEditContact').style.display='block';
+          currentThread = el;
+          currentThreadLinkAlpha = threadLinkAlpha;
+          currentThreadLinkManuel = threadLinkManuel;
+          currentThread.style.display='block';
+          currentThreadLinkAlpha.style.fontWeight='bold';
+          currentThreadLinkManuel.style.fontWeight='bold';
+          document.getElementById('formSend').style.display='block';
+          hideContactsOrder();
+          hideNewContact();
+          showCurrentThreadMessage();
+        }
+        else{
+	        if(currentThread !== el){
+	          document.getElementById('showCurrentThread').firstChild.data = nameStr;
+	          currentThread.style.display='none';
+	          currentThreadLinkAlpha.style.fontWeight='normal';
+	          currentThreadLinkManuel.style.fontWeight='normal';
+	          currentThread = el;
+	          currentThreadLinkAlpha = threadLinkAlpha;
+	          currentThreadLinkManuel = threadLinkManuel;
+	        }
+	        currentThread.style.display='block';
+	        currentThreadLinkAlpha.style.fontWeight='bold';
+	        currentThreadLinkManuel.style.fontWeight='bold';
+	        showCurrentThreadMessage();
+    		}
+    	}      
+			/** UI Manipulation Show/Hide **/      
+      function toggleSelectAddress() {
+        // TODO Toggle ist noch nicht sinnvoll
+        if(document.getElementById('showSelectAddress').style.fontWeight=='bold'){
+          hideSelectAddress();
+        }
+        else{
+          showSelectAddress();
+        }
+      }
+      function showSelectAddress() {
+        var k = document.getElementById('key');
+        if(k){
+          document.getElementById('showSelectAddress').style.fontWeight='bold';
+          hideContactsOrder();
+          hideCurrentThreadMessage();
+          showEditAddress();
+        }
+        else{
+          alert("no init?");
+        }
+      }
+      function hideSelectAddress() {
+        document.getElementById('showSelectAddress').style.fontWeight='normal';
+        hideEditAddress();
+      }
+      function toggleCurrentThreadMessage() {
+        if(document.getElementById('threads').style.display==='block'){
+           hideCurrentThreadMessage();
+        }
+        else{
+          showCurrentThreadMessage();
+        }
+      }
+      function hideCurrentThreadMessage() {
+        document.getElementById('formEditContact').style.display='none';
+        document.getElementById('buttonDecrypt').style.display='none';
+        document.getElementById('buttonDeleteMsg').style.display='none';
+        document.getElementById('threads').style.display='none';
+        document.getElementById('formSend').style.display='none';
+        document.getElementById('showCurrentThread').style.fontWeight='normal';
+      }
+      function showCurrentThreadMessage() {
+        document.getElementById('showCurrentThread').style.fontWeight='bold';
+        document.getElementById('threads').style.display='block';
+        hideSelectAddress();
+        hideContactsOrder();
+        if(currentThread){
+          document.getElementById('formEditContact').style.display='block';
+          document.getElementById('formSend').style.display='block';
+          if(currentMsgDiv){
+            if(currentMsgDiv.class === "messageCrypted"){
+              document.getElementById('buttonDecrypt').style.display='block';
+            }
+            document.getElementById('buttonDeleteMsg').style.display='block';
+          }
+        }
+      }
+	    function toggleContacts() {
+        if(document.getElementById('menuContactsOrder').style.display==='block'){
+        	hideContactsOrder();
+        }
+        else{
+          showContactsOrder();
+        }
+      }
+      function showContactsOrder() {
+        document.getElementById('showContacts').style.fontWeight='bold';
+        document.getElementById('menuContactsOrder').style.display = 'block';
+        hideSelectAddress();
+        hideNewContact();
+        hideCurrentThreadMessage();
+        document.getElementById('menuFrom').style.display='block';
+        if(document.getElementById('menuFromManuel').style.display==='none'){
+          if(document.getElementById('menuFromAlpha').style.display==='none'){
+            document.getElementById('menuFromManuel').style.display='block';
+            document.getElementById('menuFromAlpha').style.display='none';
+          }
+        }
+      }
+      function hideContactsOrder() {
+        document.getElementById('showContacts').style.fontWeight='normal';
+        document.getElementById('menuFrom').style.display='none';
+        document.getElementById('menuContactsOrder').style.display = 'none';
+      }
+      function toggleContactsOrderTyp() {
+        if(document.getElementById('menuFromManuel').style.display==='block'){
+          document.getElementById('menuFromManuel').style.display='none';
+          document.getElementById('menuFromAlpha').style.display='block';
+          document.getElementById('showContactsOrderAlpha').style.fontWeight='bold';
+        }
+        else{
+          document.getElementById('menuFromManuel').style.display='block';
+          document.getElementById('menuFromAlpha').style.display='none';
+          document.getElementById('showContactsOrderAlpha').style.fontWeight='normal';
+        }
+      }
+      function showContactsNew() {
+        // TODO FIlter baun
+      }
+      function hideContactsNew() {
+        // TODO FIlter baun
+      }
+      function toggleEditAddress() {
+        if(document.getElementById('menuAddress').style.display=='block'){
+          hideEditAddress();
+        }
+        else{
+          showEditAddress();
+        }
+      }
+      function showEditAddress() {
+        document.getElementById('menuAddress').style.display='block';
+        // open default submenu
+        showOpenKey();
+      }
+      function hideEditAddress() {
+        document.getElementById('menuAddress').style.display='none';
+        hideOpenKey();
+        hideSetup();
+      }
+      function toggleOpenKey() {
+        if(document.getElementById('showOpenKey').style.fontWeight=='bold'){
+          hideOpenKey();
+        }
+        else{
+          showOpenKey();
+        }
+      }
+      function showOpenKey() {
+        document.getElementById('showOpenKey').style.fontWeight='bold';
+        document.getElementById('showSetup').style.fontWeight='normal';
+        document.getElementById('formCreateKey').style.display='none';
+        document.getElementById('formEnterAddress').style.display='block';
+        document.getElementById('formSaveKey').style.display='none';
+        document.getElementById('step2').style.display='none';
+        document.getElementById('formOpenKey').style.display='block';
+        document.getElementById('formSendNewKey').style.display='none';
+      }
+      function hideOpenKey() {
+        document.getElementById('showOpenKey').style.fontWeight='normal';
+        document.getElementById('formEnterAddress').style.display='none';
+        document.getElementById('formOpenKey').style.display='none';
+      }
+      function toggleSetup() {
+        if(document.getElementById('formCreateKey').style.display=='block'){
+          hideSetup();
+        }
+        else{
+          showSetup();
+        }
+      }
+      function showSetup() {
+        document.getElementById('showOpenKey').style.fontWeight='normal';
+        document.getElementById('showSetup').style.fontWeight='bold';
+        document.getElementById('formCreateKey').style.display='block';
+        document.getElementById('formEnterAddress').style.display='block';
+        document.getElementById('formSaveKey').style.display='block';
+        document.getElementById('step2').style.display='block';
+        document.getElementById('formOpenKey').style.display='block';
+        document.getElementById('formSendNewKey').style.display='block';
+      }
+      function hideSetup() {
+        document.getElementById('showSetup').style.fontWeight='normal';
+        document.getElementById('formCreateKey').style.display='none';
+        document.getElementById('formEnterAddress').style.display='none';
+        document.getElementById('formSaveKey').style.display='none';
+        document.getElementById('step2').style.display='none';
+        document.getElementById('formOpenKey').style.display='none';
+        document.getElementById('formSendNewKey').style.display='none';
+      }
+      function toggleNewContact() {
+        if(document.getElementById('formNewContact').style.display=='block'){
+          hideNewContact();
+        }
+        else{
+          showNewContact();
+        }
+      }
+      function showNewContact() {
+        document.getElementById('showNewContact').style.fontWeight='bold';
+        document.getElementById('formNewContact').style.display='block';
+        hideContactsOrder();
+      }
+      function hideNewContact() {
+        document.getElementById('showNewContact').style.fontWeight='normal';
+        document.getElementById('formNewContact').style.display='none';
+      }      
+    </script>
+    <style type=text/css media=all>
+      body {
+        margin: 0pt;
+        padding: 0pt;
+        background-color: white;
+        font-family: Verdana;
+      }
+      p#project {
+        margin: 0pt;
+        padding-top:3pt;
+        padding-right:6pt;
+        padding-bottom:0pt;
+        padding-left:6pt;
+        text-align: left;
+        background-color: white;
+        color: orange;
+        font-size:1.5em;
+        font-weight:bold;
+        float: left;
+      }
+      p#claim {
+        margin: 0pt;
+        padding-top:3pt;
+        padding-right:6pt;
+        padding-bottom:0pt;
+        padding-left:6pt;
+        text-align: right;
+        background-color: white;
+        font-size:0.75em;
+        color: black;
+        float: right;
+      }
+      p.t {
+        clear: both;
+        margin: 0pt;
+        padding: 6pt;
+        background-color: orange;
+        text-align: left;
+        color: white;
+      }
+      p.t A {
+        margin: 0pt;
+        padding: 0pt;
+        text-decoration: none;
+        color: white;
+      }
+      p.t A.s {
+        font-size:0.75em;
+      }
+      p.m { /* menu */
+        clear: both;
+        margin: 0pt;
+        padding: 6pt;
+        text-align: left;
+        background-color: orange;
+        color: white;
+        border-top: white 3pt solid;
+        DISPLAY: none;
+      }
+      p.m A {
+        margin: 0pt;
+        padding: 0pt;
+        text-decoration: none;
+        color: white;
+      }
+      form.h, div.h, p.h {
+        DISPLAY: none;
+      }
+      p.step{
+        font-weight:bold;
+      }
+      span.hint{
+        font-size:0.75em;
+      }
+      #drop_zone {
+        border: 2px dashed #bbb;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        padding: 25px;
+      }
+      div.barOuter{
+        border: orange 2pt solid;
+        padding: 1px;
+        width: 30%;
+        height:20px;
+        background:white;
+        position:relative;
+      }
+      div.barInner{
+        width: 30%;
+        height:100%;
+        background:orange;
+        position:relative;
+      }
+      div.barInnerAni{
+        animation-name:bar;
+        animation-duration:15s;
+        animation-timing-function:linear;
+        animation-delay:2s;
+        animation-iteration-count:infinite;
+        animation-direction:alternate;
+        animation-play-state:paused;
+        /* Safari and Chrome: */
+        -webkit-animation-name:myfirst;
+        -webkit-animation-duration:5s;
+        -webkit-animation-timing-function:linear;
+        -webkit-animation-delay:2s;
+        -webkit-animation-iteration-count:infinite;
+        -webkit-animation-direction:alternate;
+        -webkit-animation-play-state:paused;
+      }
+      @keyframes bar
+      {
+      /*
+        0%   {left: 0%;}
+        50% {left: 70%;}
+        100% {left: 0%;}
+      */
+        from {left:0%;}
+        to {left:70%;}
+      }
+      @-webkit-keyframes bar /* Safari and Chrome */
+      {
+        from {background:red;left:0%;}
+        to {background:yellow;left:100%;}
+      }
+      #info {
+        text-align: center;
+        border-top: white 3pt solid;
+      }
+      #info p {
+        margin: 0pt;
+        padding: 6pt;
+        background-color: white;
+        border-top: orange 6pt solid;
+        color: black;
+      }
+      #info iframe {
+        margin: 0pt;
+        padding: 6pt;
+        width: 80%;
+        height: 128pt;
+      }
+
+
+      #fun form.h table {
+        margin:auto;
+        text-align: left;
+        border-collapse:collapse;
+      }
+      #fun form.h table tr td input.full {/* */
+        width: 100%;
+        padding-top: 0pt;
+        padding-right: 3pt;
+        padding-bottom: 0pt;
+        padding-left: 3pt;
+      }
+      #fun form.h table tr td.b{
+        border-top: #00A000 3pt solid;
+        padding-top:6pt;
+      }
+      #fun form.h table tr td.bx{
+        border-top: white 3pt solid;
+        padding-top:6pt;
+      }
+      #fun form.h table tr td.bt{
+        padding-bottom:6pt;
+      }
+      #fun form.h table tr td.bbt{
+        border-top: #00A000 3pt solid;
+        padding-top:6pt;
+        padding-bottom:6pt;
+      }
+    </style>
+  </head>
+  <body ><!-- onload="init()" onunload="saveThreadsPriKey()" -->
+
+    <input name="action" type="button" value="receiveMsg" onclick="javascript:receiveMsg();">
+    <input name="action" type="button" value="init" onclick="javascript:init();">
+    <input name="action" type="button" value="initUiNodes" onclick="javascript:initUiNodes();">
+    <input name="action" type="button" value="showSelectAddress" onclick="javascript:showSelectAddress();">
+    <input name="action" type="button" value="saveThreadsPriKey" onclick="javascript:saveThreadsPriKey();">
+    
+    <p id=project>
+      PRIME
+    </p>
+    <p id=claim>
+      Private Messaging - RSA-Encrypted - End To End
+    </p>
+
+    <p class=t >
+      <a href="#" id="showSelectAddress" onclick="toggleSelectAddress()" >
+        Initialize
+      </a>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#" id="showCurrentThread" class=s onclick="toggleCurrentThreadMessage()" >
+        &nbsp;
+      </a>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="#" id="showContacts" class=s onclick="toggleContacts()" >
+        Contacts
+      </a>
+
+    </p>
+
+    <p id="menuContactsOrder" class=m >
+      <a href="#" onclick="hideContactsOrder()" >
+        ...
+      </a>
+      &nbsp;
+      <a href="#" id="showContactsOrderAlpha" class=s onclick="toggleContactsOrderTyp()" >
+        A-Z
+      </a>
+      &nbsp;
+      <a href="#" id="showContactsNEW" class=s onclick="toggleContactsOrderTyp()" >
+        *
+      </a>
+    </p>
+
+    <p id="menuAddress" class=m >
+      <a href="#" onclick="hideSelectAddress()" >
+        ...
+      </a>
+      &nbsp;
+      <a href="#" onclick="toggleOpenKey()" id=showOpenKey >
+        Open
+      </a>
+      &nbsp;
+      <a href="#" onclick="toggleSetup()" id=showSetup >
+        Setup
+      </a>
+    </p>
+
+    <form id="formCreateKey" class=h >
+      <p class=step>
+        Step 1: Create a new Key
+      </p>
+
+      <input type="radio" id=512 name="bits" value=512 checked=true />
+      512
+      <br/>
+      <input type="radio" id=1024 name="bits" value=1024 />
+      1024
+      <br/>
+      <input type="radio" id=2048 name="bits" value=2048 />
+      2048
+
+      <br/>
+      <input type="radio" id=4096 name="bits" value=4096 />
+      4096
+      <!-- -->
+      &nbsp;
+      <input name="action" value="Create New Private Key" id="create" onclick="javascript:createPrivateKey();" type="button">
+      &nbsp;
+      <div class="barOuter">
+        <div id="creatingBar" class="barInner barInnerAni">
+        </div>
+      </div>
+    </form>
+
+    <div id="formEnterAddress" class=h >
+      &nbsp;Prime-ID:&nbsp;<input name="Address" id="Address" type="text" size="32" maxlength="32" value="" onchange="handleAddressChanged()" />
+      <div id="formPers"></div>
+    </div>
+
+    <div id="formSaveKey" class=h >
+      <input id="saveAs" style="display: none;" name="action" value="Save Private Key" onclick="javascript:savePrivateKey();" type="button">
+    </div>
+
+    <p class="step h" id=step2>
+      Step 2: Open new Key
+    </p>
+
+    <div id="formOpenKey" class=h >
+      &nbsp;Key-File:&nbsp;
+      <span id="keyfile">
+      </span>
+    </div>
+
+    <form id="formSendNewKey" class=h action="http://conetex.com/cgi-bin/primeUploadPubKey.py" method="get" target="_blank">
+      <p class=step>
+        Step 3: Upload new Key
+      </p>
+      <input id="a" name="a" value="" />
+      <textarea id="publicKey" name="k" cols="65" rows="6" readonly></textarea>
+      <input id="upload" value="Upload" type="submit" >
+    </form>
+
+    <div id="menuFrom" style="display: none;" >
+	    <p id="menuFromAlpha" style="display: none;" ><a href="#" id="showNewContact" onclick="javascript:toggleNewContact()" > + </a></p>
+	    <p id="menuFromManuel" style="display: none;" ><a href="#" id="showNewContact" onclick="javascript:toggleNewContact()" > + </a></p>
+    </div>
+
+    <div id=formNewContact class=h >
+      formNewContact
+      <br>
+      Name:&nbsp;<input id="newContactNick" type="text" size="32" maxlength="16" value="" />
+      <br>
+      Prime-ID:&nbsp;<input id="newcontactID" type="text" size="32" maxlength="16" value="" />
+      <br>
+      <input type="button" value="get Key" onclick="javascript:downloadKeyNew()" >
+      <br>
+      <input type="button" value="save new contact" onclick="javascript:saveNewContact()">
+      <br>
+      <pre id="newKey" >&nbsp;</pre>
+    </div>
+	
+		<div id="formEditContact" style="display: none;" >
+			Name:&nbsp;<input name="Nick" id="Nick" type="text" size="32" maxlength="32" value="" onchange="handleNickChanged()" />
+			<br>
+    	<input id="downLoadKeyCurrent" name="action" type="button" value="Download Key of current Contact" onclick="javascript:downloadKeyCurrent();">
+			<br>
+    	<input id="deleteCurrentThread" name="action" type="button" value="Delete Contact" onclick="javascript:deleteCurrentThread();">    	
+    </div>
+    
+    <input id="buttonDecrypt" style="display: none;" name="action" type="button" value="DECRYPT" onclick="javascript:decryptMsg();">
+    <input id="buttonDeleteMsg" style="display: none;" name="action" type="button" value="Delete" onclick="javascript:deleteMsg();">
+		
+		
+    <form id=formSend style="display: none;" action="http://localhost/cgi-bin/primeDownloadPubKey.py" method="get" target="_blank">
+      Message:
+      <br>
+      <textarea id="msg" name="msg" cols="65" rows="3"></textarea>
+      <input id="encryptButton" value="encryptMsg" type="button" onclick="javascript:encryptMsg();" >
+      <input id="sendButton" value="sendMsg" type="button" onclick="javascript:sendMsg();" >
+    </form>
+
+    <div id=threads style="display: none;" >
+    </div>
+    
+    <div id="info">
+      <p id=msg>
+        --
+      </p>
+      <p>
+        &nbsp;
+      </p>
+    </div>
+
+  </body>
+
+</html>
