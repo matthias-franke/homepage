@@ -1,0 +1,97 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+<head>
+
+<!-- *** INFOS aendern !!! *** -->
+<title>Particularium</title>
+<meta name="description" content="Particularium">
+<meta name="keywords" content="Particularium">
+
+<meta name="generator" content="handgestrickt von Matthias Franke">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8559-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<!-- *** CSS aendern !!! *** -->
+<link rel="stylesheet" href="lrbmstyl.css" type="text/css">
+
+<script language="JavaScript">
+<!--
+/* TXT wuerfeln! */
+
+var url;
+var anzahlhtm;
+var anzahlurl = 3;                 /* url einstellen */
+
+
+anzahlurl = anzahlurl - 1;
+
+function neu()
+{
+
+var y = Math.random();
+y = anzahlurl * y;
+y = Math.round(y);             /* nur wenn die Zählung mit 1 beginnt, nicht 0 */
+
+
+if (y == 0){
+url = "http://www.geocities.com/particularium/htm/";
+anzahlhtm = 4470;
+}
+else{
+
+
+if (y == 1){
+url = "http://www.geocities.com/particularium1/htm/";
+anzahlhtm = 3433;
+}
+else{
+
+if (y == 2){
+url = "http://www.geocities.com/particularium2/htm/";
+anzahlhtm = 2938;
+}
+}
+}
+
+anzahlhtm = anzahlhtm - 1;                    /* <- nötig, denn z.b. bei anzahl=1 */
+                                              /* resultiert wegen round           */
+                                              /* x = 0 oder x = 1                 */
+var x = Math.random();
+x = anzahlhtm * x;
+x = Math.round(x) + 1;             /* nur wenn die Zählung mit 1 beginnt, nicht 0 */
+var datei = url + x + ".html";
+
+parent.txtframe.location.href = datei;
+
+parent.mediframe.location.href = "lrcfjava.htm";                 /* MEDIA aufrufen */
+}
+
+//-->
+</script>
+
+</head>
+<body bgcolor="#C0C0C0">
+
+
+<table width="100%" border="0">
+  <tr>
+    <td class="meta"> matthias franke | April 2001 </td>
+    <td rowspan="2" align="center" valign="bottom">
+      <form>
+        <input type="button" value=" BROWSE ! " onClick="neu()">
+      </form>
+    </td>
+    <td rowspan="2" width="200">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="menubox"> <A HREF="http://www.franke-matthias.de" class="menulink">
+      <img src="indptarw.gif" width="9" height="9" border="0" alt="NAVIGATION">
+      [franke-matthias.de]</A> &nbsp;&gt;&nbsp; <A HREF="http://www.franke-matthias.de/l.htm" class="menulink">
+      [Literarisches]</A> &nbsp;&gt;&nbsp; <A HREF="lrdfinfo.htm" class="menulink" target="txtframe">
+      [Particularium Index]</A> </td>
+  </tr>
+</table>
+
+
+</BODY>
+</html>
