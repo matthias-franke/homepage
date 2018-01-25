@@ -1,0 +1,182 @@
+body{
+ clip : rect(   );
+ font-family: Arial, Helvetica, sans-serif;
+ background-color: #FFFFFF;
+ background-image:url(indpback.gif);
+}
+
+.txt {
+ font-family: Arial, Helvetica, sans-serif;
+ border: 1pt #333333 solid;
+ background-color: #FFFFFF;
+ layer-background-color: #FFFFFF;
+ width: 100%;
+ padding-bottom: 5pt;
+ padding-top: 5pt;
+ padding-left: 5pt;
+ padding-right: 5pt;
+ margin-bottom: 3pt;
+ margin-top: 6pt;
+ margin-left: 0pt;
+ margin-right: 0pt;
+ color: #000000;
+}
+
+p{
+        clip : rect(   );
+        font-size : 13px;
+        text-align : justify;
+        width : 90%;
+        font-family : Arial, Helvetica, sans-serif
+        }
+
+p.V{
+        clip : rect(   );
+        font-size : 11px;
+        text-align : left;
+        width : 90%;
+        }
+
+p.Ua{
+        clip : rect(   );
+        font-size : 15px;
+        text-align : left;
+        }
+
+p.Ub{
+        clip : rect(   );
+        font-size : 14px;
+        margin-left: 10px;
+        text-align : left;
+        }
+
+p.Uc{
+        clip : rect(   );
+        font-size : 13px;
+        margin-left: 20px;
+        text-align : left;
+        }
+
+p.Ud{
+        clip : rect(   );
+        font-size : 12px;
+        margin-left: 30px;
+        text-align : left;
+        }
+
+p.Ue{
+        clip : rect(   );
+        font-size : 11px;
+        margin-left: 40px;
+        text-align : left;
+        }
+
+ul{
+        clip : rect(   );
+        font-size : 12px;
+        text-align : left;
+        width : 85%;
+        }
+
+h1{
+        font-family : Arial, Helvetica, sans-serif;
+        font-size : 20px;
+        text-align : left;
+        }
+
+h2{
+        font-family : Arial, Helvetica, sans-serif;
+        font-size : 18px;
+        text-align : left;
+        }
+
+h3{
+        font-family : Arial, Helvetica, sans-serif;
+        font-size : 16px;
+        text-align : left;
+        }
+
+h4{
+        font-family : Arial, Helvetica, sans-serif;
+        font-size : 14px;
+        text-align : left;
+        }
+
+h5{
+        font-family : Arial, Helvetica, sans-serif;
+        font-size : 13px;
+        text-align : left;
+        }
+
+blockquote{
+        font-family : Arial, Helvetica, sans-serif;
+        clip : rect(   );
+        font-size : 12px;
+        text-align : justify;
+        width : 85%;
+        }
+
+.navibox {
+ border: 1pt #333333 solid;
+ background-color: #CCCCCC;
+ width: auto;
+ padding: 1pt;
+ margin-bottom: 3pt;
+ margin-top: 0pt;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 8pt;
+ color: #333333;
+ text-decoration: none;
+ font-style: normal;
+ line-height: 14pt
+}
+
+.menubox {
+ border: 1pt #333333 solid;
+ background-color: #CCCCCC;
+ width: 100%;
+ padding: 1pt;
+ margin-bottom: 3pt;
+ margin-top: 0pt;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 8pt;
+ color: #333333;
+ text-decoration: none;
+ font-style: normal;
+ line-height: 14pt
+}
+
+.menulink {
+ font-family : Arial, Helvetica, sans-serif;
+ font-size: 8pt;
+ text-decoration:  none;
+ font-style: normal;
+ line-height: 14pt
+}
+
+.meta {
+ font-family: Arial, Helvetica, sans-serif;
+ text-align: right;
+ font-size: 7pt;
+ color: #333333;
+}
+
+a:link {
+ color: #000000;
+ text-decoration:  none
+}
+
+a:active {
+ color: #FF0000;
+ text-decoration:  none
+}
+
+a:hover {
+ color: #FF0000;
+ text-decoration:  none
+}
+
+a:visited {
+ color: #333333;
+ text-decoration:  none
+}

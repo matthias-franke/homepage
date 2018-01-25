@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript" src="_dhtml.js"></script>
+<script type="text/javascript">
+var contentArea;
+var inspectArea;
+
+function mfInit () {
+<!--  contentArea = getElement("id", "contentArea");  -->
+  contentArea = document.getElementById ("contentArea");
+  inspectArea = document.getElementById ("inspectArea");
+}
+
+function mfGo () {
+  contentArea.innerHTML =
+'<iframe src="' + document.URLForm.URL.value + '" width="90%" height="800" name="SELFHTML_in_a_box"><p>Browser can not handle iframes. Use link: <a href="' + document.URLForm.URL.value + '">' + document.URLForm.URL.value + '</a></p> </iframe>';
+}
+
+function mfInspect(contentArea, inspectArea, intend) {
+<!--  contentArea = getElement("id", "contentArea");  -->
+<!-- alert(contentArea.childNodes[i]); -->
+  var p;
+  for (var i = 0; i < contentArea.childNodes.length; i++){
+    if(contentArea.childNodes[i] != null){
+      p = document.createElement("p");
+      if(contentArea.childNodes[i].value != null){
+        p.appendChild( document.createTextNode(intend + contentArea.childNodes[i].value) );
+      }
+      else{
+        p.appendChild( document.createTextNode(intend + contentArea.childNodes[i]) );
+      }
+      inspectArea.appendChild(p);
+      mfInspect(contentArea.childNodes[i], p, intend + "_");
+    }
+  }
+}
+
+</script>
+
+</head>
+<body onload="mfInit()">
+
+<form id="URLForm" name="URLForm" action="" width="400">
+  <input id="URL" name="URL" type="text" align="right" class="display" size="150" maxlength="200" value="http://de.selfhtml.org/html/frames/eingebettete.htm">
+  </br>
+  <input type="button" value="go!" onclick="mfGo()">
+  <input type="button" value="inspect" onclick="mfInspect(contentArea, inspectArea, '')">
+</form>
+<!--<a href="javascript:mfGo()">go!</a>
+http://de.selfhtml.org/html/frames/eingebettete.htm
+https://trade.loginandtrade.com/itp/siteselector_PCICFD.asp
+https://postbank.cityindex.de/default.aspx
+-->
+
+<div id="contentArea" name="contentArea">
+<p value="ssss" >xx</p>
+<p value="dddddd" >xx</p>
+</div>
+<div id="inspectArea" name="inspectArea"></div>
+
+
+</body>
+</html>
