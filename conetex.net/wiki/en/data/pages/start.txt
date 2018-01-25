@@ -1,0 +1,6 @@
+deutsche Version: 
+http://conetex.net/wiki/de/
+
+Project at GitHub: [[http://github.com/conetex/Justus|http://github.com/conetex/Justus]]
+
+Read the [[justus:white_paper|White Paper]]!

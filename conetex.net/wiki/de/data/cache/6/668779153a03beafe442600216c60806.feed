@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://de.wiki.conetex.net/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://de.wiki.conetex.net/feed.php">
+        <title>conetex.net wiki</title>
+        <description></description>
+        <link>http://de.wiki.conetex.net/</link>
+        <image rdf:resource="http://de.wiki.conetex.net/lib/tpl/bootstrap3/images/favicon.ico" />
+       <dc:date>2017-01-20T10:23:00+01:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="http://de.wiki.conetex.net/doku.php?id=start&amp;rev=1484864184&amp;do=diff"/>
+                <rdf:li rdf:resource="http://de.wiki.conetex.net/doku.php?id=sidebar&amp;rev=1484863411&amp;do=diff"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="http://de.wiki.conetex.net/lib/tpl/bootstrap3/images/favicon.ico">
+        <title>conetex.net wiki</title>
+        <link>http://de.wiki.conetex.net/</link>
+        <url>http://de.wiki.conetex.net/lib/tpl/bootstrap3/images/favicon.ico</url>
+    </image>
+    <item rdf:about="http://de.wiki.conetex.net/doku.php?id=start&amp;rev=1484864184&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-01-19T23:16:24+01:00</dc:date>
+        <title>start</title>
+        <link>http://de.wiki.conetex.net/doku.php?id=start&amp;rev=1484864184&amp;do=diff</link>
+        <description>start ...!</description>
+    </item>
+    <item rdf:about="http://de.wiki.conetex.net/doku.php?id=sidebar&amp;rev=1484863411&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-01-19T23:03:31+01:00</dc:date>
+        <dc:creator>wikiadmin</dc:creator>
+        <title>sidebar - angelegt</title>
+        <link>http://de.wiki.conetex.net/doku.php?id=sidebar&amp;rev=1484863411&amp;do=diff</link>
+        <description>seite</description>
+    </item>
+</rdf:RDF>
