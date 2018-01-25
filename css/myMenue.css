@@ -1,0 +1,114 @@
+/* alle Ebenen */
+nav ul 
+{
+	background-color: white;
+
+	list-style: none;
+	list-style-type: none;
+	
+}
+
+nav li { 
+	color: black;
+	background-color: white;
+	
+	/* background-color: green; */
+	border-width: 1px 0px 0px 1px;
+	border-style: solid;
+	border-color: black;
+
+}
+
+nav li[aria-current] {
+	color: white;
+	background-color: black;
+}
+
+nav li:focus,
+nav li:hover
+{
+	color: white;
+	background-color: black;
+}
+
+nav a
+{
+	white-space: nowrap;
+	text-decoration: none;
+	color: inherit;
+	
+	/*
+	
+	background-color: white;
+	*/
+	/*margin: 0.2em;*/
+	/*margin: 0.2em;*/
+	
+	/*
+padding: 0.2em;
+	*/
+
+}
+
+/* 1. Ebene */
+nav > ul 
+{
+	display: flex;
+	flex-direction: row;
+	
+	margin: 0em 0em 0em 0em;
+	padding: 0em 0em 0em 0em;
+}
+
+nav > ul > li  
+{
+	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
+	padding: 0.2em 0.4em 0.2em 0.4em; /* abstand zum rahmen*/
+} 
+
+/* 2. ebene */
+nav li > ul
+{
+	position: absolute;	
+	visibility: hidden;
+	
+	margin: 0.2em 0.4em 0.2em 0.4em;
+	padding: 0em 0em 0em 0em;
+	
+}
+
+nav li:focus > ul,
+nav li:hover > ul
+{
+	visibility: visible;
+}
+
+nav li > ul li 
+{	
+	margin: 0em 0em 0em 0em;    /*  abstand rahmen zum eltern object*/
+	padding: 0.2em 0.4em 0.2em 0.4em; /*  abstand zum rahmen*/
+} 
+
+
+/* 
+nav li:hover .submenu,
+nav li:active .submenu,
+nav li:focus .submenu,
+nav li:focus-within .submenu {
+	background-color: green;
+}  
+*/
+  
+/* ===================================== ab 600 pixel ================================= */
+
+@media (min-width: 600px) {
+
+}
+
+
+/* ===================================== ab 1024 pixel ================================= */
+
+@media (min-width: 1024px) {
+
+}
+
