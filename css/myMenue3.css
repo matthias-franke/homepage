@@ -1,0 +1,80 @@
+/* alle Ebenen */
+nav ul 
+{
+	position: absolute;
+	/*
+	display: block;
+	*/
+	float: clear;
+	/*text-align: center;*/
+	
+	/*
+	display: flex;
+	flex-direction: row;
+	*/
+	background-color: blue;
+	
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-color: red;
+	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
+	padding: 0.2em 0.4em 0.2em 0.4em; /* abstand zum rahmen*/	
+}
+
+nav li { 
+    position: relative;
+	float: left;
+	/*
+	display: flex;
+	
+	flex-direction: column;
+	*/
+	/*
+	display: inline;
+	
+	text-align: center;
+	*/
+	background-color: orange;
+	
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-color: green;
+	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
+	padding: 0.2em 0.4em 0.2em 0.4em; /* abstand zum rahmen*/	
+}
+
+nav li:focus,
+nav li:hover
+{
+	background-color: yellow;
+}
+
+/* 1. Ebene */
+nav > ul 
+{
+	
+}
+
+nav > ul > li  
+{
+	
+} 
+
+/* 2. ebene */
+nav li > ul
+{
+	/*display: none;
+	visibility: hidden;*/
+}
+
+nav li:focus > ul,
+nav li:hover > ul
+{
+	
+	/*display: block;*/
+	visibility: visible;
+}
+
+nav li > ul li 
+{	
+} 

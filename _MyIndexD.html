@@ -1,0 +1,617 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+	<meta name="robots" content="INDEX,FOLLOW">
+	<meta name="page-type" content=" homepage">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="homepage,dokument,webpage,page,web,netz,homepage dokument webpage page web netz">
+	<meta name="description" content="homepage, dokument, webpage, page, web, netz" >
+
+	<title>homepage, dokument, webpage, page, web, netz, homepage dokument webpage page web netz</title>
+
+	<!-- /////////////////// Copyright-Vermerk /////////////////// -->
+	<!-- Der nachfolgende einzeilige Copyright-Vermerk (c) ist nicht zu löschen.-->
+
+
+	<!-- (c)Copyright by S.I.S.Papenburg / www.on-mouseover.de/templates/ -->
+
+
+	<!--Ein Entfernen dieses Copyright/Urheberrecht-Vermerks kann rechtliche Schritte nach sich ziehen -->
+	<!-- ////////////////////////////////////// -->
+
+
+	<!-- Der nachfolgende Hinweis-Vermerk darf gelöscht werden-->
+
+	<!-- Hinweis:
+	Das Anbieten dieser Vorlage auf einer Webseite, CD, DVD oder anderen Bild/Tonträgern ist untersagt.
+	Nutzen dürfen Sie diese Vorlage aber auf einer Webseite wie folgt:
+	Die Vorlage kann privat (kostenlos) und kommerziell/gewerblich (gegen Bezahlung) für Sie selbst oder eine dritte Person (andere Person oder Firma) genutzt werden.
+	Je nach dem Inhalt, welcher eingefügt wird, kann auch für Privatpersonen eine kommerzielle Nutzung vorliegen.
+	Lesen Sie auf der Webseite www.on-mouseover.de/templates/
+	bitte die Nutzungsbedingungen nach.
+	-->
+
+
+	<link rel="stylesheet" href="css/_myMenue3.css" type="text/css">
+
+
+
+	<!-- /////////////////// BROWSERWEICHE  - Conditional Comments für Internet Explorer Vers. 8 und tiefer /////////////////// -->
+
+	<!-- ========== alte IE-Versionen unterhalb Version 9 - lt=lower than IE9 ========== -->
+
+	<!--[if lt IE 9]>
+	   <link href="css/hinweis-alte-ie.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+
+</head>
+<body>
+
+	<nav>
+	  <ul>
+		<li>
+			<a href="#">Seite 1</a>
+		</li>
+
+		<li>
+			<a href="#">Seite 2</a>
+			<ul>
+				<li><a href="#">Seite 2a</a></li>
+				<li><a href="#">Seite 2b</a></li>
+			</ul>
+		</li>
+
+		<li aria-current="page">
+			<a href="#">aktuelle Seite</a>
+		</li>
+
+		<li>
+			<a href="#">Seite 4</a>
+			<ul>
+				<li>
+					<a href="#">Seite 4a</a>
+					<ul>
+						<li><a href="#">Seite 4aa</a></li>
+						<li><a href="#">Seite 4ab</a></li>
+					</ul>				
+				</li>
+				<li><a href="#">Seite 4b</a></li>
+				<li><a href="#">Seite 4c</a></li>
+			</ul>
+		</li>
+
+		<li><a href="#">Seite 5........................................................................................</a></li>
+		<li><a href="#">Seite 6</a></li>
+	  </ul>
+	</nav>
+
+	
+	
+w3schools.com
+THE WORLD'S LARGEST WEB DEVELOPER SITE
+CSS Tutorial
+CSS HOME
+CSS Introduction
+CSS Syntax
+CSS How To
+CSS Colors
+CSS Backgrounds
+CSS Borders
+CSS Margins
+CSS Padding
+CSS Height/Width
+CSS Box Model
+CSS Outline
+CSS Text
+CSS Fonts
+CSS Icons
+CSS Links
+CSS Lists
+CSS Tables
+CSS Display
+CSS Max-width
+CSS Position
+CSS Overflow
+CSS Float
+CSS Inline-block
+CSS Align
+CSS Combinators
+CSS Pseudo-class
+CSS Pseudo-element
+CSS Opacity
+CSS Navigation Bar
+CSS Dropdowns
+CSS Tooltips
+CSS Image Gallery
+CSS Image Sprites
+CSS Attr Selectors
+CSS Forms
+CSS Counters
+CSS Website Layout
+
+CSS Advanced
+CSS Rounded Corners
+CSS Border Images
+CSS Backgrounds
+CSS Colors
+CSS Gradients
+CSS Shadows
+CSS Text Effects
+CSS Web Fonts
+CSS 2D Transforms
+CSS 3D Transforms
+CSS Transitions
+CSS Animations
+CSS Style Images
+CSS object-fit
+CSS Buttons
+CSS Pagination
+CSS Multiple Columns
+CSS User Interface
+CSS Variables
+CSS Box Sizing
+CSS Flexbox
+CSS Media Queries
+CSS MQ Examples
+
+CSS Responsive
+RWD Intro
+RWD Viewport
+RWD Grid View
+RWD Media Queries
+RWD Images
+RWD Videos
+RWD Frameworks
+RWD Templates
+
+CSS Grid
+Grid Intro
+Grid Container
+Grid Item
+
+CSS Examples
+CSS Templates
+CSS Examples
+CSS Quiz
+CSS Exercises
+CSS Certificate
+
+CSS References
+CSS Reference
+CSS Selectors
+CSS Functions
+CSS Reference Aural
+CSS Web Safe Fonts
+CSS Animatable
+CSS Units
+CSS PX-EM Converter
+CSS Colors
+CSS Color Values
+CSS Default Values
+CSS Browser Support
+
+
+CSS Navigation Bar
+Demo: Navigation Bars
+
+Vertical
+
+    Home
+    News
+    Contact
+    About
+
+Horizontal
+
+    Home
+    News
+    Contact
+    About
+
+
+    Home
+    News
+    Contact
+    About
+
+Navigation Bars
+
+Having easy-to-use navigation is important for any web site.
+
+With CSS you can transform boring HTML menus into good-looking navigation bars.
+Navigation Bar = List of Links
+
+A navigation bar needs standard HTML as a base.
+
+In our examples we will build the navigation bar from a standard HTML list.
+
+A navigation bar is basically a list of links, so using the <ul> and <li> elements makes perfect sense:
+Example
+<ul>
+  <li><a href="default.asp">Home</a></li>
+  <li><a href="news.asp">News</a></li>
+  <li><a href="contact.asp">Contact</a></li>
+  <li><a href="about.asp">About</a></li>
+</ul>
+
+Now let's remove the bullets and the margins and padding from the list:
+Example
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+Example explained:
+
+    list-style-type: none; - Removes the bullets. A navigation bar does not need list markers
+    Set margin: 0; and padding: 0; to remove browser default settings
+
+The code in the example above is the standard code used in both vertical, and horizontal navigation bars.
+Vertical Navigation Bar
+
+To build a vertical navigation bar, you can style the <a> elements inside the list, in addition to the code above:
+Example
+li a {
+    display: block;
+    width: 60px;
+}
+
+Example explained:
+
+    display: block; - Displaying the links as block elements makes the whole link area clickable (not just the text), and it allows us to specify the width (and padding, margin, height, etc. if you want)
+    width: 60px; - Block elements take up the full width available by default. We want to specify a 60 pixels width
+
+You can also set the width of <ul>, and remove the width of <a>, as they will take up the full width available when displayed as block elements. This will produce the same result as our previous example:
+Example
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60px;
+}
+
+li a {
+    display: block;
+}
+Vertical Navigation Bar Examples
+
+Create a basic vertical navigation bar with a gray background color and change the background color of the links when the user moves the mouse over them:
+
+    Home
+    News
+    Contact
+    About
+
+Example
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+Active/Current Navigation Link
+
+Add an "active" class to the current link to let the user know which page he/she is on:
+
+    Home
+    News
+    Contact
+    About
+
+Example
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+Center Links & Add Borders
+
+Add text-align:center to <li> or <a> to center the links.
+
+Add the border property to <ul> add a border around the navbar. If you also want borders inside the navbar, add a border-bottom to all <li> elements, except for the last one:
+
+    Home
+    News
+    Contact
+    About
+
+Example
+ul {
+    border: 1px solid #555;
+}
+
+li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+Full-height Fixed Vertical Navbar
+
+Create a full-height, "sticky" side navigation:
+Example
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+Note: This example might not work properly on mobile devices.
+Horizontal Navigation Bar
+
+There are two ways to create a horizontal navigation bar. Using inline or floating list items.
+Inline List Items
+
+One way to build a horizontal navigation bar is to specify the <li> elements as inline, in addition to the "standard" code above:
+Example
+li {
+    display: inline;
+}
+
+Example explained:
+
+    display: inline; - By default, <li> elements are block elements. Here, we remove the line breaks before and after each list item, to display them on one line
+
+Floating List Items
+
+Another way of creating a horizontal navigation bar is to float the <li> elements, and specify a layout for the navigation links:
+Example
+li {
+    float: left;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+Example explained:
+
+    float: left; - use float to get block elements to slide next to each other
+    display: block; - Displaying the links as block elements makes the whole link area clickable (not just the text), and it allows us to specify padding (and height, width, margins, etc. if you want)
+    padding: 8px; - Since block elements take up the full width available, they cannot float next to each other. Therefore, specify some padding to make them look good
+    background-color: #dddddd; - Add a gray background-color to each a element
+
+Tip: Add the background-color to <ul> instead of each <a> element if you want a full-width background color:
+Example
+ul {
+    background-color: #dddddd;
+}
+Horizontal Navigation Bar Examples
+
+Create a basic horizontal navigation bar with a dark background color and change the background color of the links when the user moves the mouse over them:
+
+    Home
+    News
+    Contact
+    About
+
+Example
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+Active/Current Navigation Link
+
+Add an "active" class to the current link to let the user know which page he/she is on:
+
+    Home
+    News
+    Contact
+    About
+
+Example
+.active {
+    background-color: #4CAF50;
+}
+Right-Align Links
+
+Right-align links by floating the list items to the right (float:right;):
+
+    Home
+    News
+    Contact
+    About
+
+Example
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
+Border Dividers
+
+Add the border-right property to <li> to create link dividers:
+
+    Home
+    News
+    Contact
+    About
+
+Example
+/* Add a gray right border to all list items, except the last item (last-child) */
+li {
+    border-right: 1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+Fixed Navigation Bar
+
+Make the navigation bar stay at the top or the bottom of the page, even when the user scrolls the page:
+Fixed Top
+ul {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+Fixed Bottom
+ul {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+Note: These examples might not work properly on mobile devices.
+Gray Horizontal Navbar
+
+An example of a gray horizontal navigation bar with a thin gray border:
+
+    Home
+    News
+    Contact
+    About
+
+Example
+ul {
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li a {
+    color: #666;
+}
+More Examples
+Responsive Topnav
+
+How to use CSS media queries to create a responsive top navigation.
+Responsive Sidenav
+
+How to use CSS media queries to create a responsive side navigation.
+Dropdown Navbar
+
+How to add a dropdown menu inside a navigation bar.
+
+COLOR PICKER
+colorpicker
+HOW TO
+
+Tabs
+Dropdowns
+Accordions
+Convert Weights
+Animated Buttons
+Side Navigation
+Top Navigation
+Modal Boxes
+Progress Bars
+Parallax
+Login Form
+HTML Includes
+Google Maps
+Range Sliders
+Tooltips
+Slideshow
+Filter List
+Sort List
+SHARE
+
+
+CERTIFICATES
+
+HTML, CSS, JavaScript, PHP, jQuery, Bootstrap and XML.
+REPORT ERROR
+PRINT PAGE
+FORUM
+ABOUT
+Top 10 Tutorials
+HTML Tutorial
+CSS Tutorial
+JavaScript Tutorial
+W3.CSS Tutorial
+Bootstrap Tutorial
+SQL Tutorial
+PHP Tutorial
+jQuery Tutorial
+Angular Tutorial
+XML Tutorial
+Top 10 References
+HTML Reference
+CSS Reference
+JavaScript Reference
+W3.CSS Reference
+Browser Statistics
+PHP Reference
+HTML Colors
+HTML Character Sets
+jQuery Reference
+AngularJS Reference
+Top 10 Examples
+HTML Examples
+CSS Examples
+JavaScript Examples
+W3.CSS Examples
+HTML DOM Examples
+PHP Examples
+ASP Examples
+jQuery Examples
+Angular Examples
+XML Examples
+Web Certificates
+HTML Certificate
+CSS Certificate
+JavaScript Certificate
+jQuery Certificate
+PHP Certificate
+Bootstrap Certificate
+XML Certificate
+W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using this site, you agree to have read and accepted our terms of use, cookie and privacy policy. Copyright 1999-2018 by Refsnes Data. All Rights Reserved.
+Powered by W3.CSS.
+
+W3Schools.com
+
+
+
+	
+	
+	
+	
+</body>
+</html>
