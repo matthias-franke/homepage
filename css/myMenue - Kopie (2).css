@@ -1,7 +1,6 @@
 /* alle Ebenen */
 nav ul 
 {
-	
 	background-color: white;
 
 	list-style: none;
@@ -54,13 +53,9 @@ padding: 0.2em;
 /* 1. Ebene */
 nav > ul 
 {
-	position: fixed;
-
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap; 
-	justify-content: center;
-	/**/
+	
 	margin: 0em 0em 0em 0em;
 	padding: 0em 0em 0em 0em;
 }
@@ -76,19 +71,9 @@ nav li > ul
 {
 	position: absolute;	
 	visibility: hidden;
-	/*
-	display: flex;	
-	flex-direction: row;
-	
-	flex-wrap: wrap;
-	
-	justify-content: space-around;
-	align-items: stretch;
-	*/
 	
 	margin: 0.2em 0.4em 0.2em 0.4em;
-	/*padding: 0em 0em 0em 0em;*/
-	padding: 0.2em 0.4em 0.2em 0.4em; /* abstand zum rahmen*/
+	padding: 0em 0em 0em 0em;
 	
 }
 
@@ -100,10 +85,8 @@ nav li:hover > ul
 
 nav li > ul li 
 {	
-	/*margin: 0em 0em 0em 0em;*/    /*  abstand rahmen zum eltern object*/
-	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
+	margin: 0em 0em 0em 0em;    /*  abstand rahmen zum eltern object*/
 	padding: 0.2em 0.4em 0.2em 0.4em; /*  abstand zum rahmen*/
-	
 } 
 
 

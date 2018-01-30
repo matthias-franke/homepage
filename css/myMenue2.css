@@ -1,0 +1,62 @@
+/* alle Ebenen */
+nav ul 
+{
+
+	
+	
+	display: flex;
+	flex-direction: row;
+
+	background-color: yellow;
+	
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-color: red;
+}
+
+nav li { 
+	background-color: orange;
+	
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-color: green;
+}
+
+nav li:focus,
+nav li:hover
+{
+	background-color: grey;
+}
+
+/* 1. Ebene */
+nav > ul 
+{
+/*
+	display: flex;
+	flex-direction: row;
+*/	
+	position: fixed;
+}
+
+nav > ul > li  
+{
+} 
+
+/* 2. ebene */
+nav li > ul
+{
+	display: block;
+	
+}
+
+nav li:focus > ul,
+nav li:hover > ul
+{
+	background-color: grey;
+	
+	display: block;
+}
+
+nav li > ul li 
+{	
+} 
