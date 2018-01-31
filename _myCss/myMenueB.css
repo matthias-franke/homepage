@@ -1,0 +1,94 @@
+
+
+/* NAV all levels */
+nav, .w3-bottom
+{
+	background-color:red;
+
+	position:fixed;
+	width:100%;
+	z-index:1
+
+}
+
+nav
+{
+	top:0
+}
+
+
+nav ul
+{
+float:left;
+}
+
+nav li {
+	border-width: 2px 2px 2px 2px;
+	border-style: solid;
+	border-color: yellow;
+
+	padding:8px 16px;
+	float:left;
+	width:auto;
+	/*border:none;*/
+	display:block;
+	/*width:100%;*//*display:block;*/padding:8px 16px;/*text-align:left;border:none;*/white-space:normal;/*float:none;*/
+	text-align:center
+}
+
+nav a{
+
+}
+
+nav li:focus,
+nav li:hover
+{
+
+}
+
+/* NAV first levels */
+nav > ul
+{
+	width:100%;
+	overflow:hidden;
+	display:inline-block;
+	/*width:auto;*/
+	padding:8px 16px;
+	/*float:left;*/
+	/*width:auto;*/
+	border:none;
+	/*display:block;*/
+	position:static;
+	float:left;
+	white-space:normal;
+
+	text-align:left !important;
+	color:#fff !important;
+	background-color:#000000 !important
+}
+
+/*.w3-bar{width:100%;overflow:hidden}.w3-center .w3-bar{display:inline-block;width:auto}
+.w3-bar .w3-bar-item{padding:8px 16px;float:left;width:auto;border:none;display:block}
+.w3-bar .w3-dropdown-hover,.w3-bar .w3-dropdown-click{position:static;float:left}
+.w3-bar .w3-button{white-space:normal}*/
+
+nav > ul > li
+{
+
+}
+
+/* NAV first levels */
+nav li > ul
+{
+
+}
+
+nav li:focus > ul,
+nav li:hover > ul
+{
+
+}
+
+nav li > ul li
+{
+}
