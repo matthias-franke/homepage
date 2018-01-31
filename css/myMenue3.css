@@ -1,52 +1,59 @@
 /* alle Ebenen */
+nav + p
+{
+	/*
+	position: absolute;
+	top: 3em;
+	*/
+	/*
+	border-width: 1px 0px 0px 0px;
+	border-style: solid;
+	border-color: red;
+	*/
+	padding: 3em 0em 0em 0em;
+}
+
 nav ul 
 {
 	position: absolute;
-	/*
-	display: block;
-	*/
-	float: clear;
-	/*text-align: center;*/
 	
-	/*
-	display: flex;
-	flex-direction: row;
-	*/
-	background-color: blue;
 	
-	border-width: 1px 1px 1px 1px;
+	background-color: white;
+	border-width: 0px 1px 1px 0px;
 	border-style: solid;
-	border-color: red;
+	border-color: black;
+	
 	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
 	padding: 0.2em 0.4em 0.2em 0.4em; /* abstand zum rahmen*/	
 }
 
-nav li { 
-    position: relative;
+nav li {
+	position: static;
+	display: block;
 	float: left;
-	/*
-	display: flex;
-	
-	flex-direction: column;
-	*/
-	/*
-	display: inline;
-	
 	text-align: center;
-	*/
-	background-color: orange;
-	
-	border-width: 1px 1px 1px 1px;
+
+	color: black;
+	background-color: white;
+	border-width: 1px 0px 0px 1px;
 	border-style: solid;
-	border-color: green;
+	border-color: black;
+	
 	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
 	padding: 0.2em 0.4em 0.2em 0.4em; /* abstand zum rahmen*/	
+}
+
+nav a{
+	white-space: nowrap;
+	text-decoration: none;
+	color: inherit;
 }
 
 nav li:focus,
 nav li:hover
 {
-	background-color: yellow;
+	color: white;
+	background-color: black;
 }
 
 /* 1. Ebene */
@@ -63,8 +70,8 @@ nav > ul > li
 /* 2. ebene */
 nav li > ul
 {
-	/*display: none;
-	visibility: hidden;*/
+	/*display: none;*/
+	visibility: hidden;
 }
 
 nav li:focus > ul,
