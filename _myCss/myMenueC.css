@@ -1,97 +1,109 @@
-nav, .w3-bottom /* w3-top */
-{ 
-background-color:red;
 
+
+
+
+/**********************************/
+
+nav, .w3-bottom /* w3-top */
+{
 	position:fixed;
 	width:100%;
-	z-index:1
+	z-index:1;
+	background-color: black;
 }
 
 nav /* w3-top */
-{ 
+{
 /* --> w3-top */
 	top:0
 }
 
-/* alle Ebenen */
-nav p
+/* ==> NAV all levels */
+nav ul
 {
-	position: absolute;
-	display: block;
-	/*background-color: white;*/
-	border-width: 0px 1px 1px 0px;
-	border-style: solid;
-	border-color: black;
-	
-	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
-	padding: 0.2em 0.4em 0.2em 0.4em /* abstand zum rahmen*/	
+
+    list-style-type: none;
+		margin: 0em 0em 0em 0em;    /* abstand rahmen zum eltern object*/
+		padding: 0em 0em 0em 0em;   /* abstand zum rahmen*/
+		overflow: visible;
+
+		color: white;
+		background-color: black;
 }
 
 nav li {
-	position: static;
-	display: block;
-	
-	float: left;
-	text-align: center;
+		float: left;
 
-	color: black;
-	/*background-color: white;*/
-	border-width: 1px 0px 0px 1px;
-	border-style: solid;
-	border-color: black;
-	
-	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
-	padding: 0.2em 0.4em 0.2em 0.4em /* abstand zum rahmen*/	
+		margin: 0em 0em 0em 0em;        /* abstand rahmen zum eltern object*/
+		padding: 0.4em 0em 0.4em 0em;    /* abstand zum rahmen*/
+
+		color: inherit;
+		background-color: inherit
 }
 
-nav a{
-	white-space: nowrap;
-	text-decoration: none;
-	color: inherit
+nav li:last-child{
+	float: clear;
 }
 
 nav li:focus,
 nav li:hover
 {
-	color: white;
-	background-color: black
+	color: black;
+	background-color: white
+}
+/*
+@media screen and (max-width: 600px){
+    nav li, nav li:last-child {float: none; background-color:blue;}
+}*/
+
+nav a{
+	display: inline;
+	white-space: nowrap;
+	text-decoration: none;
+
+	margin: 0em 0em 0em 0em;         /* abstand rahmen zum eltern object*/
+	padding: 0em 0.8em 0em 0.8em;    /* abstand zum rahmen*/
+
+	color: inherit
 }
 
-/* 1. Ebene */
-nav > ul 
+
+
+/* ==> NAV first level */
+nav > ul
 {
-	position: static;
-	display: block;
+
 }
 
-nav > ul > li  
+nav > ul > li
 {
-	
-} 
 
-/* 2. ebene */
+}
+
+nav > ul > li:last-child {
+	float: right;
+	border-right: none
+}
+
+/* ==> NAV next levels */
 nav li > ul
 {
-background-color: green;
-
-	position: absolute;
 	display: none;
 	visibility: hidden;
-	
 
+	position: absolute;
+
+	margin: 0.4em 0em 0em 0em    /* abstand rahmen zum eltern object*/
 }
 
 nav li:focus > ul,
 nav li:hover > ul
 {
 	display: block;
-	visibility: visible;
-		z-index:1;
-	min-width:100%;	
+	visibility: visible
 }
 
-nav li > ul li 
-{	
-	
-	float:left
-} 
+nav li > ul li
+{
+
+}
