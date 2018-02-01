@@ -1,0 +1,97 @@
+nav, .w3-bottom /* w3-top */
+{ 
+background-color:red;
+
+	position:fixed;
+	width:100%;
+	z-index:1
+}
+
+nav /* w3-top */
+{ 
+/* --> w3-top */
+	top:0
+}
+
+/* alle Ebenen */
+nav p
+{
+	position: absolute;
+	display: block;
+	/*background-color: white;*/
+	border-width: 0px 1px 1px 0px;
+	border-style: solid;
+	border-color: black;
+	
+	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
+	padding: 0.2em 0.4em 0.2em 0.4em /* abstand zum rahmen*/	
+}
+
+nav li {
+	position: static;
+	display: block;
+	
+	float: left;
+	text-align: center;
+
+	color: black;
+	/*background-color: white;*/
+	border-width: 1px 0px 0px 1px;
+	border-style: solid;
+	border-color: black;
+	
+	margin: 0.2em 0.4em 0.2em 0.4em;    /* abstand rahmen zum eltern object*/
+	padding: 0.2em 0.4em 0.2em 0.4em /* abstand zum rahmen*/	
+}
+
+nav a{
+	white-space: nowrap;
+	text-decoration: none;
+	color: inherit
+}
+
+nav li:focus,
+nav li:hover
+{
+	color: white;
+	background-color: black
+}
+
+/* 1. Ebene */
+nav > ul 
+{
+	position: static;
+	display: block;
+}
+
+nav > ul > li  
+{
+	
+} 
+
+/* 2. ebene */
+nav li > ul
+{
+background-color: green;
+
+	position: absolute;
+	display: none;
+	visibility: hidden;
+	
+
+}
+
+nav li:focus > ul,
+nav li:hover > ul
+{
+	display: block;
+	visibility: visible;
+		z-index:1;
+	min-width:100%;	
+}
+
+nav li > ul li 
+{	
+	
+	float:left
+} 

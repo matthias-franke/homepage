@@ -1,54 +1,24 @@
+/* ==> NAV all levels */
+nav, .w3-bottom /* w3-top */
+{ 
+background-color:red;
 
-
-/* NAV all levels */
-nav, .w3-bottom
-{
-	background-color:red;
-
+/* --> w3-top */
 	position:fixed;
 	width:100%;
 	z-index:1
-
 }
 
-nav
-{
+nav /* w3-top */
+{ 
+/* --> w3-top */
 	top:0
 }
 
-
-nav ul
-{
-float:left;
-}
-
-nav li {
-	border-width: 2px 2px 2px 2px;
-	border-style: solid;
-	border-color: yellow;
-
-	padding:8px 16px;
-	float:left;
-	width:auto;
-	/*border:none;*/
-	display:block;
-	/*width:100%;*//*display:block;*/padding:8px 16px;/*text-align:left;border:none;*/white-space:normal;/*float:none;*/
-	text-align:center
-}
-
-nav a{
-
-}
-
-nav li:focus,
-nav li:hover
-{
-
-}
-
-/* NAV first levels */
-nav > ul
-{
+/* ==> NAV first level */
+nav > ul /* w3-bar w3-theme-d2 w3-left-align */
+{ 
+/* --> w3-bar */
 	width:100%;
 	overflow:hidden;
 	display:inline-block;
@@ -61,34 +31,166 @@ nav > ul
 	position:static;
 	float:left;
 	white-space:normal;
-
-	text-align:left !important;
+/* --> w3-theme-d2 */	
 	color:#fff !important;
 	background-color:#000000 !important
+/* --> w3-left-align */
+	text-align:left !important;
 }
 
-/*.w3-bar{width:100%;overflow:hidden}.w3-center .w3-bar{display:inline-block;width:auto}
-.w3-bar .w3-bar-item{padding:8px 16px;float:left;width:auto;border:none;display:block}
-.w3-bar .w3-dropdown-hover,.w3-bar .w3-dropdown-click{position:static;float:left}
-.w3-bar .w3-button{white-space:normal}*/
-
-nav > ul > li
+nav > ul > li.dropdown /* w3-dropdown-hover w3-hide-small */
 {
-
+/* --> w3-dropdown-hover */
+	/*position:relative;*/
+	display:inline-block;
+	cursor:pointer;
+	
+	/*width:100%;
+	min-width:100%;
+	 ###> damit funktioniert der Fluss nichtmehr, alles untereinander...*/
+	position:static;
+	float:left
 }
 
-/* NAV first levels */
-nav li > ul
+nav > ul > li.dropdown:hover /* w3-dropdown-hover */
 {
-
+/* --> w3-dropdown-hover:hover */
+	display:block
 }
 
-nav li:focus > ul,
-nav li:hover > ul
+nav > ul > li.dropdown:hover a /* w3-button */
 {
+/* --> w3-dropdown-hover:hover > w3-button:first-child, w3-dropdown-click:hover > w3-button:first-child */
+	/*background-color:#ccc;*/
+	color:#000;
 
 }
 
-nav li > ul li
+nav > ul ~ a/* w3-button */
 {
+/* --> w3-button */	
+
+background-color:yellow;
+
+	/*border:none; ###> ok, dev*/
+	/*display:inline-block;*/
+	padding:8px 16px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	/*background-color:inherit;*/
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	
+	/*width:100%; */
+	text-align:left;
+	padding:8px 16px;
+	
+	white-space:normal;
 }
+
+nav > ul ~ a:disabled /* w3-button */
+{
+/* --> w3-button:disabled */ 
+	cursor:not-allowed;
+	opacity:0.3
+}
+
+nav > ul > li:hover
+{
+border-width: 2px 2px 2px 2px;
+border-style: solid;
+border-color: orange;
+background-color:green;
+
+
+}
+
+nav > ul > li 
+/*,nav > ul > li > a*/  /* w3-bar-item w3-button w3-hide-small */
+{
+/* --> w3-bar-item */
+	padding:8px 16px;
+	float:left;
+	width:auto;
+	/*border:none;*/
+	display:block;
+	/*width:100%;*//*display:block;padding:8px 16px;*//*text-align:left;border:none;white-space:normal;*//*float:none;*/
+	text-align:center;
+/* --> w3-button */	
+	/*border:none; ###> ok, dev*/
+	/*display:inline-block;*/
+	padding:8px 16px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:inherit;
+	background-color:inherit;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap;
+	
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	
+	/*width:100%; */
+	text-align:left;
+	padding:8px 16px;
+	
+	white-space:normal
+	
+}
+
+@media (max-width:600px){
+	nav > ul > li  /* w3-bar-item w3-button w3-hide-small */
+	{
+	/* --> w3-hide-small */ 
+		display:none!important
+	}
+}
+
+nav > ul > li > a:hover  /* w3-hover-white */
+{
+/* --> w3-hover-white:hover */ 
+	background-color:#fff!important;	
+	color:#000!important
+}
+
+/* ==> NAV next levels */
+nav li > ul /* w3-dropdown-content w3-card-4 w3-bar-block */
+{
+/* --> w3-dropdown-content */
+	cursor:auto;
+	color:#000;
+	background-color:#fff;
+	display:none;
+	position:absolute;
+	min-width:160px;
+	margin:0;
+	padding:0;
+	z-index:1;
+	min-width:100%;	
+/* --> w3-card-4 */	
+	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)
+}
+
+nav > ul > li.dropdown:hover  > ul /* w3-dropdown-content */
+{
+/* --> w3-dropdown-hover:hover w3-dropdown-content */
+	display:block
+}
+
+
