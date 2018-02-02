@@ -12,48 +12,10 @@
 
 	<title>homepage, dokument, webpage, page, web, netz, homepage dokument webpage page web netz</title>
 
-	<!-- /////////////////// Copyright-Vermerk /////////////////// -->
-	<!-- Der nachfolgende einzeilige Copyright-Vermerk (c) ist nicht zu löschen.
-
-	https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_website&stacked=h
-
-	https://www.w3schools.com/w3css/tryw3css_templates_website.htm#
-
-	-->
-
-
-	<!-- (c)Copyright by S.I.S.Papenburg / www.on-mouseover.de/templates/ -->
-
-
-	<!--Ein Entfernen dieses Copyright/Urheberrecht-Vermerks kann rechtliche Schritte nach sich ziehen -->
-	<!-- ////////////////////////////////////// -->
-
-
-	<!-- Der nachfolgende Hinweis-Vermerk darf gelöscht werden-->
-
-	<!-- Hinweis:
-	Das Anbieten dieser Vorlage auf einer Webseite, CD, DVD oder anderen Bild/Tonträgern ist untersagt.
-	Nutzen dürfen Sie diese Vorlage aber auf einer Webseite wie folgt:
-	Die Vorlage kann privat (kostenlos) und kommerziell/gewerblich (gegen Bezahlung) für Sie selbst oder eine dritte Person (andere Person oder Firma) genutzt werden.
-	Je nach dem Inhalt, welcher eingefügt wird, kann auch für Privatpersonen eine kommerzielle Nutzung vorliegen.
-	Lesen Sie auf der Webseite www.on-mouseover.de/templates/
-	bitte die Nutzungsbedingungen nach.
-	-->
-
-
 	<link rel="stylesheet" href="_myCss/myMenueC.css" type="text/css">
 	<link rel="stylesheet" href="_myCss/w3.css">
 	<link rel="stylesheet" href="_myCss/w3-theme-black.css">
 	<link rel="stylesheet" href="_myCss/font-awesome.min.css">
-
-
-	<!-- /////////////////// BROWSERWEICHE  - Conditional Comments für Internet Explorer Vers. 8 und tiefer /////////////////// -->
-
-	<!-- ========== alte IE-Versionen unterhalb Version 9 - lt=lower than IE9 ========== -->
-
-	<!--[if lt IE 9]>
-	   <link href="css/hinweis-alte-ie.css" rel="stylesheet" type="text/css"/>
-	<![endif]-->
 
 </head>
 <body>
@@ -92,7 +54,6 @@
 			  -->
 			</ul>
 
-
 		</li>
 
 		<li aria-current="page">
@@ -119,14 +80,15 @@
 					</ul>
 				</li>
 
-
-
 			</ul>
 
 		</li>
 
 		<li><a href="#">Seite 5</a></li>
 		<li><a href="#">Seite 6</a></li>
+		<li><a  href="javascript:void(0)" onclick="w3_open()">Y<i class="fa fa-bars"></i>X</a></li>
+		<!-- class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" -->
+		    
 	  </ul>
 	</nav>
 
@@ -169,7 +131,7 @@ nav li > ul > a
 </div>
 
 	 <!-- Sidebar on click -->
-	 <nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+	 <div class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
 	   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
 	     <i class="fa fa-remove"></i>
 	   </a>
@@ -178,7 +140,7 @@ nav li > ul > a
 	   <a href="#" class="w3-bar-item w3-button">Link 3</a>
 	   <a href="#" class="w3-bar-item w3-button">Link 4</a>
 	   <a href="#" class="w3-bar-item w3-button">Link 5</a>
-	 </nav>
+	 </div>
 
 	 <h1>Lorem ipsum</h1>
 	 <h2>Opera sine nomine scripta</h2>
@@ -198,7 +160,7 @@ nav li > ul > a
 
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+<footer>
   <h4>Follow Us</h4>
   <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook"></i></a>
   <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a>
@@ -215,28 +177,28 @@ nav li > ul > a
 </footer>
 
 <script>
-// Script for side navigation
-function w3_open() {
-    var x = document.getElementById("mySidebar");
-    x.style.width = "300px";
-    x.style.paddingTop = "10%";
-    x.style.display = "block";
-}
+	// Script for side navigation
+	function w3_open() {
+		var x = document.getElementById("mySidebar");
+		x.style.width = "300px";
+		x.style.paddingTop = "10%";
+		x.style.display = "block";
+	}
 
-// Close side navigation
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-}
+	// Close side navigation
+	function w3_close() {
+		document.getElementById("mySidebar").style.display = "none";
+	}
 
-// Used to toggle the menu on smaller screens when clicking on the menu button
-function openNav() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
+	// Used to toggle the menu on smaller screens when clicking on the menu button
+	function openNav() {
+		var x = document.getElementById("navDemo");
+		if (x.className.indexOf("w3-show") == -1) {
+			x.className += " w3-show";
+		} else {
+			x.className = x.className.replace(" w3-show", "");
+		}
+	}
 </script>
 
 </body>

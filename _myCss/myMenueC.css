@@ -1,56 +1,73 @@
-
-
-
+/**********************************/
+/* ##> black **********************/
+nav, footer, nav ul /* w3-top */
+{
+	color: white;
+	background-color: black
+}
 
 /**********************************/
-
-nav, .w3-bottom /* w3-top */
-{
-	position:fixed;
-	width:100%;
-	z-index:1;
-	background-color: black;
-}
-
-nav /* w3-top */
-{
-/* --> w3-top */
-	top:0
-}
-
-/* ==> NAV all levels */
-nav ul
-{
-
-    list-style-type: none;
-		margin: 0em 0em 0em 0em;    /* abstand rahmen zum eltern object*/
-		padding: 0em 0em 0em 0em;   /* abstand zum rahmen*/
-		overflow: visible;
-
-		color: white;
-		background-color: black;
-}
-
-nav li {
-		float: left;
-
-		margin: 0em 0em 0em 0em;        /* abstand rahmen zum eltern object*/
-		padding: 0.4em 0em 0.4em 0em;    /* abstand zum rahmen*/
-
-		color: inherit;
-		background-color: inherit
-}
-
-nav li:last-child{
-	float: clear;
-}
-
+/* ##> white **********************/
 nav li:focus,
 nav li:hover
 {
 	color: black;
 	background-color: white
 }
+
+/**********************************/
+/* ##> fixed **********************/
+nav, footer /* w3-top */
+{
+	position:fixed;
+	width:100%;
+	z-index:1
+}
+
+/**********************************/
+/* ==> FOOTER *********************/
+footer /* w3-top */
+{
+	bottom:0
+}
+
+/**********************************/
+/* ==> NAV ************************/
+nav /* w3-top */
+{
+/* --> w3-top */
+	top:0
+}
+
+/* ==> NAV Level all **************/
+nav ul
+{
+    list-style-type: none;
+	margin: 0em 0em 0em 0em;    /* abstand rahmen zum eltern object*/
+	padding: 0em 0em 0em 0em;   /* abstand zum rahmen*/
+	overflow: visible
+}
+
+nav li {
+	float: left;
+
+	margin: 0em 0em 0em 0em;        /* abstand rahmen zum eltern object*/
+	padding: 0.4em 0em 0.4em 0em;   /* abstand zum rahmen*/
+
+	color: inherit;
+	background-color: inherit
+}
+
+nav li:last-child{
+	float: clear
+}
+
+nav li:focus,
+nav li:hover
+{
+
+}
+
 /*
 @media screen and (max-width: 600px){
     nav li, nav li:last-child {float: none; background-color:blue;}
@@ -67,17 +84,13 @@ nav a{
 	color: inherit
 }
 
-
-
-/* ==> NAV first level */
+/* ==> NAV Level first ************/
 nav > ul
 {
-
 }
 
 nav > ul > li
 {
-
 }
 
 nav > ul > li:last-child {
@@ -85,7 +98,7 @@ nav > ul > li:last-child {
 	border-right: none
 }
 
-/* ==> NAV next levels */
+/* ==> NAV Level next *************/
 nav li > ul
 {
 	display: none;
