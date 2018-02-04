@@ -1,6 +1,6 @@
 /**********************************/
 /* ##> black **********************/
-nav, footer, nav ul /* w3-top */
+nav, nav ul, #menu, footer /* w3-top */
 {
 	color: white;
 	background-color: black
@@ -25,14 +25,12 @@ nav, footer /* w3-top */
 }
 
 /**********************************/
-/* ==> FOOTER *********************/
-footer /* w3-top */
+/* ==> NAV ************************/
+@media screen and (max-width: 600px)
 {
-	bottom:0
+    nav li, nav li:last-child {float: none; background-color:blue;}
 }
 
-/**********************************/
-/* ==> NAV ************************/
 nav /* w3-top */
 {
 /* --> w3-top */
@@ -42,13 +40,14 @@ nav /* w3-top */
 /* ==> NAV Level all **************/
 nav ul
 {
-    list-style-type: none;
+	list-style-type: none;
 	margin: 0em 0em 0em 0em;    /* abstand rahmen zum eltern object*/
 	padding: 0em 0em 0em 0em;   /* abstand zum rahmen*/
 	overflow: visible
 }
 
-nav li {
+nav li
+{
 	float: left;
 
 	margin: 0em 0em 0em 0em;        /* abstand rahmen zum eltern object*/
@@ -58,7 +57,8 @@ nav li {
 	background-color: inherit
 }
 
-nav li:last-child{
+nav li:last-child
+{
 	float: clear
 }
 
@@ -68,12 +68,8 @@ nav li:hover
 
 }
 
-/*
-@media screen and (max-width: 600px){
-    nav li, nav li:last-child {float: none; background-color:blue;}
-}*/
-
-nav a{
+nav a
+{
 	display: inline;
 	white-space: nowrap;
 	text-decoration: none;
@@ -93,7 +89,8 @@ nav > ul > li
 {
 }
 
-nav > ul > li:last-child {
+nav > ul > li:last-child
+{
 	float: right;
 	border-right: none
 }
@@ -119,4 +116,45 @@ nav li:hover > ul
 nav li > ul li
 {
 
+}
+
+/**********************************/
+/* ==> MENU ***********************/
+#menu
+{
+	position: static;
+	z-index:0;
+	/*
+	top:0;
+	left: 0;
+*/
+	float: right;
+
+	white-space: nowrap;
+	text-decoration: none;
+
+	margin: 0em 0em 0em 0em;         /* abstand rahmen zum eltern object*/
+	padding: 0.4em 0.8em 0.4em 0.8em;    /* abstand zum rahmen*/
+	color: white
+
+}
+
+/**********************************/
+/* ==> CONTENT ********************/
+#menu + *
+{
+	position: static;
+	text-align: left;
+
+	margin-top: 0em;         /* abstand rahmen zum eltern object*/
+	padding-top: 1em;    /* abstand zum rahmen*/
+	color: black;
+  background-color: yellow
+}
+
+/**********************************/
+/* ==> FOOTER *********************/
+footer /* w3-top */
+{
+	bottom:0
 }
