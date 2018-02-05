@@ -34,27 +34,52 @@ nav, footer /* w3-top */
 nav /* w3-top */
 {
 /* --> w3-top */
-	top:0
+	top:0;
+	font-size: 1rem
 }
 
 /* ==> NAV Level all **************/
 nav ul
 {
+	counter-reset: li_cnt;
+
 	list-style-type: none;
-	margin: 0em 0em 0em 0em;    /* abstand rahmen zum eltern object*/
-	padding: 0em 0em 0em 0em;   /* abstand zum rahmen*/
-	overflow: visible
+	margin: 0rem 0rem 0rem 0rem;    /* abstand rahmen zum eltern object*/
+	padding: 0rem 0rem 0rem 0rem;   /* abstand zum rahmen*/
+	overflow: display
 }
 
 nav li
 {
+	counter-increment: li_cnt;
+	--z: calc(3*4px);
+	--x: var(--z);
+	font-size: var(--x);
+	--y: calc( var(--len, 0) + 4 );
 	float: left;
 
-	margin: 0em 0em 0em 0em;        /* abstand rahmen zum eltern object*/
-	padding: 0.4em 0em 0.4em 0em;   /* abstand zum rahmen*/
+	margin: var(--z) 0rem 0rem 0rem;        /* abstand rahmen zum eltern object*/
+	padding: 0.4rem 0rem 0.4rem 0rem;   /* abstand zum rahmen*/
 
 	color: inherit;
-	background-color: inherit
+	background-color: inherit;
+	overflow: display
+}
+
+nav li::before
+{
+	/*
+	content: "~" var(--len,'?') "." counter(li_cnt) ": ";
+	content: calc( var(--len, 0) + counter(li_cnt) );
+	*/
+	content: "-" var(--len, 0) ;
+}
+
+nav li::after
+{
+	/*
+	content: " (" calc( var(--len) * var(--idx) ) ")"
+	*/
 }
 
 nav li:last-child
@@ -74,8 +99,8 @@ nav a
 	white-space: nowrap;
 	text-decoration: none;
 
-	margin: 0em 0em 0em 0em;         /* abstand rahmen zum eltern object*/
-	padding: 0em 0.8em 0em 0.8em;    /* abstand zum rahmen*/
+	margin: 0rem 0rem 0rem 0rem;         /* abstand rahmen zum eltern object*/
+	padding: 0rem 0.8rem 0rem 0.8rem;    /* abstand zum rahmen*/
 
 	color: inherit
 }
@@ -83,10 +108,12 @@ nav a
 /* ==> NAV Level first ************/
 nav > ul
 {
+
 }
 
 nav > ul > li
 {
+
 }
 
 nav > ul > li:last-child
@@ -103,7 +130,9 @@ nav li > ul
 
 	position: absolute;
 
-	margin: 0.4em 0em 0em 0em    /* abstand rahmen zum eltern object*/
+
+
+	margin: 0.4rem 0rem 0rem 0rem    /* abstand rahmen zum eltern object*/
 }
 
 nav li:focus > ul,
@@ -127,14 +156,16 @@ nav li > ul li
 	/*
 	top:0;
 	left: 0;
-*/
+	*/
 	float: right;
 
 	white-space: nowrap;
 	text-decoration: none;
 
-	margin: 0em 0em 0em 0em;         /* abstand rahmen zum eltern object*/
-	padding: 0.4em 0.8em 0.4em 0.8em;    /* abstand zum rahmen*/
+	font-size: 1rem;
+
+	margin: 0rem 0rem 0rem 0rem;         /* abstand rahmen zum eltern object*/
+	padding: 0.4rem 0.8rem 0.4rem 0.8rem;    /* abstand zum rahmen*/
 	color: white
 
 }
@@ -146,8 +177,8 @@ nav li > ul li
 	position: static;
 	text-align: left;
 
-	margin-top: 0em;         /* abstand rahmen zum eltern object*/
-	padding-top: 1em;    /* abstand zum rahmen*/
+	margin-top: 0rem;         /* abstand rahmen zum eltern object*/
+	padding-top: 1.8rem;    /* abstand zum rahmen*/
 	color: black;
   background-color: yellow
 }

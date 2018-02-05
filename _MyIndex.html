@@ -29,22 +29,22 @@
 			</li>
 			<li><a href="#"><i class="fa fa-home w3-margin-right"></i>Logo</a></li>
 	-->
-			<li><a href="#">Seite 1</a></li>
+			<li ><a href="#">Seite 1</a></li>
 
 			<li>
 				<a href="#">Seite 2</a>
-				<ul>
+				<ul style="--len:3;">
 
 					<li>
 						<a href="#">Seite 2bc</a>
-						<ul>
-							<li><a href="#">Seite 2bca</a></li>
-							<li><a href="#">Seite 2bcb</a></li>
+						<ul style="--len:5;">
+							<li id="a"><a href="#">Seite 2bca</a></li>
+							<li id="b"><a href="#">Seite 2bcb</a></li>
 						</ul>
 					</li>
 
-					<li><a href="#">Seite 2a</a></li>
-					<li><a href="#">Seite 2b</a></li>
+					<li  id="c"><a href="#">Seite 2a</a></li>
+					<li id="d"><a href="#">Seite 2b</a></li>
 
 					<!--
 					<li><a href="#">Seite 2c</a></li>
@@ -136,6 +136,8 @@
 
 <script>
 
+
+
 	function toggleDisplay(id) {
 		e = document.getElementById(id);
 		if(e != null){
@@ -146,6 +148,22 @@
 				e.style.display = "none";
 			}
 		}
+
+		alert(
+			window.getComputedStyle( document.getElementById('a') ).getPropertyValue('--x') + " | " +
+			window.getComputedStyle( document.getElementById('b') ).getPropertyValue('--x') + " | " +
+			window.getComputedStyle( document.getElementById('c') ).getPropertyValue('--x') + " | " +
+			window.getComputedStyle( document.getElementById('d') ).getPropertyValue('--x') + " | " +
+
+			window.getComputedStyle( document.getElementById('a') ).getPropertyValue('font-size') + " | " +
+			window.getComputedStyle( document.getElementById('b') ).getPropertyValue('font-size') + " | " +
+			window.getComputedStyle( document.getElementById('c') ).getPropertyValue('font-size') + " | " +
+			window.getComputedStyle( document.getElementById('d') ).getPropertyValue('font-size')
+
+
+		);
+
+
 	}
 
 
