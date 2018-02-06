@@ -1,0 +1,236 @@
+/**********************************/
+/* ##> tests **********************/
+#outer
+{
+	border: 3px solid green;
+	position: relative;
+}
+
+#inner
+{
+	border: 3px solid red;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+/*
+width: auto;
+margin-left: auto;
+margin-right: auto;
+*/
+}
+
+/* ~~~~> test counter and custom properties */
+#list li
+{
+	counter-increment: li_cnt;
+	--z: calc(3*4px);
+	--x: var(--z);
+	font-size: var(--x);
+	--y: calc( var(--len, 0) + 4 );
+}
+
+#list li::before
+{
+	/*
+	content: "~" var(--len,'?') "." counter(li_cnt) ": ";
+	content: calc( var(--len, 0) + counter(li_cnt) );
+	*/
+	content: "-" var(--len, 0) ;
+}
+
+/*
+#list li::after
+{
+	content: " (" calc( var(--len) * var(--idx) ) ")"
+}
+*/
+/* <~~~~ test counter and custom properties */
+
+
+/**********************************/
+/* ##> black **********************/
+nav, nav ul, #menu, footer /* w3-top */
+{
+	color: white;
+	background-color: black
+}
+
+/**********************************/
+/* ##> white **********************/
+nav li:focus,
+nav li:hover
+{
+	color: black;
+	background-color: white
+}
+
+/**********************************/
+body
+{
+	margin: 0rem 0rem 0rem 0rem;    /* abstand rahmen zum eltern object*/
+	padding: 0rem 0rem 0rem 0rem;   /* abstand zum rahmen*/
+	--main-width: 400pt;/*calc(100% - 100px);*/
+}
+
+/**********************************/
+/* ##> fixed **********************/
+nav, footer /* w3-top */
+{
+	position:fixed;
+	width:100%;
+	z-index:1
+}
+
+/**********************************/
+/* ==> NAV ************************/
+@media screen and (max-width: 600px)
+{
+    nav li, nav li:last-child {float: none; background-color:blue;}
+}
+
+nav
+{
+	top:0;
+	font-size: 1rem
+}
+
+/* ==> NAV Level all **************/
+nav ul
+{
+
+
+
+	counter-reset: li_cnt;
+
+	list-style-type: none;
+	margin: 0rem 0rem 0rem 0rem;    /* abstand rahmen zum eltern object*/
+	padding: 0rem 0rem 0rem 0rem;   /* abstand zum rahmen*/
+	overflow: display
+}
+
+nav li
+{
+	position: relative;
+
+	float: left;
+
+	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object*/
+	padding: 0.4rem 0rem 0.4rem 0rem;   /* abstand zum rahmen*/
+
+	color: inherit;
+	background-color: inherit;
+	overflow: display
+}
+
+nav li:last-child
+{
+	float: clear
+}
+
+nav li:focus,
+nav li:hover
+{
+
+}
+
+nav a
+{
+	display: inline;
+	white-space: nowrap;
+	text-decoration: none;
+
+	margin: 0rem 0rem 0rem 0rem;         /* abstand rahmen zum eltern object*/
+	padding: 0rem 0.8rem 0rem 0.8rem;    /* abstand zum rahmen*/
+
+	color: inherit
+}
+
+/* ==> NAV Level first ************/
+nav > ul
+{
+
+}
+
+nav > ul > li
+{
+
+}
+
+nav > ul > li:last-child
+{
+	float: right;
+	border-right: none
+}
+
+/* ==> NAV Level next *************/
+nav li > ul
+{
+	/*position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);*/
+	width: var(--main-width);
+
+	display: none;
+	visibility: hidden;
+
+	position: absolute;
+
+
+
+	margin: 0.4rem 0rem 0rem 0rem    /* abstand rahmen zum eltern object*/
+}
+
+nav li:focus > ul,
+nav li:hover > ul
+{
+	display: block;
+	visibility: visible
+}
+
+nav li > ul li
+{
+
+}
+
+/**********************************/
+/* ==> MENU ***********************/
+#menu
+{
+	position: static;
+	z-index:0;
+	/*
+	top:0;
+	left: 0;
+	*/
+	float: right;
+
+	white-space: nowrap;
+	text-decoration: none;
+
+	font-size: 1rem;
+
+	margin: 0rem 0rem 0rem 0rem;         /* abstand rahmen zum eltern object*/
+	padding: 0.4rem 0.8rem 0.4rem 0.8rem;    /* abstand zum rahmen*/
+	color: white
+
+}
+
+/**********************************/
+/* ==> CONTENT ********************/
+#menu + *
+{
+	position: static;
+	text-align: left;
+
+	margin-top: 0rem;         /* abstand rahmen zum eltern object*/
+	padding-top: 1.8rem;    /* abstand zum rahmen*/
+	color: black;
+  background-color: yellow
+}
+
+/**********************************/
+/* ==> FOOTER *********************/
+footer /* w3-top */
+{
+	bottom:0
+}
