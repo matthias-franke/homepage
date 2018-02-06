@@ -1,53 +1,4 @@
 /**********************************/
-/* ##> tests **********************/
-#outer
-{
-	border: 3px solid green;
-	position: relative;
-}
-
-#inner
-{
-	border: 3px solid red;
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, 0);
-/*
-width: auto;
-margin-left: auto;
-margin-right: auto;
-*/
-}
-
-/* ~~~~> test counter and custom properties */
-#list li
-{
-	counter-increment: li_cnt;
-	--z: calc(3*4px);
-	--x: var(--z);
-	font-size: var(--x);
-	--y: calc( var(--len, 0) + 4 );
-}
-
-#list li::before
-{
-	/*
-	content: "~" var(--len,'?') "." counter(li_cnt) ": ";
-	content: calc( var(--len, 0) + counter(li_cnt) );
-	*/
-	content: "-" var(--len, 0) ;
-}
-
-/*
-#list li::after
-{
-	content: " (" calc( var(--len) * var(--idx) ) ")"
-}
-*/
-/* <~~~~ test counter and custom properties */
-
-
-/**********************************/
 /* ##> black **********************/
 nav, nav ul, #menu, footer /* w3-top */
 {
@@ -62,14 +13,6 @@ nav li:hover
 {
 	color: black;
 	background-color: white
-}
-
-/**********************************/
-body
-{
-	margin: 0rem 0rem 0rem 0rem;    /* abstand rahmen zum eltern object*/
-	padding: 0rem 0rem 0rem 0rem;   /* abstand zum rahmen*/
-	--main-width: 400pt;/*calc(100% - 100px);*/
 }
 
 /**********************************/
@@ -88,8 +31,9 @@ nav, footer /* w3-top */
     nav li, nav li:last-child {float: none; background-color:blue;}
 }
 
-nav
+nav /* w3-top */
 {
+/* --> w3-top */
 	top:0;
 	font-size: 1rem
 }
@@ -97,9 +41,6 @@ nav
 /* ==> NAV Level all **************/
 nav ul
 {
-
-
-
 	counter-reset: li_cnt;
 
 	list-style-type: none;
@@ -110,16 +51,35 @@ nav ul
 
 nav li
 {
-	position: relative;
-
+	counter-increment: li_cnt;
+	--z: calc(3*4px);
+	--x: var(--z);
+	font-size: var(--x);
+	--y: calc( var(--len, 0) + 4 );
 	float: left;
 
-	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object*/
+	margin: var(--z) 0rem 0rem 0rem;        /* abstand rahmen zum eltern object*/
 	padding: 0.4rem 0rem 0.4rem 0rem;   /* abstand zum rahmen*/
 
 	color: inherit;
 	background-color: inherit;
 	overflow: display
+}
+
+nav li::before
+{
+	/*
+	content: "~" var(--len,'?') "." counter(li_cnt) ": ";
+	content: calc( var(--len, 0) + counter(li_cnt) );
+	*/
+	content: "-" var(--len, 0) ;
+}
+
+nav li::after
+{
+	/*
+	content: " (" calc( var(--len) * var(--idx) ) ")"
+	*/
 }
 
 nav li:last-child
@@ -165,11 +125,6 @@ nav > ul > li:last-child
 /* ==> NAV Level next *************/
 nav li > ul
 {
-	/*position: absolute;
-	left: 50%;
-	transform: translate(-50%, 0);*/
-	width: var(--main-width);
-
 	display: none;
 	visibility: hidden;
 

@@ -103,13 +103,6 @@
 	 <h1>Lorem ipsum</h1>
 	 <h2>Opera sine nomine scripta</h2>
 
-<div id="outer">
-	outer
-	<div id="inner">
-		inner inner inner inner inner inner inner inner inner inner inner inner inner inner inner
-		 inner inner inner inner inner inner inner inner inner inner inner inner inner inner inner inner
-	</div>
-</div>
 
 <p><a href="/wiki/Categoria:Opera_sine_nomine_scripta">
 	Opera sine nomine scripta
@@ -157,8 +150,11 @@
 		}
 
 		alert(
-			window.getComputedStyle( document.getElementById('a') ).getPropertyValue('--main-width') + " | " +
-			
+			window.getComputedStyle( document.getElementById('a') ).getPropertyValue('--x') + " | " +
+			window.getComputedStyle( document.getElementById('b') ).getPropertyValue('--x') + " | " +
+			window.getComputedStyle( document.getElementById('c') ).getPropertyValue('--x') + " | " +
+			window.getComputedStyle( document.getElementById('d') ).getPropertyValue('--x') + " | " +
+
 			window.getComputedStyle( document.getElementById('a') ).getPropertyValue('font-size') + " | " +
 			window.getComputedStyle( document.getElementById('b') ).getPropertyValue('font-size') + " | " +
 			window.getComputedStyle( document.getElementById('c') ).getPropertyValue('font-size') + " | " +
