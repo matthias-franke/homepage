@@ -1,9 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
 	<meta name="robots" content="INDEX,FOLLOW">
 	<meta name="page-type" content=" homepage">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +13,9 @@
 	<title>homepage, dokument, webpage, page, web, netz, homepage dokument webpage page web netz</title>
 
 	<link rel="stylesheet" href="_myCss/myMenueF1.css" type="text/css">
-	<link rel="stylesheet" href="_myCss/w3.css">
+	<!--<link rel="stylesheet" href="_myCss/w3.css">
 	<link rel="stylesheet" href="_myCss/w3-theme-black.css">
-	<link rel="stylesheet" href="_myCss/font-awesome.min.css">
+	<link rel="stylesheet" href="_myCss/font-awesome.min.css">-->
 
 </head>
 <body>
@@ -83,12 +83,15 @@
 
 		<li><a href="#">Seite 5</a></li>
 		<li><a href="#">Seite 6</a></li>
-		<li><a href="javascript:void(0)" onclick="w3_open()">Y<i class="fa fa-bars"></i>X</a></li>
+		<li><a href="#">Seite 7...</a></li>
+		<li><a href="#">Seite 8</a></li>
+		<li><a href="#">Seite 9</a></li>
+		<li><a href="#">Seite 10 -- </a></li>
 
 	  </ul>
 	</nav>
 
-	
+
 
 
 
@@ -99,7 +102,7 @@
 	Opera sine nomine scripta
 </a></p>
 	 <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	 
+
 	 <p>--</p>
 	 <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 	 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
@@ -109,25 +112,86 @@
 	 <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
 
+	 	<!-- Navbar -->
+	 	 <!-- Navbar on small screens -->
+	 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+	 	<a href="#team" class="w3-bar-item w3-button">Team</a>
+	 	<a href="#work" class="w3-bar-item w3-button">Work</a>
+	 	<a href="#pricing" class="w3-bar-item w3-button">Price</a>
+	 	<a href="#contact" class="w3-bar-item w3-button">Contact</a>
+	 	<a href="#" class="w3-bar-item w3-button">Search</a>
+	 </div>
+
+
+	 	 <!-- Sidebar on click -->
+	 	 <div class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+	 	   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
+	 	     <i class="fa fa-remove"></i>
+	 	   </a>
+	 	   <a href="#" class="w3-bar-item w3-button">Link 1</a>
+	 	   <a href="#" class="w3-bar-item w3-button">Link 2</a>
+	 	   <a href="#" class="w3-bar-item w3-button">Link 3</a>
+	 	   <a href="#" class="w3-bar-item w3-button">Link 4</a>
+	 	   <a href="#" class="w3-bar-item w3-button">Link 5</a>
+	 	 </div>
+
 <!-- Footer -->
 <footer>
   <h4>Follow Us</h4>
-  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook"></i></a>
-  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a>
-  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-google-plus"></i></a>
-  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-instagram"></i></a>
-  <a class="w3-button w3-large w3-teal w3-hide-small" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+	<div class="fusstopbox">
+	  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Facebook">lll</a>
+	  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Twitter">äölk</a>
+	  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +">jhgf</a>
+	  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +">opip</a>
+	  <a class="w3-button w3-large w3-teal w3-hide-small" href="javascript:void(0)" title="Linkedin">pppp</a>
+	  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+	</div>
 
-  <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
-    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
-    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
-    <i class="fa fa-chevron-circle-up"></i></span></a>
-  </div>
+<!-- xxx -->
+
+
+	<div class="fusstopbox">
+		<h3>Kontakt</h3>
+		<ul>
+			<li>Fa. Michael, Mustermann & Sohn</li>
+			<li>12345 Frankenburg</li>
+			<li>Am sch&ouml;nen Gro&szlig;markt 18</li>
+			<br>
+			<li>Phone: (0000) 2468246</li>
+			<li>Mobile : (+49) 0000-1234567</li>
+			<li><a href="#">infokontaktmustersohn@mail.de</a></li>
+		</ul>
+	</div>
+
+	<div class="fusstopbox">
+		<h3>More Links</h3>
+		<ul>
+			<li><a  href="index.html">Lorem Ipsum</a></li>
+			<li><a  href="index.html">Nomen est omen</a></li>
+			<li><a  href="index.html">Opes Regum corda subdit</a></li>
+			<li><a  href="index.html">Sapienti Sat Est</a></li>
+			<li><a  href="index.html">Omnia Vincit Amor</a></li>
+			<li><a  href="index.html">Bella Mia Terra Luna Sol</a></li>
+			<li><a  href="index.html">Sapienti Sat Est</a></li>
+			<li><a  href="index.html">Omnia Vincit Amor</a></li>
+			<li><a  href="index.html">Bella Mia Terra Luna Sol</a></li>
+		</ul>
+	</div>
+
+	<div class="fusstopbox">
+		<h3>Legal Conditions</h3>
+		<ul>
+			<li><a href="index.html">Impressum</a></li>
+			<li><a href="index.html">Datenschutz</a></li>
+			<li><a href="index.html">Disclaimer</a></li>
+			<li><a href="index.html">Lizenzbedingungen</a></li>
+			<li><a href="index.html">AGB</a></li>
+		</ul>
+	</div>
+
 </footer>
 
 <script>
-
 
 	function togglePosition(id) {
 		e = document.getElementById(id);
@@ -140,7 +204,7 @@
 			}
 		}
 	}
-	
+
 	function toggleDisplay(id) {
 		e = document.getElementById(id);
 		if(e != null){
@@ -151,99 +215,9 @@
 				e.style.display = "none";
 			}
 		}
-/*
-		alert(
-			window.getComputedStyle( document.getElementById('outer') ).getPropertyValue('width') + " | " +
-
-			window.getComputedStyle( document.getElementById('a') ).getPropertyValue('font-size') + " | " +
-			window.getComputedStyle( document.getElementById('b') ).getPropertyValue('font-size') + " | " +
-			window.getComputedStyle( document.getElementById('c') ).getPropertyValue('font-size') + " | " +
-			window.getComputedStyle( document.getElementById('d') ).getPropertyValue('font-size')
-
-
-		);
-*/
-
 	}
 
-
-	// Script for side navigation
-	function w3_open() {
-		var x = document.getElementById("mySidebar");
-		x.style.width = "300px";
-		x.style.paddingTop = "10%";
-		x.style.display = "block";
-	}
-
-	// Close side navigation
-	function w3_close() {
-		document.getElementById("mySidebar").style.display = "none";
-	}
-
-	// Used to toggle the menu on smaller screens when clicking on the menu button
-	function openNav() {
-		var x = document.getElementById("navDemo");
-		if (x.className.indexOf("w3-show") == -1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
 </script>
-
-
-
-
-
-	<!-- Navbar -->
-<!--
-nav
-  <div class="w3-top">
-nav > ul
-	<div class="w3-bar w3-theme-d2 w3-left-align">
-	  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-	  <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Logo</a>
-nav > ul > li
-	  <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
-	  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
-	  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
-	  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-nav > ul > li.dropdown
-	  <div class="w3-dropdown-hover w3-hide-small">
-nav > ul ~ a
-	    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>
-nav li > ul
-		<div class="w3-dropdown-content w3-card-4 w3-bar-block">
-nav li > ul > a
-	      <a href="#" class="w3-bar-item w3-button">Link</a>
-	      <a href="#" class="w3-bar-item w3-button">Link</a>
-	      <a href="#" class="w3-bar-item w3-button">Link</a>
-	    </div>
-	  </div>
-	  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
-	</div>
--->
-	 <!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
-	<a href="#team" class="w3-bar-item w3-button">Team</a>
-	<a href="#work" class="w3-bar-item w3-button">Work</a>
-	<a href="#pricing" class="w3-bar-item w3-button">Price</a>
-	<a href="#contact" class="w3-bar-item w3-button">Contact</a>
-	<a href="#" class="w3-bar-item w3-button">Search</a>
-</div>
-</div>
-
-	 <!-- Sidebar on click -->
-	 <div class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
-	   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
-	     <i class="fa fa-remove"></i>
-	   </a>
-	   <a href="#" class="w3-bar-item w3-button">Link 1</a>
-	   <a href="#" class="w3-bar-item w3-button">Link 2</a>
-	   <a href="#" class="w3-bar-item w3-button">Link 3</a>
-	   <a href="#" class="w3-bar-item w3-button">Link 4</a>
-	   <a href="#" class="w3-bar-item w3-button">Link 5</a>
-	 </div>
 
 </body>
 </html>

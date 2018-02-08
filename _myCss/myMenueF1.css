@@ -21,12 +21,19 @@ nav li:hover
 /* ##> fixed **********************/
 nav, footer
 {
-	position: fixed;
 	z-index: 1
 }
 
 /**********************************/
 /* ==> BODY ***********************/
+html{box-sizing:border-box}
+*,*:before,*:after{box-sizing:inherit}
+html,body{font-family:Verdana,sans-serif;line-height:1.5}
+/*
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+html{overflow-x:hidden}
+*/
 body
 {
 	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object */
@@ -41,19 +48,19 @@ body
 	top: 0;
 	right: 0;
 	/*width: 20%;*/
-	
+
 	float: right;
 
 	z-index: 2;
-	
+
 	text-align: right;
 
 	white-space: nowrap;
-	
+
 	margin: 0rem 0rem 0rem 0rem;             /* abstand rahmen zum eltern object */
 	padding: 0.4rem 0.8rem 0.4rem 0.8rem;    /* abstand zum rahmen */
 
-	
+
 	text-decoration: none;
 
 	font-size: 1rem;
@@ -62,17 +69,17 @@ body
 
 }
 
-input.menu[type=checkbox] 
+input.menu[type=checkbox]
 {
 	display: none;
 }
 
-input.menu[type=checkbox]:checked ~ nav 
+input.menu[type=checkbox]:checked ~ nav
 {
 	display: none;
 }
 /*
-input.menu[type=checkbox]:checked + label.menu 
+input.menu[type=checkbox]:checked + label.menu
 {
 	position: absolute;
 	display: block;
@@ -82,8 +89,9 @@ input.menu[type=checkbox]:checked + label.menu
 
 /**********************************/
 /* ==> NAV ************************/
-nav 
+nav
 {
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
@@ -96,7 +104,7 @@ nav ul
 	position: absolute;
 	left: 0;
 	width: 100vw;
-	
+
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -189,7 +197,7 @@ nav li > ul li
 nav + *
 {
 	margin-top: 0rem;         /* abstand rahmen zum eltern object */
-	padding-top: 1.8rem;      /* abstand zum rahmen */
+	padding-top: 2.8rem;      /* abstand zum rahmen */
 }
 
 /* ==> CONTENT all sibblings ******/
@@ -210,8 +218,36 @@ nav ~ *
 
 /**********************************/
 /* ==> FOOTER *********************/
-footer 
+footer
 {
-	bottom: 0;
-	width: 100%
+	position: static;
+	width: 100%;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: stretch;
+
+	font-size: 0.66rem;
+}
+
+footer > *
+{
+	border-style: solid;
+	border-width: 0px 0px 0px 1px;
+	border-color: white;
+
+	padding-left: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+footer > *:first-child
+{
+	border-left: none
+}
+
+footer > *:last-child
+{
+	border-right: none
 }
