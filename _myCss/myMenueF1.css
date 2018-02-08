@@ -2,7 +2,7 @@
 
 /**********************************/
 /* ##> black **********************/
-nav, nav ul, #menu, footer
+nav, nav ul, .menu, footer
 {
 	color: white;
 	background-color: black
@@ -71,14 +71,15 @@ input.menu[type=checkbox]:checked ~ nav
 {
 	display: none;
 }
-
+/*
 input.menu[type=checkbox]:checked + label.menu 
 {
-	/*position: absolute;
+	position: absolute;
 	display: block;
-	visibility: visible*/
+	visibility: visible
 }
-  
+*/
+
 /**********************************/
 /* ==> NAV ************************/
 nav 
