@@ -12,7 +12,7 @@
 
 	<title>homepage, dokument, webpage, page, web, netz, homepage dokument webpage page web netz</title>
 
-	<link rel="stylesheet" href="_myCss/myMenueF.css" type="text/css">
+	<link rel="stylesheet" href="_myCss/myMenueF1.css" type="text/css">
 	<link rel="stylesheet" href="_myCss/w3.css">
 	<link rel="stylesheet" href="_myCss/w3-theme-black.css">
 	<link rel="stylesheet" href="_myCss/font-awesome.min.css">
@@ -20,127 +20,87 @@
 </head>
 <body>
 
+<!--
+	<label class="menu" for="navmenu">&equiv;</label>
+	<input class="menu" type="checkbox" id="navmenu" >
+-->	
 
-		<nav id="nav">
-		  <ul>
-	<!--
-			<li>
-				<a href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-			</li>
-			<li><a href="#"><i class="fa fa-home w3-margin-right"></i>Logo</a></li>
-	-->
-			<li ><a href="#">Seite 1</a></li>
+	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');togglePosition('menu');">&equiv;</a>
 
-			<li>
-				<a href="#">Seite 2</a>
-				<ul style="--len:3;">
+	<nav id="nav">
+	  <ul>
+		<li><a href="#">Seite 1</a></li>
+		<li>
+			<a href="#">Seite 2</a>
+			<ul style="--len:3;">
 
-					<li>
-						<a href="#">Seite 2bc</a>
-						<ul style="--len:5;">
-							<li id="a"><a href="#">Seite 2bca</a></li>
-							<li id="b"><a href="#">Seite 2bcb</a></li>
-						</ul>
-					</li>
+				<li>
+					<a href="#">Seite 2bc</a>
+					<ul style="--len:5;">
+						<li id="a"><a href="#">Seite 2bca</a></li>
+						<li id="b"><a href="#">Seite 2bcb</a></li>
+					</ul>
+				</li>
 
-					<li  id="c"><a href="#">Seite 2a</a></li>
-					<li id="d"><a href="#">Seite 2b</a></li>
+				<li  id="c"><a href="#">Seite 2a</a></li>
+				<li id="d"><a href="#">Seite 2b</a></li>
 
-					<!--
-					<li><a href="#">Seite 2c</a></li>
-					<li><a href="#">Seite 2d</a></li>
-					<li><a href="#">Seite 2e</a></li>
-					<li><a href="#">Seite 2f</a></li>
-					<li><a href="#">Seite 2g</a></li>
-				  -->
-				</ul>
+				<li><a href="#">Seite 2c</a></li>
+				<li><a href="#">Seite 2d</a></li>
+				<li><a href="#">Seite 2e</a></li>
+				<li><a href="#">Seite 2f</a></li>
+				<li><a href="#">Seite 2g</a></li>
+			</ul>
 
-			</li>
+		</li>
 
-			<li aria-current="page">
-				<a href="#">aktuelle Seite</a>
-			</li>
+		<li aria-current="page">
+			<a href="#">aktuelle Seite</a>
+		</li>
 
-			<li>
-				<a href="#">Seite 4</a>
+		<li>
+			<a href="#">Seite 4</a>
 
-				<ul>
+			<ul>
 
-					<li><a href="#">Seite 4b</a></li>
-					<li><a href="#">Seite 4c</a></li>
-					<li><a href="#">Seite 4d</a></li>
-					<li><a href="#">Seite 4e</a></li>
+				<li><a href="#">Seite 4b</a></li>
+				<li><a href="#">Seite 4c</a></li>
+				<li><a href="#">Seite 4d</a></li>
+				<li><a href="#">Seite 4e</a></li>
 
-					<li>
-						<a href="#">Seite 4a</a>
-						<ul>
-							<li><a href="#">Seite 4aa</a></li>
-							<li><a href="#">Seite 4ab</a></li>
-							<li><a href="#">Seite 4ac</a></li>
-							<li><a href="#">Seite 4ad</a></li>
-						</ul>
-					</li>
+				<li>
+					<a href="#">Seite 4a</a>
+					<ul>
+						<li><a href="#">Seite 4aa</a></li>
+						<li><a href="#">Seite 4ab</a></li>
+						<li><a href="#">Seite 4ac</a></li>
+						<li><a href="#">Seite 4ad</a></li>
+					</ul>
+				</li>
 
-				</ul>
+			</ul>
 
-			</li>
+		</li>
 
-			<li><a href="#">Seite 5</a></li>
-			<li><a href="#">Seite 6</a></li>
-			<li><a href="javascript:void(0)" onclick="w3_open()">Y<i class="fa fa-bars"></i>X</a></li>
+		<li><a href="#">Seite 5</a></li>
+		<li><a href="#">Seite 6</a></li>
+		<li><a href="javascript:void(0)" onclick="w3_open()">Y<i class="fa fa-bars"></i>X</a></li>
 
-			<li>adsf</li>
+	  </ul>
+	</nav>
 
-			<!-- class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" -->
-
-		  </ul>
-			<a href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
-		</nav>
-
-		<a id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+	
 
 
 
-	 <h1>Lorem ipsum</h1>
-	 <h2>Opera sine nomine scripta</h2>
-
-<ul class="inner">
-<li class="outer">
-	outer
-	<ul class="inner">
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-	</ul>
-</li>
-<li class="outer">
-	outer
-	<ul class="inner">
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-		<li>inner</li>
-	</ul>
-</li>
-</ul>
+	<h1>Lorem ipsum</h1>
+	<h2>Opera sine nomine scripta</h2>
 
 <p><a href="/wiki/Categoria:Opera_sine_nomine_scripta">
 	Opera sine nomine scripta
 </a></p>
-	 Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	 <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	 
 	 <p>--</p>
 	 <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 	 <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
@@ -170,7 +130,18 @@
 <script>
 
 
-
+	function togglePosition(id) {
+		e = document.getElementById(id);
+		if(e != null){
+			if(e.style.position == "absolute"){
+				e.style.position = "fixed";
+			}
+			else{
+				e.style.position = "absolute";
+			}
+		}
+	}
+	
 	function toggleDisplay(id) {
 		e = document.getElementById(id);
 		if(e != null){
@@ -181,7 +152,7 @@
 				e.style.display = "none";
 			}
 		}
-
+/*
 		alert(
 			window.getComputedStyle( document.getElementById('outer') ).getPropertyValue('width') + " | " +
 
@@ -192,7 +163,7 @@
 
 
 		);
-
+*/
 
 	}
 

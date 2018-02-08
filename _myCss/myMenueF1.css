@@ -1,0 +1,216 @@
+
+
+/**********************************/
+/* ##> black **********************/
+nav, nav ul, #menu, footer
+{
+	color: white;
+	background-color: black
+}
+
+/**********************************/
+/* ##> white **********************/
+nav li:focus,
+nav li:hover
+{
+	color: black;
+	background-color: white
+}
+
+/**********************************/
+/* ##> fixed **********************/
+nav, footer
+{
+	position: fixed;
+	z-index: 1
+}
+
+/**********************************/
+/* ==> BODY ***********************/
+body
+{
+	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object */
+	padding: 0rem 0rem 0rem 0rem;       /* abstand zum rahmen */
+}
+
+/**********************************/
+/* ==> MENU ***********************/
+.menu
+{
+	position: fixed;
+	top: 0;
+	right: 0;
+	/*width: 20%;*/
+	
+	float: right;
+
+	z-index: 2;
+	
+	text-align: right;
+
+	white-space: nowrap;
+	
+	margin: 0rem 0rem 0rem 0rem;             /* abstand rahmen zum eltern object */
+	padding: 0.4rem 0.8rem 0.4rem 0.8rem;    /* abstand zum rahmen */
+
+	
+	text-decoration: none;
+
+	font-size: 1rem;
+
+	color: white
+
+}
+
+input.menu[type=checkbox] 
+{
+	display: none;
+}
+
+input.menu[type=checkbox]:checked ~ nav 
+{
+	display: none;
+}
+
+input.menu[type=checkbox]:checked + label.menu 
+{
+	/*position: absolute;
+	display: block;
+	visibility: visible*/
+}
+  
+/**********************************/
+/* ==> NAV ************************/
+nav 
+{
+	top: 0;
+	left: 0;
+	width: 100vw;
+	font-size: 1rem
+}
+
+/* ==> NAV Level all **************/
+nav ul
+{
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+
+	overflow: display;
+	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object */
+	padding: 0rem 0rem 0rem 0rem;       /* abstand zum rahmen */
+	list-style-type: none
+}
+
+nav li
+{
+	float: left;
+	overflow: display;
+	margin:  0rem 0rem 0rem 0rem;       /* abstand rahmen zum eltern object */
+	padding: 0.4rem 0rem 0.4rem 0rem;   /* abstand zum rahmen */
+	color: inherit;
+	background-color: inherit
+}
+
+nav li:last-child
+{
+	float: clear
+}
+
+nav li:focus,
+nav li:hover
+{
+
+}
+
+nav a
+{
+	display: inline;
+	white-space: nowrap;
+
+	margin: 0rem 0rem 0rem 0rem;         /* abstand rahmen zum eltern object */
+	padding: 0rem 0.8rem 0rem 0.8rem;    /* abstand zum rahmen */
+
+	text-decoration: none;
+	color: inherit
+}
+
+/* ==> NAV Level first ************/
+nav > ul
+{
+	padding: 0rem 2.6rem 0rem 0rem;
+}
+
+nav > ul > li
+{
+
+}
+
+nav > ul > li:last-child
+{
+	border-right: none
+}
+
+/* ==> NAV Level next *************/
+nav li > ul
+{
+	/* position: absolute; == nav ul */
+	display: none;
+	visibility: hidden;
+	border-style: solid;
+	border-width: 1px 0px 0px 0px;
+	border-color: white;
+	margin: 0.4rem 0rem 0rem 0rem    /* abstand rahmen zum eltern object */
+}
+
+nav li:focus > ul,
+nav li:hover > ul
+{
+	display: flex;
+	visibility: visible
+}
+
+nav li > ul li
+{
+
+}
+
+
+
+/**********************************/
+/* ==> CONTENT ********************/
+
+/* ==> CONTENT first sibbling *****/
+nav + *
+{
+	margin-top: 0rem;         /* abstand rahmen zum eltern object */
+	padding-top: 1.8rem;      /* abstand zum rahmen */
+}
+
+/* ==> CONTENT all sibblings ******/
+nav ~ *
+{
+	padding-left: 5rem;     /* abstand zum rahmen */
+	padding-right: 5rem;    /* abstand zum rahmen */
+}
+
+@media screen and (max-width: 600px)
+{
+	nav ~ *
+	{
+		padding-left: 0.4rem;     /* abstand zum rahmen */
+		padding-right: 0.4rem;    /* abstand zum rahmen */
+	}
+}
+
+/**********************************/
+/* ==> FOOTER *********************/
+footer 
+{
+	bottom: 0;
+	width: 100%
+}
