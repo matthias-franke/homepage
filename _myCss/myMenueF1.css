@@ -11,7 +11,8 @@ nav, nav ul, .menu, footer
 /**********************************/
 /* ##> white **********************/
 nav li:focus,
-nav li:hover
+nav li:hover,
+.menu:hover
 {
 	color: black;
 	background-color: white
@@ -38,6 +39,8 @@ body
 {
 	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object */
 	padding: 0rem 0rem 0rem 0rem;       /* abstand zum rahmen */
+	z-index: 0;
+	
 }
 
 /**********************************/
@@ -65,8 +68,7 @@ body
 
 	font-size: 1rem;
 
-	color: white
-
+	cursor: pointer;
 }
 
 input.menu[type=checkbox]
@@ -78,6 +80,7 @@ input.menu[type=checkbox]:checked ~ nav
 {
 	display: none;
 }
+
 /*
 input.menu[type=checkbox]:checked + label.menu
 {
@@ -86,6 +89,12 @@ input.menu[type=checkbox]:checked + label.menu
 	visibility: visible
 }
 */
+
+label.menu
+{
+	/*padding: 0.4rem 0.4rem 0.4rem 0.4rem;     abstand zum rahmen */
+	/*transform:rotate(90deg);*/
+}
 
 /**********************************/
 /* ==> NAV ************************/
@@ -108,10 +117,11 @@ nav ul
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
+	align-items: center;
 
 	overflow: display;
 	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object */
-	padding: 0rem 0rem 0rem 0rem;       /* abstand zum rahmen */
+	padding: 0rem 2.6rem 0rem 0rem;       /* abstand zum rahmen */
 	list-style-type: none
 }
 
@@ -122,7 +132,10 @@ nav li
 	margin:  0rem 0rem 0rem 0rem;       /* abstand rahmen zum eltern object */
 	padding: 0.4rem 0rem 0.4rem 0rem;   /* abstand zum rahmen */
 	color: inherit;
-	background-color: inherit
+	background-color: inherit;
+	border-style: solid;
+	border-width: 2px 0px 0px 0px;
+	border-color: black;	
 }
 
 nav li:last-child
@@ -151,12 +164,25 @@ nav a
 /* ==> NAV Level first ************/
 nav > ul
 {
-	padding: 0rem 2.6rem 0rem 0rem;
+	
 }
 
 nav > ul > li
 {
 
+}
+
+nav > ul > li:first-child
+{
+	padding: 0.1rem 0rem 0.1rem 0rem;    /* abstand zum rahmen */
+	font-weight: bolder;
+	font-size: 1.4rem;
+	border-left: none
+}
+
+nav > ul > li:first-child a
+{
+	/*padding: 0rem 0.1rem 0rem 0.1rem;     abstand zum rahmen */
 }
 
 nav > ul > li:last-child
@@ -170,25 +196,49 @@ nav li > ul
 	/* position: absolute; == nav ul */
 	display: none;
 	visibility: hidden;
+	opacity: 0;
 	border-style: solid;
-	border-width: 1px 0px 0px 0px;
+	border-width: 1px 0px 1px 0px;
 	border-color: white;
-	margin: 0.4rem 0rem 0rem 0rem    /* abstand rahmen zum eltern object */
+	margin: 0.4rem 0px 0rem 0px;    /* abstand rahmen zum eltern object */
+	z-index: 0;
 }
 
-nav li:focus > ul,
-nav li:hover > ul
+nav ul:hover > li > ul
 {
 	display: flex;
-	visibility: visible
+	transition: visibility 1s linear 0s, opacity 0.8s ease-in 0.2s;
+}
+
+nav ul > li:focus > ul,
+nav ul > li:hover > ul
+{
+	display: flex;
+	visibility: visible;
+	opacity: 1;
+	transition: visibility 0s linear 0s, opacity 0s linear 0s;
+	z-index: 2;
+}
+
+nav li > ul:hover
+{
+/*
+	opacity: 1;
+	background-color: green;
+	
+
+	
+	transition: all 3s;
+	
+	transition-delay: display 2s, visibility 2s;
+	transition:all 3s;
+	*/
 }
 
 nav li > ul li
 {
 
 }
-
-
 
 /**********************************/
 /* ==> CONTENT ********************/
@@ -205,6 +255,7 @@ nav ~ *
 {
 	padding-left: 5rem;     /* abstand zum rahmen */
 	padding-right: 5rem;    /* abstand zum rahmen */
+	z-index: inherit;
 }
 
 @media screen and (max-width: 600px)
@@ -228,6 +279,7 @@ footer
 	justify-content: space-between;
 	align-items: stretch;
 
+	margin: 4rem 0rem 0rem 0rem;
 	font-size: 0.66rem;
 }
 
