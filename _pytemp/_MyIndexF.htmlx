@@ -19,12 +19,13 @@
 
 </head>
 <body>
-<!--
+
 	<label class="menu" for="navmenu">&equiv;</label>
 	<input class="menu" type="checkbox" id="navmenu">
--->
-	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
 
+<!--
+	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');togglePosition('menu');">&equiv;</a>
+-->
 	<nav id="nav">
 	  <ul>
 		<li><a href="#">&and;</a></li>
@@ -322,8 +323,7 @@
 	function toggleDisplay(id) {
 		e = document.getElementById(id);
 		if(e != null){
-			var s = window.getComputedStyle(e).display;
-			if( s == "none"){
+			if(e.style.display == "none"){
 				e.style.display = "block";
 			}
 			else{

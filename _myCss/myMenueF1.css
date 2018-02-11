@@ -5,7 +5,7 @@
 nav, nav ul, .menu, footer
 {
 	color: white;
-	background-color: black
+	background-color: green
 }
 
 /**********************************/
@@ -22,7 +22,7 @@ nav li:hover,
 /* ##> fixed **********************/
 nav, footer
 {
-	z-index: 1
+	z-index: 2
 }
 
 /**********************************/
@@ -39,8 +39,8 @@ body
 {
 	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object */
 	padding: 0rem 0rem 0rem 0rem;       /* abstand zum rahmen */
-	z-index: 0;
-	
+	z-index: 1;
+
 }
 
 /**********************************/
@@ -54,7 +54,7 @@ body
 
 	float: right;
 
-	z-index: 2;
+	z-index: 3;
 
 	text-align: right;
 
@@ -79,6 +79,19 @@ input.menu[type=checkbox]
 input.menu[type=checkbox]:checked ~ nav
 {
 	display: none;
+}
+
+input.menu[type=checkbox]:not(:checked) ~ nav
+{
+	display: initial;
+}
+
+@media screen and (max-width: 600px)
+{
+	nav
+	{
+		display: none;
+	}
 }
 
 /*
@@ -117,11 +130,11 @@ nav ul
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 
 	overflow: display;
 	margin: 0rem 0rem 0rem 0rem;        /* abstand rahmen zum eltern object */
-	padding: 0rem 2.6rem 0rem 0rem;       /* abstand zum rahmen */
+	padding: 0rem 2.6rem 0rem 0rem;   /* abstand zum rahmen */
 	list-style-type: none
 }
 
@@ -133,9 +146,7 @@ nav li
 	padding: 0.4rem 0rem 0.4rem 0rem;   /* abstand zum rahmen */
 	color: inherit;
 	background-color: inherit;
-	border-style: solid;
-	border-width: 2px 0px 0px 0px;
-	border-color: black;	
+
 }
 
 nav li:last-child
@@ -164,7 +175,7 @@ nav a
 /* ==> NAV Level first ************/
 nav > ul
 {
-	
+
 }
 
 nav > ul > li
@@ -174,10 +185,14 @@ nav > ul > li
 
 nav > ul > li:first-child
 {
-	padding: 0.1rem 0rem 0.1rem 0rem;    /* abstand zum rahmen */
+	 /* abstand zum rahmen */
+	 /*
+	padding: 0.1rem 0rem 0.1rem 0rem;
 	font-weight: bolder;
-	font-size: 1.4rem;
+	font-size: 1rem;
+	*/
 	border-left: none
+
 }
 
 nav > ul > li:first-child a
@@ -200,8 +215,10 @@ nav li > ul
 	border-style: solid;
 	border-width: 1px 0px 1px 0px;
 	border-color: white;
-	margin: 0.4rem 0px 0rem 0px;    /* abstand rahmen zum eltern object */
+	margin: 0.4rem 0px 0rem 0px;    /* abstand rahmen zum eltern object 2.6*/
+	padding: 0rem 2.6rem 0rem 2.6rem;   /* abstand zum rahmen */
 	z-index: 0;
+	min-height: calc(100% - 2.6rem);
 }
 
 nav ul:hover > li > ul
@@ -225,11 +242,11 @@ nav li > ul:hover
 /*
 	opacity: 1;
 	background-color: green;
-	
 
-	
+
+
 	transition: all 3s;
-	
+
 	transition-delay: display 2s, visibility 2s;
 	transition:all 3s;
 	*/
@@ -237,7 +254,10 @@ nav li > ul:hover
 
 nav li > ul li
 {
-
+	border-style: solid;
+	border-width: 2px 0px 0px 0px;
+	border-color: black;
+	min-height: calc(100% - 2.6rem);
 }
 
 /**********************************/
