@@ -1,57 +1,172 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys, os#, libxml2
-import xml.etree.ElementTree as et
+import sys, os, shutil, xml.etree.ElementTree
+import filecmp
+from datetime import datetime
 from os.path import isfile
 
 # list1 = ['physics', 'chemistry', 1997, 2000];
 # tup1 = ('physics', 'chemistry', 1997, 2000);
 # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
 
-templates4File = dict()#{'x':[]}
+relativeInputPath = '\\..\\test2'
+relativeTemplatePath = '\\..\\test2'
+relativeOutputPath = '\\..\\testOUT'
 
-def processFile(f):
-    re = ['']
+inputExtentions = ['.htm', '.html']
+
+insertXPathTmp_TagStart = '<!--+'
+insertXPathTmp_DelFileXPath = ' '
+insertXPathTmp_TagEnd= '-->'
+
+maxCopyAttempts = 100
+
+def backupFile(f, f_new):
+    if os.path.exists(f_new):
+        i = 0
+        while i < maxCopyAttempts and os.path.exists(f_new):
+            f_new = f + datetime.now().strftime("%Y-%m-%d_%H%M%S") + '_' + str(i).zfill(2)  #%f
+            #print('try: ' + f_new)    
+            i = i + 1                    
+    if not os.path.exists(f_new):
+        if os.path.exists(f):
+            shutil.copyfile(f, f_new) 
+            print('backup: ' + f_new)    
+            return True
+        else:
+            print('backup2: ' + f_new)    
+            return True
+    else:
+        print('backup false: ' + f_new)    
+        return False
+		
+def writeFile(f, listOfSections):
+    if backupFile(f, f) is True:
+        with open(f, 'w') as file:
+            for section in listOfSections: 
+                file.write(section)
+        print('write: ' + f)		
+    else:
+        print('ERROR: can not backup: ' + f)
+
+templates = {}
+
+def getTmp(fileAndXpath, templatePath):
+    #print(' |-->' + fileAndXpath)
+    if fileAndXpath in templates:
+        #print(' return form dict |-->' + templates[fileAndXpath])
+        return templates[fileAndXpath]
+    else:
+        file, xpath = fileAndXpath.split(insertXPathTmp_DelFileXPath)
+        #print(' file: ' + file + ', xpath: ' + xpath)
+        root = xml.etree.ElementTree.parse(templatePath + '\\' + file)
+        reBin = root.find(xpath)
+        #re = reBin 
+        if reBin is not None:
+            re = xml.etree.ElementTree.tostring(reBin).decode()
+            templates[fileAndXpath] = re
+            #print(' return form file |-->' + re)
+            return re
+        return None		
+        
+def processFile(f, templatePath):
+    listOfSections = ['']
     with open( f, 'r') as file:
         i = 0
         for line in file: 
-            tagStart = line.find('<!--+')
+            tagStart = line.find(insertXPathTmp_TagStart)
             if tagStart == 0:
-                re.append(getTmp(line))
-                re.append('')
-                i = i + 2
+                tagStartLen = len(insertXPathTmp_TagStart)
+                lineEnd = line[tagStart + tagStartLen:]
+                tagEnd = lineEnd.find(insertXPathTmp_TagEnd)
+                if tagEnd > -1:
+                    tmp = getTmp(lineEnd[:tagEnd], templatePath)
+                    if tmp is not None:
+                        listOfSections[i] += line[:tagStart]
+                        listOfSections.append(tmp)
+                        listOfSections.append(lineEnd[tagEnd + len(insertXPathTmp_TagEnd):])
+                        i = i + 2                    
+                    else:
+                        print('no template ' + lineEnd[:tagEnd] + ' found for ' + f )
+                        listOfSections[i] += line
+                else:
+                    listOfSections[i] += line
             else:
-                re[i] += line
-    return re
-
-def getTmp(fileAndXpath):
-    print(' fileAndXpath1: ' + fileAndXpath)
-    fileAndXpath = fileAndXpath[5:]
-    print(' fileAndXpath2: ' + fileAndXpath)
-    fileAndXpath = fileAndXpath[:-4]
-    print(' fileAndXpath3: ' + fileAndXpath)
-    file, xpath = fileAndXpath.split(' ')
-    root = et.parse(file)
-    re = root.find(xpath)
+                listOfSections[i] += line
+    return listOfSections
+                    
+def processFolder(inputPath, outputPath, templatePath):
+    for unqualifiedFile in os.listdir(inputPath):
+        file = os.path.join(inputPath, unqualifiedFile)
+        if os.path.isfile(file):
+            #print('file: ' + file)
+            for ext in inputExtentions:
+                if file.endswith(ext):
+                    result = processFile(file, templatePath)
+                    file_out = os.path.join(outputPath, unqualifiedFile)
+                    if len(result) > 1:
+                        print('wwwwww')
+                        writeFile(file_out, result)
+                    else:						
+                        if not os.path.exists(file_out) or not filecmp.cmp(file, file_out):
+                            print('nothing todo but copy')
+                            backupFile(file, file_out)
+                        else:
+                            print('nothing todo')
+                    break                
+        else:
+            #print('folder: ' + file)
+            outputPathChild = os.path.join(outputPath, unqualifiedFile)
+            if not os.path.exists(outputPathChild):
+                print('ERROR: outputPath does not exist: ' + outputPathChild)
+                return
+            processFolder(file, outputPathChild, templatePath)
     """
-    x1 = root.findall('body')
-    x2 = root.findall('body/')
-    x3 = root.findall('//body')
-    x4 = root.findall('//body/')
-    x5 = root.findall('.//body')
-    x6 = root.findall('.//body/')
+    for key in templates.keys():
+        print()
+        print('############################################################')
+        print(key + ':')
+        print('------------------------------------------------------------')
+        print(templates[key])
+    for key in templates4File.keys():
+        print()
+        print('############################################################')
+        print(key + ':')
+        print('------------------------------------------------------------')
+        i = 0
+        for section in templates4File[key]:
+            print(str(i) + ': -------------------------------------------------')
+            print(section)
+            i = i + 1
     """
-    #for char in x:
-    #print(' |-->' + et.tostring(re).decode()) #, encoding='utf8', method='xml'
-    return et.tostring(re).decode()
 
-def writeFile(f, l):
-    with open( f, 'w') as file:
-        for line in l: 
-            file.write(line)
+def main(basePath):
+    inputPath = os.path.normpath(basePath + relativeInputPath)
+    if not os.path.exists(inputPath):
+        print('ERROR: inputPath does not exist: ' + inputPath)
+        return    
+    outputPath = os.path.normpath(basePath + relativeOutputPath)
+    if not os.path.exists(outputPath):
+        print('ERROR: outputPath does not exist: ' + outputPath)
+        return    
+    if inputPath == outputPath:
+        print('ERROR: inputPath equals outputPath: ' + inputPath)
+        return
+    templatePath = os.path.normpath(basePath + relativeTemplatePath)
+    if not os.path.exists(templatePath):
+        print('ERROR: templatePath does not exist: ' + templatePath)
+        return
+    processFolder(inputPath, outputPath, templatePath)
+    processFolder(outputPath, outputPath, templatePath)
 
-templates = {}
+#print (sys.version_info)
+print('')
+print('############################################################')
+main( os.path.dirname(os.path.abspath(__file__)) )
+print('############################################################')
+
+templates4File = dict()#{'x':[]}
 
 def readFile1(f):
     with open( f, 'r') as file:
@@ -95,39 +210,6 @@ def readFile1(f):
                 tempTemplates[key] += line[tagEnd:] #+ '\n'                 
         for key in tempTemplates.keys():
             print(' warning ' + key + ' missing closing tag' )
-        del tempTemplates                  
-
-def main(path):
-    for unqualifiedFile in os.listdir(path):
-        file = os.path.join(path, unqualifiedFile)
-        file_out = os.path.join(path, unqualifiedFile + '.out')
-        if os.path.isfile(file):
-            print('file: ' + file)
-            if file.endswith('.html') or file.endswith('.htm'):
-                result = processFile(file)
-                writeFile(file_out, result)
-        else:
-            print('folder: ' + file)
-            main( file )
-    """
-    for key in templates.keys():
-        print()
-        print('############################################################')
-        print(key + ':')
-        print('------------------------------------------------------------')
-        print(templates[key])
-    """
-    for key in templates4File.keys():
-        print()
-        print('############################################################')
-        print(key + ':')
-        print('------------------------------------------------------------')
-        i = 0
-        for section in templates4File[key]:
-            print(str(i) + ': -------------------------------------------------')
-            print(section)
-            i = i + 1
+        del tempTemplates
 
 
-print (sys.version_info)
-main( os.path.dirname(os.path.abspath(__file__)) )

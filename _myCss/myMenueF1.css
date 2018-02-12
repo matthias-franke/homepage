@@ -5,7 +5,7 @@
 nav, nav ul, .menu, footer
 {
 	color: white;
-	background-color: green
+	background-color: black
 }
 
 /**********************************/
@@ -185,14 +185,13 @@ nav > ul > li
 
 nav > ul > li:first-child
 {
-	 /* abstand zum rahmen */
-	 /*
+	/* abstand zum rahmen */
+	/*
 	padding: 0.1rem 0rem 0.1rem 0rem;
 	font-weight: bolder;
 	font-size: 1rem;
 	*/
 	border-left: none
-
 }
 
 nav > ul > li:first-child a
@@ -267,14 +266,14 @@ nav li > ul li
 nav + *
 {
 	margin-top: 0rem;         /* abstand rahmen zum eltern object */
-	padding-top: 2.8rem;      /* abstand zum rahmen */
+	padding-top: 4.2rem;      /* abstand zum rahmen */
 }
 
 /* ==> CONTENT all sibblings ******/
 nav ~ *
 {
-	padding-left: 5rem;     /* abstand zum rahmen */
-	padding-right: 5rem;    /* abstand zum rahmen */
+	padding-left: calc((100% - 40rem) / 2);     /* abstand zum rahmen */
+	padding-right: calc((100% - 40rem) / 2);    /* abstand zum rahmen */
 	z-index: inherit;
 }
 
