@@ -1,199 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>ojhojh
+<head>
 </head>
 <body>
-
 <!--NAV-->
-	<label class="menu" for="navmenu"></label>
-	<input class="menu" type="checkbox" id="navmenu" />
-
-<!--
-	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');togglePosition('menu');">&equiv;</a>
--->
-	<nav id="nav">
-	  <ul>
-		<li><a href="#"></a></li>
-		<li>
-			<a href="#">Seite 2</a>
-			<ul style="--len:3;">
+norm inserted inserted inserted
 <!--/NAV-->
-				<li>
-					<a href="#">Seite 2bc</a>
-					<ul style="--len:5;">
-						<li id="a"><a href="#">Seite 2bca</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-						<li id="b"><a href="#">Seite 2bcb</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-					</ul>
-				</li>
-
-				<li  id="c"><a href="#">Seite 2a</a>					<ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li id="d"><a href="#">Seite 2b</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-
-				<li><a href="#">Seite 2c</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li><a href="#">Seite 2d</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li><a href="#">Seite 2e</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li><a href="#">Seite 2f</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li><a href="#">Seite 2g</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-			</ul>
-
-		</li>
-
-		<li aria-current="page">
-			<a href="#">aktuelle Seite</a>
-		</li>
-
+<nav id="nav">
+	<ul>
 		<li>
-			<a href="#">Seite 4</a>
-
-			<ul>
-
-				<li><a href="#">Seite 4b</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li><a href="#">Seite 4c</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li><a href="#">Seite 4d</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-				<li><a href="#">Seite 4e</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-
-				<li>
-					<a href="#">Seite 4a</a>
-					<ul>
-						<li><a href="#">Seite 4aa</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-						<li><a href="#">Seite 4ab</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-						<li><a href="#">Seite 4ac</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-						<li><a href="#">Seite 4ad</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-					</ul>
-				</li>
-
-			</ul>
-
+			xpath insert insert insert
 		</li>
+	</ul>
+</nav>
 
-		<li><a href="#">Seite 5</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-		<li><a href="#">Seite 6</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-		<li><a href="#">Seite 7...</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-		<li><a href="#">Seite 8</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-		<li><a href="#">Seite 9</a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-		<li><a href="#">Seite 10 -- </a><ul>
-						<li><a href="#">Seite x1</a></li>
-						<li><a href="#">Seite x2</a></li>
-						<li><a href="#">Seite x3</a></li>
-						<li><a href="#">Seite x4</a></li>
-					</ul></li>
-
-	  </ul>
-	</nav>
-
-
-
-
+<!-- -->
 
 	<h1>Lorem ipsum</h1>
 	<h2>Opera sine nomine scripta</h2>
