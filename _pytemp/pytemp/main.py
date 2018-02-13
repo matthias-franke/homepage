@@ -3,17 +3,20 @@
 
 import sys, os, shutil, xml.etree.ElementTree
 import filecmp
+import itertools as IT
+import io
 from datetime import datetime
 from os.path import isfile
+from sets import Set
 
 # list1 = ['physics', 'chemistry', 1997, 2000];
 # tup1 = ('physics', 'chemistry', 1997, 2000);
 # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
 
-relativePathOutput = '\\..\\output'
-relativePathInput = '\\..\\input'
+relativePathOutput = '\\..\\..\\franke-matthias.de'
+relativePathInput = '\\..\\..\\franke-matthias.de_input'
 
-relativePathTemplate = '\\..\\input'
+relativePathTemplate = '\\..\\..\\franke-matthias.de_template'
 
 extentionsInput = ['.htm', '.html']
 extentionsTemplate = ['.htm', '.html', '.xml']
@@ -25,7 +28,9 @@ insertXPathTmp_TagEnd= '-->'
 maxCopyAttempts = 99
 maxLoops = 9
 
-templates = {}
+templates = dict() #{}
+finishedFiles = set()
+
 
 def readTemplate(f):
     with open( f, 'r') as file:
@@ -109,19 +114,22 @@ def getTemplate(tag, templatePath):
     else:
         file, xpath = tag.split(insertXPathTmp_DelimiterFileXPath)
         #print(' file: ' + file + ', xpath: ' + xpath)
-        root = xml.etree.ElementTree.parse(templatePath + '\\' + file)
-        reBin = root.find(xpath)
-        #re = reBin 
+        reBin = None
+        try:
+            root = xml.etree.ElementTree.parse(templatePath + '\\' + file)
+            reBin = root.find(xpath)
+        except xml.etree.ElementTree.ParseError as err:
+            print('ERROR ParseError: ' + str(err) + ' in ' + file)
         if reBin is not None:
             re = xml.etree.ElementTree.tostring(reBin).decode()
             templates[tag] = re
             #print(' return form file |-->' + re)
             return re
-        return None		
+    return None		
         
 def processFile(f, templatePath):
     listOfSections = ['']
-    with open( f, 'r') as file:
+    with open(f, 'r') as file:
         i = 0
         for line in file: 
             tagStart = line.find(insertXPathTmp_TagStart)
@@ -156,20 +164,24 @@ def processFolder(inputPath, outputPath, templatePath):
         file = os.path.join(inputPath, unqualifiedFile)
         if os.path.isfile(file):
             #print('file: ' + file)
-            for ext in extentionsInput:
-                if file.endswith(ext):
-                    result = processFile(file, templatePath)
-                    file_out = os.path.join(outputPath, unqualifiedFile)
-                    if len(result) > 1:
-                        writeFile(file_out, result)
-                        re = True
-                    else:						
-                        if not os.path.exists(file_out) or not filecmp.cmp(file, file_out):
-                            copyFile(file, file_out)
-                    break                
+            if file not in finishedFiles:
+                for ext in extentionsInput:
+                    if file.endswith(ext):
+                        result = processFile(file, templatePath)
+                        file_out = os.path.join(outputPath, unqualifiedFile)
+                        if len(result) > 1:
+                            writeFile(file_out, result)
+                            re = True
+                        else:                        
+                            if not os.path.exists(file_out) or not filecmp.cmp(file, file_out):
+                                copyFile(file, file_out)
+                            finishedFiles.add(file)
+                        break                
         else:
             #print('folder: ' + file)
             outputPathChild = os.path.join(outputPath, unqualifiedFile)
+            if not os.path.exists(outputPathChild):
+                os.makedirs(outputPathChild)
             if not os.path.exists(outputPathChild):
                 print('ERROR: outputPath does not exist: ' + outputPathChild)
                 return False
