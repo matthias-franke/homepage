@@ -7,7 +7,7 @@ import itertools as IT
 import io
 from datetime import datetime
 from os.path import isfile
-from sets import Set
+#from sets import Set
 
 # list1 = ['physics', 'chemistry', 1997, 2000];
 # tup1 = ('physics', 'chemistry', 1997, 2000);
@@ -19,9 +19,10 @@ relativePathInput = '\\..\\..\\franke-matthias.de_input'
 relativePathTemplate = '\\..\\..\\franke-matthias.de_template'
 
 extentionsInput = ['.htm', '.html']
-extentionsTemplate = ['.htm', '.html', '.xml']
+extentionsTemplate = ['.htm', '.html', '.xml', '.txt']
 
-insertXPathTmp_TagStart = '<!--+'
+insertTmp_TagMarker = '+'
+insertXPathTmp_TagStart = '<!--' + insertTmp_TagMarker
 insertXPathTmp_DelimiterFileXPath = ' '
 insertXPathTmp_TagEnd= '-->'
 
@@ -30,7 +31,7 @@ maxLoops = 9
 
 templates = dict() #{}
 finishedFiles = set()
-
+backupedFiles = set()
 
 def readTemplate(f):
     with open( f, 'r') as file:
@@ -40,23 +41,23 @@ def readTemplate(f):
             tagStart = line.find('<!--')
             tagEnd = 0
             while tagStart > -1:
-                tagStart = tagStart + 4
-                tagEnd = line.find('-->', tagStart)
+                tagAfterStart = tagStart + 4
+                tagEnd = line.find('-->', tagAfterStart)
                 if tagEnd > -1:
-                    tag = line[tagStart:tagEnd].strip()
-                    tagEnd = tagEnd + 3
+                    tag = line[tagAfterStart:tagEnd].strip()
+                    tagAfterEnd = tagEnd + 3
                     #print(' tag: ' + tag)
                     if tag[:1] == '/':
                         tag = tag[1:].strip()
                         if tag.find(' ') == -1:
                             if tag in tempTemplates:
-                                tempTemplates[tag] += line[cursor:tagEnd]
+                                tempTemplates[tag] += line[cursor:tagStart]
                                 templates[tag] = tempTemplates[tag]
                                 del tempTemplates[tag]
                             else:
                                 print('ERROR: ' + tag + ' missing opening tag')
                     else:
-                        if tag.find(' ') == -1:
+                        if tag[:1] != insertTmp_TagMarker and tag.find(' ') == -1:
                             if tag in tempTemplates:
                                 print('ERROR: ' + tag + ' dublicate opening tag')
                             else:
@@ -64,16 +65,16 @@ def readTemplate(f):
                                     print('ERROR: ' + tag + ' dublicate')
                                 else:
                                     for key in tempTemplates.keys():
-                                        tempTemplates[key] += line[cursor:tagEnd]
-                                    tempTemplates[tag] = '<!--' + tag + '-->'
-                                    cursor = tagEnd;
+                                        tempTemplates[key] += line[cursor:tagAfterEnd]
+                                    tempTemplates[tag] = ''#'<!--' + tag + '-->'
+                                    cursor = tagAfterEnd;
                     tagStart = line.find('<!--', tagEnd)
                 else:
                     print('WARNING: missing tags end at ' + line)
                     tagStart = -1
-                    tagEnd = 0
+                    #-----tagEnd = 0
             for key in tempTemplates.keys():
-                tempTemplates[key] += line[tagEnd:] #+ '\n'                 
+                tempTemplates[key] += line[cursor:] #+ '\n'                 
         for key in tempTemplates.keys():
             print('WARNING ' + key + ' missing closing tag' )
         del tempTemplates
@@ -88,7 +89,7 @@ def readTemplates(templatePath):
                     readTemplate(file)
 
 def copyFile(f, fcpy):
-    if os.path.exists(f):
+    if os.path.exists(f) and f not in backupedFiles:
         i = 0
         f_new = fcpy
         while os.path.exists(f_new):
@@ -98,6 +99,7 @@ def copyFile(f, fcpy):
             f_new = fcpy + datetime.now().strftime("%Y-%m-%d_%H%M%S") + '_' + str(i).zfill(2)  #%f
             i = i + 1                    
         shutil.copyfile(f, f_new) 
+        backupedFiles.add(f)
     return True
 		
 def writeFile(f, listOfSections):
@@ -133,7 +135,7 @@ def processFile(f, templatePath):
         i = 0
         for line in file: 
             tagStart = line.find(insertXPathTmp_TagStart)
-            if tagStart == 0:
+            if tagStart > -1:
                 tagStartLen = len(insertXPathTmp_TagStart)
                 lineEnd = line[tagStart + tagStartLen:]
                 tagEnd = lineEnd.find(insertXPathTmp_TagEnd)
@@ -156,9 +158,11 @@ def processFile(f, templatePath):
 def processFolder(inputPath, outputPath, templatePath):
     templates.clear()
     readTemplates(templatePath)
+    """
     for tag in templates:
         print(' . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .')
         print(tag)
+    """
     re = False
     for unqualifiedFile in os.listdir(inputPath):
         file = os.path.join(inputPath, unqualifiedFile)
@@ -205,15 +209,18 @@ def main(basePath):
     if not os.path.exists(templatePath):
         print('ERROR: templatePath does not exist: ' + templatePath)
         return
+    templates.clear()
+    finishedFiles.clear()
+    backupedFiles.clear()
     processFolder(inputPath, outputPath, templatePath)
     print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
     i = 0
     while processFolder(outputPath, outputPath, templatePath):
+        print('loop ' + str(i) + ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         i = i + 1
-        print('loop ' + str(i) + ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         if i >= maxLoops:
             break 
-    print('loop ' + str(i) + ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+    print('loop ' + str(i) + ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 #print (sys.version_info)
 print('')

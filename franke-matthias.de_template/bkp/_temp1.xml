@@ -1,32 +1,19 @@
-<xml>
-
-<!--HTML--><!--<!DOCTYPE html>-->
+<!DOCTYPE html>
 <html>
-<!--+_temp.xml head-->
-<!--+_temp.xml body-->
-</html>
-<!--/HTML-->
-
 <head>
 </head>
-
 <body>
-<!--+_temp.xml nav-->
-<!--+_temp.xml footer-->
-<!--+_temp.xml script-->
-</body>
-
+<!--NAV-->
+norm inserted inserted inserted
+<!--/NAV-->
 <nav id="nav">
 	<ul>
 		<li>
-			
+			xpath insert insert insert
 		</li>
 	</ul>
 </nav>
 
-<!--NAV-->
-norm inserted inserted inserted
-<!--/NAV-->
 <!-- -->
 
 	<h1>Lorem ipsum</h1>
@@ -80,6 +67,10 @@ norm inserted inserted inserted
 	  <a class="w3-button w3-large w3-teal w3-hide-small" href="javascript:void(0)" title="Linkedin">pppp</a>
 	  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 	</div>
+
+<!-- xxx -->
+
+
 	<div class="fusstopbox">
 		<h3>Kontakt</h3>
 		<ul>
@@ -92,6 +83,7 @@ norm inserted inserted inserted
 			<li><a href="#">infokontaktmustersohn@mail.de</a></li>
 		</ul>
 	</div>
+
 	<div class="fusstopbox">
 		<h3>More Links</h3>
 		<ul>
@@ -106,6 +98,7 @@ norm inserted inserted inserted
 			<li><a  href="index.html">Bella Mia Terra Luna Sol</a></li>
 		</ul>
 	</div>
+
 	<div class="fusstopbox">
 		<h3>Legal Conditions</h3>
 		<ul>
@@ -116,6 +109,7 @@ norm inserted inserted inserted
 			<li><a href="index.html">AGB</a></li>
 		</ul>
 	</div>
+
 </footer>
 
 <script>
@@ -146,5 +140,5 @@ norm inserted inserted inserted
 
 </script>
 
-</xml>
-
+</body>
+</html>

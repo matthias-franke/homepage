@@ -1,29 +1,36 @@
-<xml>
-
+<!DOCTYPE html>
+<html>
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
-	<meta name="robots" content="INDEX,FOLLOW" />
-	<meta name="page-type" content=" homepage" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="keywords" content="Matthias Franke" />
-	<meta name="description" content="homepage, dokument, webpage, page, web, netz" />
-	<link rel="stylesheet" href="style.css" type="text/css" />
+	<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+	<meta charset="utf-8" content="text/html;" http-equiv="Content-Type" />
+	<meta content="INDEX,FOLLOW" name="robots" />
+	<meta content=" homepage" name="page-type" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<meta content="Matthias Franke" name="keywords" />
+	<meta content="homepage, dokument, webpage, page, web, netz" name="description" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<!--BODY--><body>
-<!--+NAV-->
-<!--+_temp.xml footer-->
-<!--+_temp.xml script-->
-</body>
-<!--/BODY-->
+
+<body>
+
+<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+
+<nav id="nav">
+	<ul>
+		<li><a href="#">&and;</a></li>
+		<li>
+			franke-matthias.de
+		</li>
+	</ul>
+</nav>
 
 <footer>
 	<div class="fusstopbox">
 		<h3>Kontakt</h3>
 		<p>
-			Matthias Franke<br/>
-			Mobile: (+49) 0000-1234567<br/>
+			Matthias Franke<br />
+			Mobile: (+49) 0000-1234567<br />
 			Mail: <a href="#">mail@franke-matthias.de</a>
 		</p>
 	</div>
@@ -38,6 +45,7 @@
 		</ul>
 	</div>
 </footer>
+
 
 <script>
 
@@ -67,5 +75,7 @@
 
 </script>
 
-</xml>
 
+</body>
+
+</html>

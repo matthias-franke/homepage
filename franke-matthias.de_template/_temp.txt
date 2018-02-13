@@ -1,0 +1,19 @@
+﻿<!--HTML--><!DOCTYPE html>
+<html>
+<!--+_temp.xml head-->
+<!--+BODY-->
+</html><!--/HTML-->
+
+<!--NAV-->
+<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+
+<nav id="nav">
+	<ul>
+		<li><a href="#">&and;</a></li>
+		<li>
+			franke-matthias.de
+		</li>
+	</ul>
+</nav>
+<!--/NAV-->
+
