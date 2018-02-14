@@ -23,18 +23,18 @@
 		<h3>Kontakt</h3>
 		<p>
 			Matthias Franke<br/>
-			Mobile: (+49) 0000-1234567<br/>
+			Mobile: +49 171 978 0954<br/>
 			Mail: <a href="#">mail@franke-matthias.de</a>
 		</p>
 	</div>
 	<div class="fusstopbox">
 		<h3>Legal Conditions</h3>
 		<ul>
-			<li><a href="index.html">Impressum</a></li>
-			<li><a href="index.html">Datenschutz</a></li>
-			<li><a href="index.html">Disclaimer</a></li>
-			<li><a href="index.html">Lizenzbedingungen</a></li>
-			<li><a href="index.html">AGB</a></li>
+			<li><a href="index.htm">Impressum</a></li>
+			<li><a href="index.htm">Datenschutz</a></li>
+			<li><a href="index.htm">Disclaimer</a></li>
+			<li><a href="index.htm">Lizenzbedingungen</a></li>
+			<li><a href="index.htm">AGB</a></li>
 		</ul>
 	</div>
 </footer>

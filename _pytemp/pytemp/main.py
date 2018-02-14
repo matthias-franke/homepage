@@ -18,6 +18,8 @@ relativePathInput = '\\..\\..\\franke-matthias.de_input'
 
 relativePathTemplate = '\\..\\..\\franke-matthias.de_template'
 
+pathExtBkp = 'bkp'
+
 extentionsInput = ['.htm', '.html']
 extentionsTemplate = ['.htm', '.html', '.xml', '.txt']
 
@@ -88,22 +90,40 @@ def readTemplates(templatePath):
                 if file.endswith(ext):
                     readTemplate(file)
 
-def copyFile(f, fcpy):
-    if os.path.exists(f) and f not in backupedFiles:
-        i = 0
-        f_new = fcpy
-        while os.path.exists(f_new):
-            if i > maxCopyAttempts:
-                print('ERROR can not copyFile: ' + f + ' to ' + f_new)    
-                return False
-            f_new = fcpy + datetime.now().strftime("%Y-%m-%d_%H%M%S") + '_' + str(i).zfill(2)  #%f
-            i = i + 1                    
-        shutil.copyfile(f, f_new) 
-        backupedFiles.add(f)
+def backupFile(pathCpy, unqualFileCpy):
+    if not os.path.exists(pathCpy):
+        os.makedirs(pathCpy)      
+    fileCpy = os.path.join(pathCpy, unqualFileCpy)
+    if fileCpy not in backupedFiles:
+        if os.path.exists(fileCpy):
+            pathBkp = os.path.join(pathCpy, pathExtBkp)
+            if not os.path.exists(pathBkp):
+                os.makedirs(pathBkp)
+            i = 0
+            f_new = os.path.join(pathBkp, datetime.now().strftime("%Y-%m-%d_%H%M") + '_' + str(i).zfill(2) + '_' + unqualFileCpy) #%S%f
+            while os.path.exists(f_new):
+                if i > maxCopyAttempts:
+                    print('ERROR can not backup ' + fileCpy)
+                    return False
+                f_new = os.path.join(pathBkp, datetime.now().strftime("%Y-%m-%d_%H%M") + '_' + str(i).zfill(2) + '_' + unqualFileCpy) #%S%f
+                i = i + 1 
+            shutil.copyfile(fileCpy, f_new)
+    backupedFiles.add(fileCpy)
     return True
 		
-def writeFile(f, listOfSections):
-    if copyFile(f, f) is True:
+def cpyFile(f, pathCpy, unqualFileCpy):
+    if os.path.exists(f):
+        if not os.path.exists(pathCpy):
+            os.makedirs(pathCpy)  
+        fileCpy = os.path.join(pathCpy, unqualFileCpy)
+        if f != fileCpy:
+            if backupFile(pathCpy, unqualFileCpy) is True:
+                shutil.copyfile(f, fileCpy)
+    
+def writeFile(path, unqualifiedFile, listOfSections):
+    f = os.path.join(path, unqualifiedFile)
+    qualPathBkp = os.path.join(path, pathExtBkp)
+    if backupFile(path, unqualifiedFile) is True:
         with open(f, 'w') as file:
             for section in listOfSections: 
                 file.write(section)
@@ -172,25 +192,24 @@ def processFolder(inputPath, outputPath, templatePath):
                 for ext in extentionsInput:
                     if file.endswith(ext):
                         result = processFile(file, templatePath)
-                        file_out = os.path.join(outputPath, unqualifiedFile)
                         if len(result) > 1:
-                            writeFile(file_out, result)
+                            writeFile(outputPath, unqualifiedFile, result)
                             re = True
-                        else:                        
-                            if not os.path.exists(file_out) or not filecmp.cmp(file, file_out):
-                                copyFile(file, file_out)
+                        else:            
+                            #if not filecmp.cmp(file, os.path.join(outputPath, unqualifiedFile)):
+                            cpyFile(file, outputPath, unqualifiedFile)
                             finishedFiles.add(file)
                         break                
         else:
-            #print('folder: ' + file)
-            outputPathChild = os.path.join(outputPath, unqualifiedFile)
-            if not os.path.exists(outputPathChild):
-                os.makedirs(outputPathChild)
-            if not os.path.exists(outputPathChild):
-                print('ERROR: outputPath does not exist: ' + outputPathChild)
-                return False
-            if processFolder(file, outputPathChild, templatePath):
-                re = True
+            if unqualifiedFile != pathExtBkp:
+                outputPathChild = os.path.join(outputPath, unqualifiedFile)
+                if not os.path.exists(outputPathChild):
+                    os.makedirs(outputPathChild)
+                if not os.path.exists(outputPathChild):
+                    print('ERROR: outputPath does not exist: ' + outputPathChild)
+                    return False
+                if processFolder(file, outputPathChild, templatePath):
+                    re = True
     return re
 
 def main(basePath):

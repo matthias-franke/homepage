@@ -18,6 +18,11 @@ nav li:hover,
 	background-color: white
 }
 
+a
+{
+	color: inherit
+}
+
 /**********************************/
 /* ##> fixed **********************/
 nav, footer
@@ -168,8 +173,7 @@ nav a
 	margin: 0rem 0rem 0rem 0rem;         /* abstand rahmen zum eltern object */
 	padding: 0rem 0.8rem 0rem 0.8rem;    /* abstand zum rahmen */
 
-	text-decoration: none;
-	color: inherit
+	text-decoration: none
 }
 
 /* ==> NAV Level first ************/
@@ -292,6 +296,7 @@ footer
 {
 	position: static;
 	width: 100%;
+	/*bottom: 0;*/
 
 	display: flex;
 	flex-flow: row wrap;
