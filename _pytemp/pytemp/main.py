@@ -70,7 +70,10 @@ def readTemplate(f):
                                         tempTemplates[key] += line[cursor:tagAfterEnd]
                                     tempTemplates[tag] = ''#'<!--' + tag + '-->'
                                     cursor = tagAfterEnd;
-                    tagStart = line.find('<!--', tagEnd)
+                                    if line[cursor:] == '\n':
+                                        cursor = cursor + 1
+                                        break
+                    tagStart = line.find('<!--', tagAfterEnd)
                 else:
                     print('WARNING: missing tags end at ' + line)
                     tagStart = -1
@@ -134,19 +137,22 @@ def getTemplate(tag, templatePath):
         #print(' return form dict |-->' + templates[fileAndXpath])
         return templates[tag]
     else:
-        file, xpath = tag.split(insertXPathTmp_DelimiterFileXPath)
-        #print(' file: ' + file + ', xpath: ' + xpath)
-        reBin = None
-        try:
-            root = xml.etree.ElementTree.parse(templatePath + '\\' + file)
-            reBin = root.find(xpath)
-        except xml.etree.ElementTree.ParseError as err:
-            print('ERROR ParseError: ' + str(err) + ' in ' + file)
-        if reBin is not None:
-            re = xml.etree.ElementTree.tostring(reBin).decode()
-            templates[tag] = re
-            #print(' return form file |-->' + re)
-            return re
+        if tag.find(insertXPathTmp_DelimiterFileXPath) > -1:
+            file, xpath = tag.split(insertXPathTmp_DelimiterFileXPath)
+            #print(' file: ' + file + ', xpath: ' + xpath)
+            reBin = None
+            try:
+                root = xml.etree.ElementTree.parse(templatePath + '\\' + file)
+                reBin = root.find(xpath)
+            except xml.etree.ElementTree.ParseError as err:
+                print('ERROR ParseError: ' + str(err) + ' in ' + file)
+            if reBin is not None:
+                re = xml.etree.ElementTree.tostring(reBin).decode()
+                templates[tag] = re
+                #print(' return form file |-->' + re)
+                return re
+        else:
+            print('ERROR unknown template: ' + tag)
     return None		
         
 def processFile(f, templatePath):

@@ -1,19 +1,46 @@
-﻿<!--HTML--><!DOCTYPE html>
+﻿<!--HTML-->
+<!DOCTYPE html>
+<html>
+	<!--+_temp.xml head-->
+	<!--+BODY-->
+</html>
+<!--/HTML-->
+
+<!--START-->
+<!DOCTYPE html>
 <html>
 <!--+_temp.xml head-->
-<!--+BODY-->
-</html><!--/HTML-->
+<body>
+	<!--+NAV-->
+	<!--+BEFORE_CONTENT-->
+<!--/START-->
+
+<!--END-->
+	<!--+AFTER_CONTENT-->
+	<!--+_temp.xml footer-->
+	<!--+_temp.xml script-->
+</body>
+</html>
+<!--/END-->
 
 <!--NAV-->
-<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
 
-<nav id="nav">
-	<ul>
-		<li><a href="#">&and;</a></li>
-		<li>
-			franke-matthias.de
-		</li>
-	</ul>
-</nav>
+	<nav id="nav">
+		<ul>
+			<li><a href="index.html">&and;</a></li>
+			<li>
+				<a href="tk.html">Liegedreirad</a>
+				<ul>
+					<li><a href="tkah.html">Beschreibung</a></li>
+					<li><a href="tkbh.html">Theorie</a></li>
+					<li><a href="tkdh.html">Abstract</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
 <!--/NAV-->
 
+<!--BEFORE_CONTENT--><div><!--/BEFORE_CONTENT-->
+
+<!--AFTER_CONTENT--></div><!--/AFTER_CONTENT-->
