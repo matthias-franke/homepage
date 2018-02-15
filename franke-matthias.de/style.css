@@ -1,5 +1,21 @@
 
 
+
+/**********************************/
+/* ==> textAcademicInetLiteratur **/
+a.V
+{
+	text-decoration: none;
+	font-size: 0.7em;
+	vertical-align: 0.5em;
+}
+
+a.U
+{
+	text-decoration: none;
+	/*font-weight: bold;*/
+}
+
 /**********************************/
 /* ##> black **********************/
 nav, nav ul, .menu, footer
@@ -16,11 +32,6 @@ nav li:hover,
 {
 	color: black;
 	background-color: white
-}
-
-a
-{
-	color: inherit
 }
 
 /**********************************/
@@ -46,6 +57,16 @@ body
 	padding: 0rem 0rem 0rem 0rem;       /* abstand zum rahmen */
 	z-index: 1;
 
+}
+
+a
+{
+	color: inherit
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+{
+	text-decoration: none;
 }
 
 /**********************************/
