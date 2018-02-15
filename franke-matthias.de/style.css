@@ -295,7 +295,7 @@ nav + *
 }
 
 /* ==> CONTENT all sibblings ******/
-nav ~ *
+nav ~ :not(video)
 {
 	padding-left: calc((100% - 40rem) / 2);     /* abstand zum rahmen */
 	padding-right: calc((100% - 40rem) / 2);    /* abstand zum rahmen */

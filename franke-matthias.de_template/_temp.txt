@@ -1,9 +1,6 @@
 ﻿<!--HTML-->
-<!DOCTYPE html>
-<html>
-	<!--+_temp.xml head-->
-	<!--+BODY-->
-</html>
+	<!--START-->
+	<!--END-->
 <!--/HTML-->
 
 <!--START-->
@@ -23,13 +20,17 @@
 </html>
 <!--/END-->
 
+<!--BEFORE_CONTENT--><div><!--/BEFORE_CONTENT-->
+
+<!--AFTER_CONTENT--></div><!--/AFTER_CONTENT-->
+
 <!--NAV-->
 	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
 
 	<nav id="nav">
 		<ul>
 			<li><a href="index.html">&and;</a></li>
-			
+
 			<li>
 				<a href="text.html">Text</a>
 				<ul>
@@ -44,8 +45,8 @@
 							</li>
 							<li>
 								<a href="textFiktionBrueller.html">Der Br&uuml;ller - Ein Bericht</a>
-							</li>					
-						</ul>					
+							</li>
+						</ul>
 					</li>
 					<li>
 						<a href="textAcademic.html">Akademisches</a>
@@ -53,16 +54,29 @@
 							<li>
 								<a href="textAcademicInetLiteraturA.html">Literatur im Internet</a>
 							</li>
-<!--							
+<!--
 							<li>
 								<a href="wiah.html">Ein Versuch &uuml;ber die Tendenz eines Witzes</a>
 							</li>
--->							
-						</ul>					
-					</li>					
+-->
+						</ul>
+					</li>
+					<li>
+						<a href="textJournal.html">Journalistisches</a>
+						<ul>
+
+						</ul>
+					</li>
 				</ul>
-			</li>		
-		
+			</li>
+
+			<li>
+				<a href="code.html">Code</a>
+				<ul>
+					<li><a href="codePytemp.html">pytemp</a></li>
+				</ul>
+			</li>
+
 			<li>
 				<a href="liera.html">Liegedreirad</a>
 				<ul>
@@ -75,48 +89,57 @@
 	</nav>
 <!--/NAV-->
 
-	<!--INDEX-->
-	<h1><a href="index.html">franke-matthias.de</a></h1>
-	<!--/INDEX-->
-	
-	<!--LIERA-->
-		<!--+LIERA_HEAD-->	
-		<!--+LIERA_CONT-->
-	<!--/LIERA-->
-	<!--LIERA_HEAD-->
-		<h2><a href="liera.html">Liegedreirad</a></h2>		
-	<!--/LIERA_HEAD-->
-	<!--LIERA_CONT-->
-		<p>[ <a href="lieraBeschreibung.html">Beschreibung</a> ]</p>
-		<p>[ <a href="lieraTheorie.html">Theorie</a> ]</p>
-		<p>[ <a href="lieraAbstract.html">Abstract</a> ]</p>	
-	<!--/LIERA_CONT-->
-	
-	<!--TEXT-->
-		<h2><a href="text.html">Text</a></h2>		
-	<!--/TEXT-->
-	
+<!--INDEX-->
+<h1><a href="index.html">franke-matthias.de</a></h1>
+<!--/INDEX-->
+
+<!--LIERA-->
+	<!--+LIERA_HEAD-->
+	<!--+LIERA_CONT-->
+<!--/LIERA-->
+<!--LIERA_HEAD-->
+	<h2><a href="liera.html">Liegedreirad</a></h2>
+<!--/LIERA_HEAD-->
+<!--LIERA_CONT-->
+	<p>[ <a href="lieraBeschreibung.html">Beschreibung</a> ]</p>
+	<p>[ <a href="lieraTheorie.html">Theorie</a> ]</p>
+	<p>[ <a href="lieraAbstract.html">Abstract</a> ]</p>
+<!--/LIERA_CONT-->
+
+<!--TEXT_HEAD-->
+	<h2><a href="text.html">Text</a></h2>
+<!--/TEXT_HEAD-->
+
 	<!--FICTION-->
 	<h3><a href="textFiktion.html">Fiktionales</a></h3>
-	<p>[ <a href="textFiktionVerlierer.html" class="V">Der Verlierer - Fliesstext</a> ]<br>
-		Kriminalroman 
+	<p>[ <a href="textFiktionVerlierer.html">Der Verlierer - Fliesstext</a> ]<br>
+		Kriminalroman
 	</p>
-	<p>[ <a href="textFiktionVerlierer/index.html" class="V">Der Verlierer - interaktiv</a> ]<br>
+	<p>[ <a href="textFiktionVerlierer/index.html">Der Verlierer - interaktiv</a> ]<br>
 		Kriminalroman als interaktives Literaturprojekt
 	</p>
-	<p>[ <a href="textFiktionBrueller.html" class="V">Der Br&uuml;ller</a> ]<br>
+	<p>[ <a href="textFiktionBrueller.html">Der Br&uuml;ller</a> ]<br>
 		Ein Bericht - Marburg am Freitag den 21.2.1997 um 15.20
 	</p>
 	<!--/FICTION-->
 
 	<!--ACADEMIC-->
-	<h3><a href="textAcademic.html">Akademisches</a></h3>
-	<p>[ <a href="textAcademicInetLiteraturA.html">Literatur im Internet</a> ] <br/> Magisterarbeit über Hypertext-Literatur</p>
-	<p>[ <a href="wiah.html">Ein Versuch &uuml;ber die Tendenz eines Witzes</a> ]</p>
+		<h3><a href="textAcademic.html">Akademisches</a></h3>
+		<p>[ <a href="textAcademicInetLiteraturA.html">Literatur im Internet</a> ] <br/> Magisterarbeit über Hypertext-Literatur</p>
+		<p>[ <a href="wiah.html">Ein Versuch &uuml;ber die Tendenz eines Witzes</a> ]</p>
 	<!--/ACADEMIC-->
 
+	<!--JOURNAL-->
+		<h3><a href="textJournal.html">Journalistisches</a></h3>
+	<!--/JOURNAL-->
 
-
-<!--BEFORE_CONTENT--><div><!--/BEFORE_CONTENT-->
-
-<!--AFTER_CONTENT--></div><!--/AFTER_CONTENT-->
+<!--CODE-->
+	<!--+CODE_HEAD-->
+	<!--+CODE_CONTENT-->
+<!--/CODE-->
+<!--CODE_HEAD-->
+	<h2><a href="code.html">Code</a></h2>
+<!--/CODE_HEAD-->
+<!--CODE_CONTENT-->
+	<p>[ <a href="codePytemp.html">pytemp</a> ] Erstelle und Verwalte statische Websites mit Templates</p>
+<!--/CODE_CONTENT-->
