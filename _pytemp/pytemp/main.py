@@ -13,17 +13,16 @@ from os.path import isfile
 # tup1 = ('physics', 'chemistry', 1997, 2000);
 # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
 
-relativePathOutput = '\\..\\..\\franke-matthias.de'
 relativePathInput = '\\..\\..\\franke-matthias.de_input'
+templateFiles = ['_temp.txt']
+extentionsInput = ['.htm', '.html', '.xml']
 
-relativePathTemplate = '\\..\\..\\franke-matthias.de_template'
-
+relativePathOutput = '\\..\\..\\franke-matthias.de'
 pathExtBkp = 'bkp'
 
-extentionsInput = ['.htm', '.html']
-extentionsTemplate = ['.htm', '.html', '.xml', '.txt']
 
-insertTmp_TagMarker = '+'
+
+insertTmp_TagMarker = '#'
 insertXPathTmp_TagStart = '<!--' + insertTmp_TagMarker
 insertXPathTmp_DelimiterFileXPath = ' '
 insertXPathTmp_TagEnd= '-->'
@@ -32,13 +31,15 @@ maxCopyAttempts = 99
 maxLoops = 9
 
 templates = dict() #{}
-finishedFiles = set()
+templatesPerFile = dict()
+
+#finishedFiles = set()
 backupedFiles = set()
 
 def readTemplate(f):
     with open( f, 'r') as file:
         tempTemplates = {}
-        for line in file: 
+        for line in file:
             cursor = 0
             tagStart = line.find('<!--')
             tagEnd = 0
@@ -46,9 +47,8 @@ def readTemplate(f):
                 tagAfterStart = tagStart + 4
                 tagEnd = line.find('-->', tagAfterStart)
                 if tagEnd > -1:
-                    tag = line[tagAfterStart:tagEnd].strip()
+                    tag = line[tagAfterStart:tagEnd]#.strip()
                     tagAfterEnd = tagEnd + 3
-                    #print(' tag: ' + tag)
                     if tag[:1] == '/':
                         tag = tag[1:].strip()
                         if tag.find(' ') == -1:
@@ -71,31 +71,29 @@ def readTemplate(f):
                                     tempTemplates[tag] = ''#'<!--' + tag + '-->'
                                     cursor = tagAfterEnd;
                                     if line[cursor:] == '\n':
-                                        cursor = cursor + 1
+                                        cursor = cursor #+ 1
                                         break
                     tagStart = line.find('<!--', tagAfterEnd)
                 else:
-                    print('WARNING: missing tags end at ' + line)
                     tagStart = -1
-                    #-----tagEnd = 0
             for key in tempTemplates.keys():
-                tempTemplates[key] += line[cursor:] #+ '\n'                 
+                tempTemplates[key] += line[cursor:] #+ '\n'
         for key in tempTemplates.keys():
             print('WARNING ' + key + ' missing closing tag' )
         del tempTemplates
 
-def readTemplates(templatePath):
-    for unqualifiedFile in os.listdir(templatePath):
-        file = os.path.join(templatePath, unqualifiedFile)
+def readTemplates(path):
+    templates.clear()
+    for unqualifiedFile in templateFiles:
+        file = os.path.join(path, unqualifiedFile)
         if os.path.isfile(file):
-            #print('file: ' + file)
-            for ext in extentionsTemplate:
-                if file.endswith(ext):
-                    readTemplate(file)
+            readTemplate(file)
+        else:
+            print('Error: ' + file + ' is no file')
 
 def backupFile(pathCpy, unqualFileCpy):
     if not os.path.exists(pathCpy):
-        os.makedirs(pathCpy)      
+        os.makedirs(pathCpy)
     fileCpy = os.path.join(pathCpy, unqualFileCpy)
     if fileCpy not in backupedFiles:
         if os.path.exists(fileCpy):
@@ -109,143 +107,149 @@ def backupFile(pathCpy, unqualFileCpy):
                     print('ERROR can not backup ' + fileCpy)
                     return False
                 f_new = os.path.join(pathBkp, datetime.now().strftime("%Y-%m-%d_%H%M") + '_' + str(i).zfill(2) + '_' + unqualFileCpy) #%S%f
-                i = i + 1 
+                i = i + 1
             shutil.copyfile(fileCpy, f_new)
     backupedFiles.add(fileCpy)
     return True
-		
+
 def cpyFile(f, pathCpy, unqualFileCpy):
     if os.path.exists(f):
         if not os.path.exists(pathCpy):
-            os.makedirs(pathCpy)  
+            os.makedirs(pathCpy)
         fileCpy = os.path.join(pathCpy, unqualFileCpy)
         if f != fileCpy:
             if backupFile(pathCpy, unqualFileCpy) is True:
                 shutil.copyfile(f, fileCpy)
-    
+        return fileCpy
+    return f
+
 def writeFile(path, unqualifiedFile, listOfSections):
     f = os.path.join(path, unqualifiedFile)
     qualPathBkp = os.path.join(path, pathExtBkp)
     if backupFile(path, unqualifiedFile) is True:
         with open(f, 'w') as file:
-            for section in listOfSections: 
+            for section in listOfSections:
                 file.write(section)
+    return f
 
-def getTemplate(tag, templatePath):
+def getTemplate(tag, actualFile):
     #print(' |-->' + fileAndXpath)
     if tag in templates:
         #print(' return form dict |-->' + templates[fileAndXpath])
         return templates[tag]
     else:
+        xpath = None;
+        source = None;
         if tag.find(insertXPathTmp_DelimiterFileXPath) > -1:
             file, xpath = tag.split(insertXPathTmp_DelimiterFileXPath)
-            #print(' file: ' + file + ', xpath: ' + xpath)
-            reBin = None
-            try:
-                root = xml.etree.ElementTree.parse(templatePath + '\\' + file)
-                reBin = root.find(xpath)
-            except xml.etree.ElementTree.ParseError as err:
-                print('ERROR ParseError: ' + str(err) + ' in ' + file)
-            if reBin is not None:
-                re = xml.etree.ElementTree.tostring(reBin).decode()
-                templates[tag] = re
-                #print(' return form file |-->' + re)
-                return re
+            source = os.path.dirname(actualFile.name) + '\\' + file
         else:
-            print('ERROR unknown template: ' + tag)
-    return None		
-        
-def processFile(f, templatePath):
+            #if actualFile.name.endswith('.xml'):
+            xpath = tag
+            source = actualFile.name
+            #else:
+            #    return insertXPathTmp_TagStart + tag + insertXPathTmp_TagEnd
+        if source in templatesPerFile:
+            if tag in templatesPerFile[source]:
+                return templatesPerFile[source][tag]
+        else:
+            templatesPerFile[source] = {}
+        reBin = None
+        try:
+            root = xml.etree.ElementTree.parse(source)
+            reBin = root.find(xpath)
+        except xml.etree.ElementTree.ParseError as err:
+            print('ERROR ParseError: ' + str(err) + ' in ' + str(source))
+        except FileNotFoundError as err:
+            print('ERROR File not found: ' + str(err) + ' in ' + str(source))
+        if reBin is not None:
+            re = xml.etree.ElementTree.tostring(reBin).decode()
+            templatesPerFile[source][tag] = re
+            #print(' return form file |-->' + re)
+            return re
+        else:
+            print('Info: no xpath ' + xpath + ' in ' + str(source))
+
+    return None
+
+def processFile(f):
     listOfSections = ['']
     with open(f, 'r') as file:
         i = 0
-        for line in file: 
+        for line in file:
             tagStart = line.find(insertXPathTmp_TagStart)
             if tagStart > -1:
                 tagStartLen = len(insertXPathTmp_TagStart)
                 lineEnd = line[tagStart + tagStartLen:]
                 tagEnd = lineEnd.find(insertXPathTmp_TagEnd)
                 if tagEnd > -1:
-                    tmp = getTemplate(lineEnd[:tagEnd].strip(), templatePath)
+                    tmp = getTemplate(lineEnd[:tagEnd].strip(), file)
                     if tmp is not None:
                         listOfSections[i] += line[:tagStart]
                         listOfSections.append(tmp)
                         listOfSections.append(lineEnd[tagEnd + len(insertXPathTmp_TagEnd):])
-                        i = i + 2                    
+                        i = i + 2
                     else:
-                        print('WARNING: no template ' + lineEnd[:tagEnd] + ' found for ' + f )
+                        print('Info: no template ' + lineEnd[:tagEnd] + ' found for ' + f )
                         listOfSections[i] += line
                 else:
                     listOfSections[i] += line
             else:
                 listOfSections[i] += line
     return listOfSections
-                 
-def processFolder(inputPath, outputPath, templatePath):
-    templates.clear()
-    readTemplates(templatePath)
+
+def processFolder(inputPath, outputPath):
     """
     for tag in templates:
         print(' . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .')
         print(tag)
     """
-    re = False
-    for unqualifiedFile in os.listdir(inputPath):
+    for unqualifiedFile in sorted(os.listdir(inputPath)):
         file = os.path.join(inputPath, unqualifiedFile)
         if os.path.isfile(file):
-            #print('file: ' + file)
-            if file not in finishedFiles:
-                for ext in extentionsInput:
-                    if file.endswith(ext):
-                        result = processFile(file, templatePath)
-                        if len(result) > 1:
-                            writeFile(outputPath, unqualifiedFile, result)
-                            re = True
-                        else:            
-                            #if not filecmp.cmp(file, os.path.join(outputPath, unqualifiedFile)):
-                            cpyFile(file, outputPath, unqualifiedFile)
-                            finishedFiles.add(file)
-                        break                
+            i = 0
+            for ext in extentionsInput:
+                if file.endswith(ext):
+                    while i <= maxLoops:
+                        result = processFile(file)
+                        if len(result) <= 1:
+                            break
+                        print('~ ' + file + ' loop' + str(i))
+                        file = writeFile(outputPath, unqualifiedFile, result)
+                        if file in templatesPerFile:
+                            templatesPerFile[file].clear()
+                        i = i + 1
+                    if i == 0:
+                        fileCpy = cpyFile(file, outputPath, unqualifiedFile)
+                        if file in templatesPerFile:
+                            templatesPerFile[fileCpy] = templatesPerFile[file]
+                    break
         else:
+            #print('folder: ' + file)
             if unqualifiedFile != pathExtBkp:
                 outputPathChild = os.path.join(outputPath, unqualifiedFile)
                 if not os.path.exists(outputPathChild):
                     os.makedirs(outputPathChild)
                 if not os.path.exists(outputPathChild):
                     print('ERROR: outputPath does not exist: ' + outputPathChild)
-                    return False
-                if processFolder(file, outputPathChild, templatePath):
-                    re = True
-    return re
+                else:
+                    processFolder(file, outputPathChild)
 
 def main(basePath):
     inputPath = os.path.normpath(basePath + relativePathInput)
     if not os.path.exists(inputPath):
         print('ERROR: inputPath does not exist: ' + inputPath)
-        return    
+        return
     outputPath = os.path.normpath(basePath + relativePathOutput)
     if not os.path.exists(outputPath):
         print('ERROR: outputPath does not exist: ' + outputPath)
-        return    
+        return
     if inputPath == outputPath:
         print('ERROR: inputPath equals outputPath: ' + inputPath)
         return
-    templatePath = os.path.normpath(basePath + relativePathTemplate)
-    if not os.path.exists(templatePath):
-        print('ERROR: templatePath does not exist: ' + templatePath)
-        return
-    templates.clear()
-    finishedFiles.clear()
+    readTemplates(inputPath)
     backupedFiles.clear()
-    processFolder(inputPath, outputPath, templatePath)
-    print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-    i = 0
-    while processFolder(outputPath, outputPath, templatePath):
-        print('loop ' + str(i) + ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-        i = i + 1
-        if i >= maxLoops:
-            break 
-    print('loop ' + str(i) + ' ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+    processFolder(inputPath, outputPath)
 
 #print (sys.version_info)
 print('')
@@ -253,6 +257,15 @@ print('############################################################')
 main( os.path.dirname(os.path.abspath(__file__)) )
 print('############################################################')
 
+"""
+try:
+    root = xml.etree.ElementTree.parse('C:\\_\\03_WWW_Projects\\_GitHub\\homepage\\franke-matthias.de\\_toc.xml')
+    reBin = root.find('textJournalBerichtSub')
+except xml.etree.ElementTree.ParseError as err:
+    print('ERROR ParseError: ' + str(err) + ' in ' + str(source))
+if reBin is not None:
+    re = xml.etree.ElementTree.tostring(reBin).decode()
+    print(re)
+"""
+
 #templates4File = dict()#{'x':[]}
-
-

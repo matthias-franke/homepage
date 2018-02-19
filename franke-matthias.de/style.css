@@ -1,4 +1,6 @@
-
+.sub{
+	font-size: 0.7em;
+}
 
 
 /**********************************/
@@ -43,7 +45,7 @@ nav, footer
 
 /**********************************/
 /* ==> BODY ***********************/
-html{box-sizing:border-box}
+html{box-sizing:border-box; height: 100%}
 *,*:before,*:after{box-sizing:inherit}
 html,body{font-family:Verdana,sans-serif;line-height:1.5}
 /*
@@ -57,6 +59,15 @@ body
 	padding: 0rem 0rem 0rem 0rem;       /* abstand zum rahmen */
 	z-index: 1;
 
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+main
+{
+	display: block;
+	flex: 1 0 auto;
 }
 
 a
@@ -288,23 +299,37 @@ nav li > ul li
 /* ==> CONTENT ********************/
 
 /* ==> CONTENT first sibbling *****/
-nav + *
+/*nav + *, */
+main
 {
-	margin-top: 0rem;         /* abstand rahmen zum eltern object */
+
+	/*margin-top: 0rem;          abstand rahmen zum eltern object */
 	padding-top: 4.2rem;      /* abstand zum rahmen */
+	/*background-color: yellow;*/
+}
+
+footer
+{
+	padding-top: 0;
 }
 
 /* ==> CONTENT all sibblings ******/
-nav ~ *
+/*nav ~ *, */
+main, footer
 {
+	margin: 0rem 0rem 0rem 0rem;
 	padding-left: calc((100% - 40rem) / 2);     /* abstand zum rahmen */
 	padding-right: calc((100% - 40rem) / 2);    /* abstand zum rahmen */
+	padding-bottom: 0;
 	z-index: inherit;
 }
 
+
+
 @media screen and (max-width: 600px)
 {
-	nav ~ *
+	/*nav ~ *, */
+  main, footer
 	{
 		padding-left: 0.4rem;     /* abstand zum rahmen */
 		padding-right: 0.4rem;    /* abstand zum rahmen */
@@ -315,16 +340,19 @@ nav ~ *
 /* ==> FOOTER *********************/
 footer
 {
+	flex-shrink: 0;
 	position: static;
 	width: 100%;
-	/*bottom: 0;*/
-
+	/*
+	bottom: 0;
+	left: 0;
+	*/
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
 	align-items: stretch;
 
-	margin: 4rem 0rem 0rem 0rem;
+	/*margin: 4rem 0rem 0rem 0rem;*/
 	font-size: 0.66rem;
 }
 

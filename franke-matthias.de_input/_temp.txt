@@ -1,0 +1,128 @@
+﻿link geht nicht text jour
+
+
+
+			<header>
+			  <img src="http://wiki.selfhtml.org/mediawiki/images/3/39/Selfhtml-Logo-Neu.png"
+				   alt="SELFHTML - Die Energie des Verstehens">
+			  <h1>Herzlich Willkommen!</h1>
+			</header>
+			<article>
+                <header>
+                      <h1>Überschrift des Artikels</h1>
+                </header>
+
+                <section>
+                      <h2>Kapitel 1</h2>
+                      <p>...</p>
+                </section>
+			<article>
+
+
+<!--HTML-->
+	<!--#START-->
+	<!--#END-->
+<!--/HTML-->
+
+<!--START-->
+<!DOCTYPE html>
+<html>
+<!--#_0temp.xml head-->
+<body>
+	<!--#NAV_MENU-->
+	<!--#NAV-->
+	<!--#BEFORE_CONTENT-->
+<!--/START-->
+
+<!--END-->
+	<!--#AFTER_CONTENT-->
+	<!--#_0temp.xml footer-->
+	<!--#_0temp.xml script-->
+</body>
+</html>
+<!--/END-->
+
+<!--BEFORE_CONTENT--><main><!--/BEFORE_CONTENT-->
+
+<!--AFTER_CONTENT--></main><!--/AFTER_CONTENT-->
+
+
+<!--SUB--><span class="sub"><!--/SUB-->
+<!--SUB_END--></span><!--/SUB_END-->
+
+
+<!--NAV_MENU-->
+	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+<!--/NAV_MENU-->
+&and;
+<!--NAV-->
+	<!--#_1nav.xml nav-->
+<!--/NAV-->
+
+<!--INDEX-->
+<h1><a href="index.html">franke-matthias.de</a></h1>
+<!--/INDEX-->
+
+<!--LIERA-->
+	<!--#LIERA_HEAD-->
+	<!--#LIERA_CONT-->
+<!--/LIERA-->
+<!--LIERA_HEAD-->
+	<h2><a href="liera.html">Liegedreirad</a></h2>
+<!--/LIERA_HEAD-->
+<!--LIERA_CONT-->
+	<p>[ <a href="lieraBeschreibung.html">Beschreibung</a> ]</p>
+	<p>[ <a href="lieraTheorie.html">Theorie</a> ]</p>
+	<p>[ <a href="lieraAbstract.html">Abstract</a> ]</p>
+<!--/LIERA_CONT-->
+
+<!--TEXT_HEAD-->
+	<h2><a href="text.html">Text</a></h2>
+<!--/TEXT_HEAD-->
+
+	<!--FICTION-->
+	<h3><a href="textFiktion.html">Fiktionales</a></h3>
+	<p>[ <a href="textFiktionVerlierer.html">Der Verlierer</a> ]<br>
+		<span class="sub">Kriminalroman - Fliesstext</span>
+	</p>
+	<p>[ <a href="textFiktionVerlierer/index.html">Der Verlierer - interaktiv</a> ]<br>
+		<span class="sub">Kriminalroman als interaktives Literaturprojekt</span>
+	</p>
+	<p>[ <a href="textFiktionBrueller.html">Der Br&uuml;ller</a> ]<br>
+		<span class="sub">Ein Bericht - Marburg am Freitag den 21.2.1997 um 15.20</span>
+	</p>
+	<!--/FICTION-->
+
+	<!--ACADEMIC-->
+		<h3><a href="textAcademic.html">Akademisches</a></h3>
+		<p>[ <a href="textAcademicInetLiteraturA.html">Literatur im Internet</a> ] <br/>
+			<span class="sub">Magisterarbeit über Hypertext-Literatur</span>
+		</p>
+		<p>[ <a href="wiah.html">Ein Versuch &uuml;ber die Tendenz eines Witzes</a> ]</p>
+	<!--/ACADEMIC-->
+
+	<!--JOURNAL-->
+		<h3><a href="textJournal.html">Journalistisches</a></h3>
+	<!--/JOURNAL-->
+
+<!--CODE-->
+	<!--#CODE_HEAD-->
+	<!--#CODE_CONTENT-->
+<!--/CODE-->
+<!--CODE_HEAD-->
+	<h2><a href="code.html">Code</a></h2>
+<!--/CODE_HEAD-->
+<!--CODE_CONTENT-->
+	<p>[ <a href="codePytemp.html">pytemp</a> ]
+		<span class="sub">Erstelle und Verwalte statische Websites mit Templates </span>
+	</p>
+	<p>[ <a href="codeCssMenu.html">CSS Webpage Menu</a> ]</p>
+<!--/CODE_CONTENT-->
+
+<!--SATIRE_HEAD-->
+	<h2><a href="satire.html">Satire</a></h2>
+<!--/SATIRE_HEAD-->
+
+<!--FOTO_HEAD-->
+	<h2><a href="foto.html">Fotografie</a></h2>
+<!--/FOTO_HEAD-->

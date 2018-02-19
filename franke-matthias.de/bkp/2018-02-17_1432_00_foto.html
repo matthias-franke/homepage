@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+main, footer
+{
+	padding-left: 3rem;     /* abstand zum rahmen */
+	padding-right: 3rem;    /* abstand zum rahmen */
+	z-index: inherit;
+}
+
+
+
+div.gallery {
+    border: 1px solid #ccc;
+
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+	margin: 0;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body>
+		<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+
+	<nav id="nav">
+		<ul>
+			<li><a href="index.html">&and;</a></li>
+
+			<li>
+				<a href="code.html">Code</a>
+				<ul>
+					<li><a href="codePytemp.html">pytemp</a></li>
+					<li><a href="codeCssMenu.html">CSS Webpage Menu</a></li>
+					
+				</ul>
+			</li>
+			
+			<li>
+				<a href="text.html">Text</a>
+				<ul>
+					<li>
+						<a href="textFiktion.html">Fiktionales</a>
+						<ul>
+							<li>
+								<a href="textFiktionVerlierer.html">Der Verlierer <span class="sub">- Krimi - Fliesstext</span></a>
+							</li>
+							<li>
+								<a href="textFiktionVerlierer/index.html">Der Verlierer <span class="sub">- Krimi - interaktiv</span></a>
+							</li>
+							<li>
+								<a href="textFiktionBrueller.html">Der Br&uuml;ller <span class="sub">- Ein Bericht</span></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="textAcademic.html">Akademisches</a>
+						<ul>
+							<li>
+								<a href="textAcademicInetLiteraturA.html">Literatur im Internet</a>
+							</li>
+<!--
+							<li>
+								<a href="wiah.html">Ein Versuch &uuml;ber die Tendenz eines Witzes</a>
+							</li>
+-->
+						</ul>
+					</li>
+					<li>
+						<a href="textJournal.html">Journalistisches</a>
+						<ul>
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a href="foto.html">Foto</a>
+			</li>
+			
+			<li>
+				<a href="satire.html">Satire</a>
+			</li>
+			
+			<li>
+				<a href="liera.html">Liegedreirad</a>
+				<ul>
+					<li><a href="lieraBeschreibung.html">Beschreibung</a></li>
+					<li><a href="lieraTheorie.html">Theorie</a></li>
+					<li><a href="lieraAbstract.html">Abstract</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+	<main>
+
+	<h2><a href="foto.html">Fotografie</a></h2>
+
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/P3200296.jpg">
+      <img src="foto/P3200296.jpg" alt="" width="3648" height="2736">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/P3200297.jpg">
+      <img src="foto/P3200297.jpg" alt="" width="3648" height="2736">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/P3200288.jpg">
+      <img src="foto/P3200288.jpg" alt="Korsika 1" width="3648" height="2736">
+    </a>
+    <div class="desc">Korsika 1</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/P3200291.jpg">
+      <img src="foto/P3200291.jpg" alt="Korsika 2" width="3648" height="2736">
+    </a>
+    <div class="desc">Korsika 2</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/P5130569.jpg">
+      <img src="foto/P5130569.jpg" alt="" width="3648" height="2736">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/P5140763.jpg">
+      <img src="foto/P5140763.jpg" alt="" width="3648" height="2736">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/P5140764.jpg">
+      <img src="foto/P5140764.jpg" alt="" width="3648" height="2736">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/PC260069.jpg">
+      <img src="foto/PC260069.jpg" alt="" width="2696" height="3604">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/PC260076.jpg">
+      <img src="foto/PC260076.jpg" alt="" width="2736" height="3648">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="foto/PC260081.jpg">
+      <img src="foto/PC260081.jpg" alt="" width="2736" height="3648">
+    </a>
+    <!--<div class="desc">Add a description of the image here</div>-->
+  </div>
+</div>
+
+
+
+<div class="clearfix"></div>
+
+<!--
+<div style="padding:6px;">
+  <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+  <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+</div>
+-->
+
+
+	</main>
+	<footer>
+	<div class="fusstopbox">
+		<h3>Kontakt</h3>
+		<p>
+			Matthias Franke<br />
+			Mobile: +49 171 978 0954<br />
+			Mail: mail@franke-matthias.de
+		</p>
+	</div>
+	<div class="fusstopbox">
+		<h3>Legal Conditions</h3>
+		<ul>
+			<li><a href="impressum.htm">Impressum</a></li>
+			<li><a href="index.htm">Datenschutz</a></li>
+			<li><a href="index.htm">Disclaimer</a></li>
+			<li><a href="index.htm">Lizenzbedingungen</a></li>
+			<li><a href="index.htm">AGB</a></li>
+		</ul>
+	</div>
+</footer>
+
+
+	<script>
+
+	function togglePosition(id) {
+		e = document.getElementById(id);
+		if(e != null){
+			if(e.style.position == "absolute"){
+				e.style.position = "fixed";
+			}
+			else{
+				e.style.position = "absolute";
+			}
+		}
+	}
+
+	function toggleDisplay(id) {
+		e = document.getElementById(id);
+		if(e != null){
+			if(e.style.display == "none"){
+				e.style.display = "block";
+			}
+			else{
+				e.style.display = "none";
+			}
+		}
+	}
+
+</script>
+
+
+</body>
+</html>
+

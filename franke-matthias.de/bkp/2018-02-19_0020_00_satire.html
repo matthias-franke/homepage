@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+main, footer
+{
+	padding-left: 3rem;     /* abstand zum rahmen */
+	padding-right: 3rem;    /* abstand zum rahmen */
+	z-index: inherit;
+}
+
+
+
+div.gallery {
+    border: 1px solid #ccc;
+
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+	margin: 0;
+    float: left;
+    width: 49%;
+}
+
+@media only screen and (max-width: 900px){
+    .responsive {
+        width: 100%;
+        margin: 6px 0;
+    }
+}
+
+
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body>
+	
+	<!--#_1nav.xml nav-->
+
+	<main>
+
+
+	<h2><a href="satire.html">Satire</a></h2>
+
+
+<!--
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="satire/organism.png">
+      <img src="satire/organism.png" alt="cooperate as in an organism" width="938" height="611">
+    </a>
+    <div class="desc">cooperate as in an organism</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="satire/channelingInformation.png">
+      <img src="satire/channelingInformation.png" alt="channeling information" width="664" height="911">
+    </a>
+    <div class="desc">channeling information</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="satire/dataScientist.png">
+      <img src="satire/dataScientist.png" alt="channeling information" width="1005" height="678">
+    </a>
+    <div class="desc">data scientist and data lake technology</div>
+  </div>
+</div>
+-->
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="satire/orange1.jpg">
+      <img src="satire/orange1.jpg" alt="orange Kunst 1" width="2562" height="2280">
+    </a>
+    <div class="desc">orange Kunst 1</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="satire/orange2.jpg">
+      <img src="satire/orange2.jpg" alt="orange Kunst 2" width="3480" height="2280">
+    </a>
+    <div class="desc">orange Kunst 2</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<!--
+<div style="padding:6px;">
+  <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+  <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+</div>
+-->
+
+
+
+	<!--#AFTER_CONTENT-->
+	<!--#_temp.xml footer-->
+	<!--#_temp.xml script-->
+</body>
+</html>
+

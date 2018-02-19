@@ -1,0 +1,63 @@
+<xml>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+	<meta name="robots" content="INDEX,FOLLOW" />
+	<meta name="page-type" content=" homepage" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="keywords" content="Matthias Franke" />
+	<meta name="description" content="homepage, dokument, webpage, page, web, netz" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<footer>
+	<div>
+		<h3>Kontakt</h3>
+		<p>
+			Matthias Franke<br/>
+			Mobile: +49 171 978 0954<br/>
+			Mail: mail@franke-matthias.de
+		</p>
+	</div>
+	<div>
+		<h3>Legal Conditions</h3>
+		<ul>
+			<li><a href="impressum.htm">Impressum</a></li>
+			<li><a href="index.htm">Datenschutz</a></li>
+			<li><a href="index.htm">Disclaimer</a></li>
+			<li><a href="index.htm">Lizenzbedingungen</a></li>
+			<li><a href="index.htm">AGB</a></li>
+		</ul>
+	</div>
+</footer>
+
+<script>
+
+	function togglePosition(id) {
+		e = document.getElementById(id);
+		if(e != null){
+			if(e.style.position == "absolute"){
+				e.style.position = "fixed";
+			}
+			else{
+				e.style.position = "absolute";
+			}
+		}
+	}
+
+	function toggleDisplay(id) {
+		e = document.getElementById(id);
+		if(e != null){
+			if(e.style.display == "none"){
+				e.style.display = "block";
+			}
+			else{
+				e.style.display = "none";
+			}
+		}
+	}
+
+</script>
+
+</xml>
