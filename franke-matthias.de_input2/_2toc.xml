@@ -1,31 +1,24 @@
 <root>
-	
-<id0>&lt;p&gt;&lt;a href=&quot;</id0>
-<id1>&lt;section&gt;&lt;h1 id=&quot;</id1>
-<id2>&lt;section&gt;&lt;h2 id=&quot;</id2>
-<id>&quot;&gt;</id>
-<title></title>
-<title0>&lt;/a&gt;&lt;/p&gt;</title0>	
-<title1>&lt;/h1&gt;</title1>	
-<title2>&lt;/h2&gt;</title2>	
-	
-<sub>&lt;span class=&quot;sub&quot;&gt;</sub>
-<subEnd>&lt;/span&gt;</subEnd>	
-	
-<p>&lt;p&gt;</p>
-<pEnd>&lt;/p&gt;</pEnd>	
-	
-<listBegin></listBegin>	
-<listEnd></listEnd>
 
-<sectionEnd>&lt;/section&gt;</sectionEnd>
+<i>&lt;p&gt;&lt;a href=&quot;</i>
+<title0>&quot;&gt;</title0>
+<sub0>&lt;span class=&quot;sub&quot;&gt;</sub0>
+<ix>&lt;/a&gt;&lt;/p&gt;</ix>
+
+<h>&lt;section id=&quot;</h>
+<title>&quot;&gt;&lt;header&gt;&lt;h1&gt;</title>
+<sub>&lt;/h1&gt;&lt;p&gt;</sub>
+<detail>&lt;/p&gt;&lt;/header&gt;</detail>
+<hx>&lt;/section&gt;</hx>
 
 <article></article>
-<articleEnd></articleEnd>
-	
-	
-<toc>		
+<articlex></articlex>
+
+
+
+
+<toc>
 	<!--#TOC-->
 </toc>
-	
+
 </root>

@@ -14,7 +14,7 @@ from os.path import isfile
 # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
 
 relativePathInput = '\\..\\..\\franke-matthias.de_input2'
-templateFiles = ['_temp.txt']
+templateFiles = ['_0temp.txt']
 extentionsInput = ['.htm', '.html', '.xml']
 
 relativePathOutput = '\\..\\..\\franke-matthias.de2'

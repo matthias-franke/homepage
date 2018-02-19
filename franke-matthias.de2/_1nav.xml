@@ -1,47 +1,49 @@
 <root>
-	
-<itemBevoreID>&lt;li&gt;&lt;a href=&quot;</itemBevoreID>
-<itemBevoreID1>&lt;li&gt;&lt;a href=&quot;toc.html#</itemBevoreID1>
-<itemBevoreID2>&lt;li&gt;&lt;a href=&quot;toc.html#</itemBevoreID2>
-<itemAfterID>&quot;&gt;</itemAfterID>
-<itemBevoreDesc></itemBevoreDesc>
-<itemAfterDesc>&lt;/a&gt;&lt;/li&gt;</itemAfterDesc>	
-<itemAfterDesc1>&lt;/a&gt;&lt;/li&gt;</itemAfterDesc1>	
-<itemAfterDesc2>&lt;/a&gt;&lt;/li&gt;</itemAfterDesc2>	
 
-<listBegin>&lt;ul&gt;</listBegin>	
-<listEnd>&lt;/ul&gt;</listEnd>	
-	
-<sectionEnd></sectionEnd>	
-	
-<nav id="nav">
-	<ul>	
+<i>&lt;li&gt;&lt;a href=&quot;</i>
+<title0>&quot;&gt;</title0>
+<sub0>&lt;span class=&quot;sub&quot;&gt;</sub0>
+<ix>&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</ix>
+
+<h>&lt;li&gt;&lt;a href=&quot;toc.html#</h>
+<title>&quot;&gt;</title>
+<sub>&lt;span class=&quot;sub&quot;&gt;</sub>
+<detail>&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;</detail>
+<hx>&lt;/ul&gt;&lt;/li&gt;</hx>
+
+<article>&lt;!--</article>
+<articlex>--&gt;</articlex>
+
+
+
+
+
+
+<nav id="nav">xyz war hier
+	<ul>
 		
 
-	<li><a href="toc.html#index">home</a></li>
-	
-	
-	<li><a href="toc.html#code">Code</a></li>
-	<ul>
-		<li><a href="codePytemp.html">pytemp</a></li>
-		<li><a href="codeCssMenu.html">CSS Webpage Menu</a></li>
-	</ul>
-	
+	<li><a href="toc.html#index">home<span class="sub">of Matthias</span></a><ul>
+	<!--
+	article index
+	-->
+	</ul></li>
 
-	<li><a href="toc.html#text">Text</a></li>
-	<ul>
-		<li><a href="toc.html#textFiktion">Fiktionales</a></li>
-		<ul>
+	<li><a href="toc.html#code">Code<span class="sub"> xyz </span></a><ul>
+		<li><a href="codePytemp.html">pytemp<span class="sub"></span></a></li>
+		<li><a href="codeCssMenu.html">CSS Webpage Menu<span class="sub"></span></a></li>
+	</ul></li>
+
+	<li><a href="toc.html#text">Text<span class="sub"></span></a><ul>
+		<li><a href="toc.html#textFiktion">Fiktionales<span class="sub"></span></a><ul>
 			<li><a href="textFiktionVerlierer.html">Der Verlierer <span class="sub">- Krimi - Fliesstext</span></a></li>
 			<li><a href="textFiktionVerlierer.html">Der Verlierer <span class="sub">- Krimi - interaktiv</span></a></li>
-			<li><a href="textFiktionBrueller.html">Der Brüller <span class="sub">- Ein Bericht</span></a></li>				
-		</ul>			
-		
-	</ul>
-	
-			
+			<li><a href="textFiktionBrueller.html">Der Brüller <span class="sub">- Ein Bericht</span></a></li>
+		</ul></li>
+	</ul></li>
+
 
 	</ul>
 </nav>
-	
+
 </root>

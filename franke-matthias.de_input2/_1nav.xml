@@ -1,33 +1,28 @@
 <root>
-	
-<id0>&lt;li&gt;&lt;a href=&quot;</id0>
-<id1>&lt;li&gt;&lt;a href=&quot;toc.html#</id1>
-<id2>&lt;li&gt;&lt;a href=&quot;toc.html#</id2>
-<id>&quot;&gt;</id>
-<title></title>
-<title0>&lt;/a&gt;&lt;/li&gt;</title0>	
-<title1>&lt;/a&gt;&lt;/li&gt;</title1>	
-<title2>&lt;/a&gt;&lt;/li&gt;</title2>	
 
+<i>&lt;li&gt;&lt;a href=&quot;</i>
+<title0>&quot;&gt;</title0>
+<sub0>&lt;span class=&quot;sub&quot;&gt;</sub0>
+<ix>&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</ix>
+
+<h>&lt;li&gt;&lt;a href=&quot;toc.html#</h>
+<title>&quot;&gt;</title>
 <sub>&lt;span class=&quot;sub&quot;&gt;</sub>
-<subEnd>&lt;/span&gt;</subEnd>
+<detail>&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;</detail>
+<hx>&lt;/ul&gt;&lt;/li&gt;</hx>
 
-<p>&lt;p&gt;</p>
-<pEnd>&lt;/p&gt;</pEnd>
+<article>&lt;!--</article>
+<articlex>--&gt;</articlex>
 
-<listBegin>&lt;ul&gt;</listBegin>	
-<listEnd>&lt;/ul&gt;</listEnd>	
-	
-<sectionEnd></sectionEnd>	
 
-<article>&gt;!--</article>
-<articleEnd>--&gt;</articleEnd>
 
-	
-<nav id="nav">
-	<ul>	
+
+
+
+<nav id="nav">xyz war hier
+	<ul>
 		<!--#TOC-->
 	</ul>
 </nav>
-	
+
 </root>
