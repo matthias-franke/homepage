@@ -9,10 +9,20 @@
 <title1>&lt;/h1&gt;</title1>	
 <title2>&lt;/h2&gt;</title2>	
 	
+<sub>&lt;span class=&quot;sub&quot;&gt;</sub>
+<subEnd>&lt;/span&gt;</subEnd>	
+	
+<p>&lt;p&gt;</p>
+<pEnd>&lt;/p&gt;</pEnd>	
+	
 <listBegin></listBegin>	
 <listEnd></listEnd>
 
 <sectionEnd>&lt;/section&gt;</sectionEnd>
+
+<article></article>
+<articleEnd></articleEnd>
+	
 	
 <toc>		
 	<!--#TOC-->
