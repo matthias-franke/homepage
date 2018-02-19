@@ -1,0 +1,45 @@
+<root>
+	
+<itemBevoreID>&lt;p&gt;&lt;a href=&quot;</itemBevoreID>
+<itemBevoreID1>&lt;section&gt;&lt;h1 id=&quot;</itemBevoreID1>
+<itemBevoreID2>&lt;section&gt;&lt;h2 id=&quot;</itemBevoreID2>
+<itemAfterID>&quot;&gt;</itemAfterID>
+<itemBevoreDesc></itemBevoreDesc>
+<itemAfterDesc>&lt;/a&gt;&lt;/p&gt;</itemAfterDesc>	
+<itemAfterDesc1>&lt;/h1&gt;</itemAfterDesc1>	
+<itemAfterDesc2>&lt;/h2&gt;</itemAfterDesc2>	
+	
+<listBegin></listBegin>	
+<listEnd></listEnd>
+
+<sectionEnd>&lt;/section&gt;</sectionEnd>
+	
+<toc>		
+	
+
+	<section><h1 id="index">home</h1>
+	</section>
+	
+	<section><h1 id="code">Code</h1>
+	
+		<p><a href="codePytemp.html">pytemp</a></p>
+		<p><a href="codeCssMenu.html">CSS Webpage Menu</a></p>
+	
+	</section>
+
+	<section><h1 id="text">Text</h1>
+	
+		<section><h2 id="textFiktion">Fiktionales</h2>
+		
+			<p><a href="textFiktionVerlierer.html">Der Verlierer <span class="sub">- Krimi - Fliesstext</span></a></p>
+			<p><a href="textFiktionVerlierer.html">Der Verlierer <span class="sub">- Krimi - interaktiv</span></a></p>
+			<p><a href="textFiktionBrueller.html">Der Brüller <span class="sub">- Ein Bericht</span></a></p>				
+					
+		</section>
+	
+	</section>
+			
+
+</toc>
+	
+</root>

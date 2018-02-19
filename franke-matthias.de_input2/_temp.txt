@@ -1,0 +1,31 @@
+﻿"   &quot;
+'   &apos;
+<   &lt;
+>   &gt;
+&   &amp;
+
+<!--TOC-->
+
+	<!--#./id1-->index<!--#./id--><!--#./title-->home<!--#./title1-->
+	<!--#./sectionEnd-->
+	
+	<!--#./id1-->code<!--#./id--><!--#./title-->Code<!--#./title1-->
+	<!--#./listBegin-->
+		<!--#./id0-->codePytemp.html<!--#./id--><!--#./title-->pytemp<!--#./title0-->
+		<!--#./id0-->codeCssMenu.html<!--#./id--><!--#./title-->CSS Webpage Menu<!--#./title0-->
+	<!--#./listEnd-->
+	<!--#./sectionEnd-->
+
+	<!--#./id1-->text<!--#./id--><!--#./title-->Text<!--#./title1-->
+	<!--#./listBegin-->
+		<!--#./id2-->textFiktion<!--#./id--><!--#./title-->Fiktionales<!--#./title2-->
+		<!--#./listBegin-->
+			<!--#./id0-->textFiktionVerlierer.html<!--#./id--><!--#./title-->Der Verlierer <!--#./sub-->- Krimi - Fliesstext<!--#./subEnd--><!--#./title0-->
+			<!--#./id0-->textFiktionVerlierer.html<!--#./id--><!--#./title-->Der Verlierer <!--#./sub-->- Krimi - interaktiv<!--#./subEnd--><!--#./title0-->
+			<!--#./id0-->textFiktionBrueller.html<!--#./id--><!--#./title-->Der Brüller <!--#./sub-->- Ein Bericht<!--#./subEnd--><!--#./title0-->				
+		<!--#./listEnd-->			
+		<!--#./sectionEnd-->
+	<!--#./listEnd-->
+	<!--#./sectionEnd-->
+			
+<!--/TOC-->	

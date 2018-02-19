@@ -13,11 +13,11 @@ from os.path import isfile
 # tup1 = ('physics', 'chemistry', 1997, 2000);
 # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
 
-relativePathInput = '\\..\\..\\franke-matthias.de_input'
+relativePathInput = '\\..\\..\\franke-matthias.de_input2'
 templateFiles = ['_temp.txt']
 extentionsInput = ['.htm', '.html', '.xml']
 
-relativePathOutput = '\\..\\..\\franke-matthias.de'
+relativePathOutput = '\\..\\..\\franke-matthias.de2'
 pathExtBkp = 'bkp'
 
 
@@ -160,12 +160,15 @@ def getTemplate(tag, actualFile):
             reBin = root.find(xpath)
         except xml.etree.ElementTree.ParseError as err:
             print('ERROR ParseError: ' + str(err) + ' in ' + str(source))
-        except FileNotFoundError as err:
-            print('ERROR File not found: ' + str(err) + ' in ' + str(source))
+        #except FileNotFoundError as err:
+        #    print('ERROR File not found: ' + str(err) + ' in ' + str(source))
         if reBin is not None:
-            re = xml.etree.ElementTree.tostring(reBin).decode()
-            templatesPerFile[source][tag] = re
-            #print(' return form file |-->' + re)
+            #re = xml.etree.ElementTree.tostring(reBin).decode()
+            re = reBin.text
+            if re is None:
+                re = ''
+            #templatesPerFile[source][tag] = re
+            print(' return form file |-->' + re)
             return re
         else:
             print('Info: no xpath ' + xpath + ' in ' + str(source))
@@ -173,6 +176,34 @@ def getTemplate(tag, actualFile):
     return None
 
 def processFile(f):
+    listOfSections = ['']
+    with open(f, 'r') as file:
+        i = 0
+        for line in file:
+            cursor = 0
+            tagStart = line.find(insertXPathTmp_TagStart, cursor)        
+            while tagStart > -1:
+                listOfSections[i] += line[cursor:tagStart]
+                cursor = tagStart + len(insertXPathTmp_TagStart)
+                tagEnd = line.find(insertXPathTmp_TagEnd, cursor)
+                if tagEnd > -1:
+                    tag = line[cursor:tagEnd]
+                    tmp = getTemplate(tag.strip(), file)
+                    cursor = tagEnd + len(insertXPathTmp_TagEnd)
+                    if tmp is not None:
+                        listOfSections.append(tmp)
+                        i = i + 1
+                    else:
+                        print('Info: no template ' + tag + ' found for ' + f )
+                        listOfSections[i] += insertXPathTmp_TagStart + tag + insertXPathTmp_TagEnd
+                    tagStart = line.find(insertXPathTmp_TagStart, cursor)
+                else:
+                    cursor = tagStart
+                    break
+            listOfSections[i] += line[cursor:]   
+    return listOfSections
+    
+def processFile_old(f):
     listOfSections = ['']
     with open(f, 'r') as file:
         i = 0

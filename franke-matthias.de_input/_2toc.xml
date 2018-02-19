@@ -58,7 +58,7 @@
 								<!--textJournalBerichtHead-->
 								<a href="toc.html#textJournalBericht">Bericht</a>
 								<!--/textJournalBerichtHead-->
-								<!--#textJournalBerichtSub/p-->
+								<!--#xsl:value-of select="/Some/Path/To/Element"/-->
 								<!--textJournalBericht-->
 								<ul>
 									<li>
