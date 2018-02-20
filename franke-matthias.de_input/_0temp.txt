@@ -25,7 +25,7 @@
 			Von 1996 bis 2001 studierte ich "Neuere deutsche Literatur und Medien" in Marburg und Wien.<br/>
 			Hier einige Arbeiten:
 			<!--#articlex/-->
-			<!--#i/-->textAcademicInetLiteraturA.html<!--#title0/-->Literatur im Internet<!--#sub0/--><!--#ix/-->
+			<!--#i/-->textAcademicInetLiteraturN.html<!--#title0/-->Literatur im Internet<!--#sub0/--><!--#ix/-->
 			<!--#i/-->wiah.html<!--#title0/-->Ein Versuch über die Tendenz eines Witzes<!--#sub0/--><!--#ix/-->
 		<!--#hx/-->		
 		<!--#h/--><!--#tocFile/-->textJournal<!--#title/-->Journalistisches<!--#sub/--><!--#detail/-->
