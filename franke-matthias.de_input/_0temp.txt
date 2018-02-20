@@ -1,0 +1,127 @@
+﻿"   &quot;
+'   &apos;
+<   &lt;
+>   &gt;
+&   &amp;
+
+&and; = &#8743; = &#x2227;
+
+<!--TOC-->
+	<!--#i/-->index.html<!--#title0/-->&#8743;<!--#sub0/--><!--#ix/-->
+
+	<!--#h/--><!--#tocFile/-->code<!--#title/-->Code<!--#sub/--><!--#detail/-->
+		<!--#i/-->codePytemp.html<!--#title0/-->pytemp<!--#sub0/--><!--#ix/-->
+		<!--#i/-->codeCssMenu.html<!--#title0/-->CSS Webpage Menu<!--#sub0/--><!--#ix/-->
+	<!--#hx/-->
+
+	<!--#h/--><!--#tocFile/-->text<!--#title/-->Text<!--#sub/--><!--#detail/-->
+		<!--#h/--><!--#tocFile/-->textFiktion<!--#title/-->Fiktionales<!--#sub/--><!--#detail/-->
+			<!--#i/-->textFiktionVerlierer.html<!--#title0/-->Der Verlierer <!--#sub0/-->- Krimi - Fliesstext<!--#ix/-->
+			<!--#i/-->textFiktionVerlierer/index.html<!--#title0/-->Der Verlierer <!--#sub0/-->- Krimi - interaktiv<!--#ix/-->
+			<!--#i/-->textFiktionBrueller.html<!--#title0/-->Der Brüller <!--#sub0/-->- Ein Bericht<!--#ix/-->
+		<!--#hx/-->
+		<!--#h/--><!--#tocFile/-->textAcademic<!--#title/-->Akademisches<!--#sub/--><!--#detail/-->
+			<!--#article/-->
+			Von 1996 bis 2001 studierte ich "Neuere deutsche Literatur und Medien" in Marburg und Wien.<br/>
+			Hier einige Arbeiten:
+			<!--#articlex/-->
+			<!--#i/-->textAcademicInetLiteraturA.html<!--#title0/-->Literatur im Internet<!--#sub0/--><!--#ix/-->
+			<!--#i/-->wiah.html<!--#title0/-->Ein Versuch über die Tendenz eines Witzes<!--#sub0/--><!--#ix/-->
+		<!--#hx/-->		
+		<!--#h/--><!--#tocFile/-->textJournal<!--#title/-->Journalistisches<!--#sub/--><!--#detail/-->
+			<!--#h/--><!--#tocFile/-->textJournalBericht<!--#title/-->Bericht<!--#sub/--><!--#detail/-->
+				<!--#h/--><!--#tocFile/-->textJournalBerichtComputer<!--#title/-->Computer<!--#sub/--><!--#detail/-->
+					<!--#i/-->jbahschachtner.html<!--#title0/-->Das virtuelle Geschlecht<!--#sub0/-->Interview mit Christina Schachtner<!--#ix/-->
+					<!--#i/-->jbbhcomp.html<!--#title0/-->Unbekannte Wesen<!--#sub0/-->über menschlichen Umgang mit Computern<!--#ix/-->
+					<!--#i/-->jbchAlpar.html<!--#title0/-->WWW Wohin?<!--#sub0/-->Wie begründet ist das Internet-Fieber der Wirtschaftsstrategen?<!--#ix/-->
+				<!--#hx/-->
+				<!--#h/--><!--#tocFile/-->textJournalBerichtTechnik<!--#title/-->Technik<!--#sub/--><!--#detail/-->
+					<!--#i/-->jbdhschalt.html<!--#title0/-->Die lineare Innovation<!--#sub0/-->Einige Entwicklungen bei Schaltwerken vor allem im MTB-Bereich<!--#ix/-->
+					<!--#i/-->jbehhelm.html<!--#title0/-->Helm auf!<!--#sub0/-->Gesetzliche Helmpflicht für Radfahrer<!--#ix/-->
+					<!--#i/-->jbghdaemm.html<!--#title0/-->Die regenerativen Alternativen<!--#sub0/-->Wie natürlich sind die Naturdämmstoffe?<!--#ix/-->
+				<!--#hx/-->				
+				<!--#h/--><!--#tocFile/-->textJournalBerichtGesundheit<!--#title/-->Gesundheit<!--#sub/--><!--#detail/-->
+					<!--#i/-->jbhhfuss.html<!--#title0/-->Von Kindesbeinen an getreten: Die Füße<!--#sub0/--><!--#ix/-->
+					<!--#i/-->jbihvitamin.html<!--#title0/-->Schäden durch Vitamin A?<!--#sub0/--><!--#ix/-->
+				<!--#hx/-->				
+				<!--#h/--><!--#tocFile/-->textJournalBerichtWirtschaft<!--#title/-->Wirtschaft<!--#sub/--><!--#detail/-->
+					<!--#i/-->jbjhecom.html<!--#title0/-->Geschäfte gehen ins Netz<!--#sub0/-->Die neue Studie zu den Schwierigkeiten der Unternehmer mit Electronic Commerce<!--#ix/-->
+					<!--#i/-->jbkhboerse.html<!--#title0/-->Börse zweiter Klasse<!--#sub0/-->Bauaktien leiden an der Wiener Börse<!--#ix/-->
+					<!--#i/-->jbrhimmobil.html<!--#title0/-->Immobilien<!--#sub0/--><!--#ix/-->
+					<!--#i/-->jbshmarkt.html<!--#title0/-->Markt<!--#sub0/--><!--#ix/-->
+					<!--#i/-->jbthkooper.html<!--#title0/-->Baumit-Kooperation<!--#sub0/--><!--#ix/-->
+				<!--#hx/-->	
+				<!--#h/--><!--#tocFile/-->textJournalBerichtRegionales<!--#title/-->Regionales<!--#sub/--><!--#detail/-->
+					<!--#i/-->jblhgolf.html<!--#title0/-->Generation Golf<!--#sub0/-->Studenten üben sich in der Kulturtechnik Golf<!--#ix/-->
+					<!--#i/-->jbmhJacob.html<!--#title0/-->Erinnerungsstücke<!--#sub0/-->Eine Ausstellung zeigt Familiengeschichte<!--#ix/-->
+					<!--#i/-->jbnhfundland.html<!--#title0/-->Natur-nah<!--#sub0/-->Der Reiseveranstalter "NeuFundLand" bietet Naturerlebnisse im Marburger Umland<!--#ix/-->
+					<!--#i/-->jbohloet.html<!--#title0/-->Lötkolben<!--#sub0/-->Der Motoradclub Wohratal<!--#ix/-->
+					<!--#i/-->jbphkonz.html<!--#title0/-->Lehrer ohne Pauken<!--#sub0/-->musizierende Pädagogen<!--#ix/-->
+					<!--#i/-->jbqhgesang.html<!--#title0/-->Gesangverein<!--#sub0/-->Jubiläumsfeier in Kirchhain<!--#ix/-->
+				<!--#hx/-->				
+			<!--#hx/-->
+			<!--#h/--><!--#tocFile/-->textJournalKritik<!--#title/-->Kritik<!--#sub/--><!--#detail/-->
+				<!--#i/-->jkrhbauman.html<!--#title0/-->Das Spiel ist wie Krieg<!--#sub0/-->Zygmunt Bauman erkundet die postmoderne Befindlichkeit und die Befindlichkeit der Postmoderne<!--#ix/-->
+				<!--#i/-->jkrhbertz.html<!--#title0/-->Das Fahrrad im Dienste der Volksgesundheit<!--#sub0/-->Ein Fahrradbuch offenbart Denken seiner Entstehungszeit<!--#ix/-->
+				<!--#i/-->jkrhbrockhaus.html<!--#title0/-->Salon Brockhaus<!--#sub0/-->Der "Große Brockhaus" multimedial<!--#ix/-->
+				<!--#i/-->jkrhcasanova.html<!--#title0/-->Der Westentaschen-Casanova<!--#sub0/-->Charles Lewinsky serviert Weisheiten des Giacomo Girolamo Casanova<!--#ix/-->
+			<!--#hx/-->			
+		<!--#hx/-->			
+	<!--#hx/-->
+	
+	<!--#i/-->foto.html<!--#title0/-->Foto<!--#sub0/--><!--#ix/-->
+	
+	<!--#i/-->satire.html<!--#title0/-->Satire<!--#sub0/--><!--#ix/-->
+	
+	<!--#h/--><!--#tocFile/-->workbench<!--#title/-->Basteln<!--#sub/--><!--#detail/-->
+		<!--#h/--><!--#tocFile/-->workbench<!--#title/-->Liegerad<!--#sub/--><!--#detail/-->
+			<!--#article/-->
+			Ein Projekt aus der Schulzeit... <br/>
+			Für die Erfindung
+			eines inzwischen patentierten Dreirad, dem wie einem Zweirad die Neigung in
+			Kurven möglich ist, wurde ich 1994 im Rahmen des Wettbewerbs &quot;Jugend
+			forscht&quot; mit dem Preis der Deutschen Gesellschaft für Luft und Raumfahrt
+			DLR ausgezeichnet.
+			<!--#articlex/-->		
+			<!--#i/-->lieraBeschreibung.html<!--#title0/-->Beschreibung<!--#sub0/--><!--#ix/-->
+			<!--#i/-->lieraTheorie.html<!--#title0/-->Theorie<!--#sub0/--><!--#ix/-->
+			<!--#i/-->lieraAbstract.html<!--#title0/-->Abstract<!--#sub0/--><!--#ix/-->
+		<!--#hx/-->	
+	<!--#hx/-->
+
+	
+<!--/TOC-->
+
+<!--HTML--><!--#START-->
+	<!--#END-->
+<!--/HTML-->
+
+<!--START--><!DOCTYPE html>
+<html>
+<!--#_0temp.xml head-->
+<body>
+	<!--#NAV_MENU-->
+	<!--#NAV-->
+	<!--#BEFORE_CONTENT-->
+<!--/START-->
+
+<!--END-->
+	<!--#AFTER_CONTENT-->
+	<!--#_0temp.xml footer-->
+	<!--#_0temp.xml script-->
+</body>
+</html><!--/END-->
+
+<!--BEFORE_CONTENT--><main><!--/BEFORE_CONTENT-->
+
+<!--AFTER_CONTENT--></main><!--/AFTER_CONTENT-->
+
+<!--NAV_MENU-->
+	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+<!--/NAV_MENU-->
+
+<!--NAV-->
+	<!--#_1nav.xml nav-->
+<!--/NAV-->
+
+

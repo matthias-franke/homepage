@@ -5,6 +5,10 @@ import sys, os, shutil, xml.etree.ElementTree
 import filecmp
 import itertools as IT
 import io
+# --> lxml
+import lxml.etree
+# <-- lxml
+
 from datetime import datetime
 from os.path import isfile
 #from sets import Set
@@ -13,11 +17,13 @@ from os.path import isfile
 # tup1 = ('physics', 'chemistry', 1997, 2000);
 # dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
 
-relativePathInput = '\\..\\..\\franke-matthias.de_input2'
+text_command = '/' # /text()
+
+relativePathInput = '\\..\\..\\franke-matthias.de_input'
 templateFiles = ['_0temp.txt']
 extentionsInput = ['.htm', '.html', '.xml']
 
-relativePathOutput = '\\..\\..\\franke-matthias.de2'
+relativePathOutput = '\\..\\..\\franke-matthias.de'
 pathExtBkp = 'bkp'
 
 
@@ -157,18 +163,54 @@ def getTemplate(tag, actualFile):
         reBin = None
         try:
             root = xml.etree.ElementTree.parse(source)
-            reBin = root.find(xpath)
+            if xpath.endswith(text_command):
+                reBin = root.find(xpath[:-len(text_command)])
+            else:
+                reBin = root.find(xpath)
+            # --> lxml geht einfach nicht
+            """
+            #root = lxml.etree.XML(io.StringIO(source))
+            root = lxml.etree.parse(source)
+            reBin = root.xpath(xpath)
+            """
+            # <-- lxml
         except xml.etree.ElementTree.ParseError as err:
             print('ERROR ParseError: ' + str(err) + ' in ' + str(source))
         #except FileNotFoundError as err:
         #    print('ERROR File not found: ' + str(err) + ' in ' + str(source))
         if reBin is not None:
-            #re = xml.etree.ElementTree.tostring(reBin).decode()
-            re = reBin.text
+            # --> lxml geht nich
+            """
+            re = None
+            if type(reBin) is list:
+                if len(reBin) > 0:
+                    reBin = reBin[0]
+                else:
+                    reBin = None
+            if reBin is not None:
+                if type(reBin) is lxml.etree._Element:
+                    re = lxml.etree.tostring(reBin)
+                else:
+                    if reBin.is_text:
+                        re = reBin                
+            """
+            # <-- lxml
+            if xpath.endswith(text_command):
+                #re = xml.etree.ElementTree.tostring(reBin).decode()
+                re = reBin.text 
+                if re is None:
+                    re = ''                
+                #print(' return ' + str(source) + ' test>' + re)
+            else:
+                re = xml.etree.ElementTree.tostring(reBin)#.decode() 
+                if re is None:
+                    re = ''
+                #print(' return ' + str(source) + ' ele>' + str(re))                
             if re is None:
                 re = ''
+           
             #templatesPerFile[source][tag] = re
-            print(' return form file |-->' + re)
+            
             return re
         else:
             print('Info: no xpath ' + xpath + ' in ' + str(source))
@@ -229,7 +271,27 @@ def processFile_old(f):
                 listOfSections[i] += line
     return listOfSections
 
-def processFolder(inputPath, outputPath):
+def cpyFolder(inputPath, outputPath):
+    for unqualifiedFile in sorted(os.listdir(inputPath)):
+        file = os.path.join(inputPath, unqualifiedFile)
+        if os.path.isfile(file):
+            i = 0
+            for ext in extentionsInput:
+                if file.endswith(ext):
+                    fileCpy = cpyFile(file, outputPath, unqualifiedFile)
+                    break
+        else:
+            #print('folder: ' + file)
+            if unqualifiedFile != pathExtBkp:
+                outputPathChild = os.path.join(outputPath, unqualifiedFile)
+                if not os.path.exists(outputPathChild):
+                    os.makedirs(outputPathChild)
+                if not os.path.exists(outputPathChild):
+                    print('ERROR: outputPath does not exist: ' + outputPathChild)
+                else:
+                    cpyFolder(file, outputPathChild)
+    
+def processFolder(inputPath):
     """
     for tag in templates:
         print(' . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .')
@@ -246,25 +308,18 @@ def processFolder(inputPath, outputPath):
                         if len(result) <= 1:
                             break
                         print('~ ' + file + ' loop' + str(i))
-                        file = writeFile(outputPath, unqualifiedFile, result)
+                        file = writeFile(inputPath, unqualifiedFile, result)
                         if file in templatesPerFile:
                             templatesPerFile[file].clear()
                         i = i + 1
                     if i == 0:
-                        fileCpy = cpyFile(file, outputPath, unqualifiedFile)
                         if file in templatesPerFile:
                             templatesPerFile[fileCpy] = templatesPerFile[file]
                     break
         else:
             #print('folder: ' + file)
             if unqualifiedFile != pathExtBkp:
-                outputPathChild = os.path.join(outputPath, unqualifiedFile)
-                if not os.path.exists(outputPathChild):
-                    os.makedirs(outputPathChild)
-                if not os.path.exists(outputPathChild):
-                    print('ERROR: outputPath does not exist: ' + outputPathChild)
-                else:
-                    processFolder(file, outputPathChild)
+                processFolder(file)
 
 def main(basePath):
     inputPath = os.path.normpath(basePath + relativePathInput)
@@ -280,7 +335,8 @@ def main(basePath):
         return
     readTemplates(inputPath)
     backupedFiles.clear()
-    processFolder(inputPath, outputPath)
+    cpyFolder(inputPath, outputPath)
+    processFolder(outputPath)
 
 #print (sys.version_info)
 print('')

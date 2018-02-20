@@ -23,11 +23,11 @@
 	<div>
 		<h3>Legal Conditions</h3>
 		<ul>
-			<li><a href="impressum.htm">Impressum</a></li>
-			<li><a href="index.htm">Datenschutz</a></li>
-			<li><a href="index.htm">Disclaimer</a></li>
-			<li><a href="index.htm">Lizenzbedingungen</a></li>
-			<li><a href="index.htm">AGB</a></li>
+			<li><a href="impressum.html">Impressum</a></li>
+			<li><a href="datenschutz.html">Datenschutz</a></li>
+			<li><a href="disclaimer.html">Disclaimer</a></li>
+			<li><a href="lizenz.html">Lizenzbedingungen</a></li>
+			<li><a href="agb.html">AGB</a></li>
 		</ul>
 	</div>
 </footer>

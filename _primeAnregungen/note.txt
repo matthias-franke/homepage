@@ -1,0 +1,17 @@
+http://simonguest.com/2013/08/06/building-a-webrtc-client-for-android/
+
+http://blogs.nologin.es/rickyepoderi/index.php?/archives/84-The-WebRTC-Demo-in-Glassfish-4.html
+
+https://chromium.googlesource.com/external/webrtc/stable/talk/+/5751231c0308f2632caf502bf9f1db6eb3b679f6/examples/android/src/org/appspot/apprtc/AppRTCDemoActivity.java
+
+
+
+
+      if (['LEAVE', 'CANDIDATE', 'OFFER', 'ANSWER'].indexOf(message.type) !== -1) {
+        self._handleTransmission(key, {
+          type: message.type,
+          src: id,
+          dst: message.dst,
+          payload: message.payload
+        });
+      }

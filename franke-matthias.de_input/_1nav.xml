@@ -1,5 +1,25 @@
-<root>
+<r>
 
-	<!--#_2toc.xml nav-->
+<i>&lt;li&gt;&lt;a href=&quot;</i>
+<title0>&quot;&gt;</title0>
+<sub0>&lt;span class=&quot;sub&quot;&gt; </sub0>
+<ix>&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</ix>
 
-</root>
+<h>&lt;li&gt;&lt;a href=&quot;</h>
+<title>&quot;&gt;</title>
+<sub>&lt;span class=&quot;sub&quot;&gt; </sub>
+<detail>&lt;/span&gt;&lt;/a&gt;&lt;ul&gt;</detail>
+<hx>&lt;/ul&gt;&lt;/li&gt;</hx>
+
+<article>&lt;!--</article>
+<articlex>--&gt;</articlex>
+
+<tocFile>toc.html#</tocFile>
+
+<nav id="nav">
+	<ul>
+		<!--#TOC-->
+	</ul>
+</nav>
+
+</r>
