@@ -363,13 +363,17 @@ footer > *
 	border-color: white;
 
 	padding-left: 1rem;
+	margin-left: 0rem;
+	
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
 
 footer > *:first-child
 {
-	border-left: none
+	padding-left: 0rem;
+	border-left: none;
+	
 }
 
 footer > *:last-child

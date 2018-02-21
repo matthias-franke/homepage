@@ -14,7 +14,7 @@
 <footer>
 	<div>
 		<h3>Kontakt</h3>
-		<p>
+		<p class="NoneDeco">
 			Matthias Franke<br/>
 			Mobile: +49 171 978 0954<br/>
 			Mail: mail@franke-matthias.de

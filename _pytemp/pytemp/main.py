@@ -6,7 +6,7 @@ import filecmp
 import itertools as IT
 import io
 # --> lxml
-import lxml.etree
+#import lxml.etree
 # <-- lxml
 
 from datetime import datetime
@@ -202,7 +202,7 @@ def getTemplate(tag, actualFile):
                     re = ''                
                 #print(' return ' + str(source) + ' test>' + re)
             else:
-                re = xml.etree.ElementTree.tostring(reBin)#.decode() 
+                re = xml.etree.ElementTree.tostring(reBin).decode() 
                 if re is None:
                     re = ''
                 #print(' return ' + str(source) + ' ele>' + str(re))                
@@ -312,9 +312,9 @@ def processFolder(inputPath):
                         if file in templatesPerFile:
                             templatesPerFile[file].clear()
                         i = i + 1
-                    if i == 0:
-                        if file in templatesPerFile:
-                            templatesPerFile[fileCpy] = templatesPerFile[file]
+#                    if i == 0:
+#                        if file in templatesPerFile:
+#                            templatesPerFile[fileCpy] = templatesPerFile[file]
                     break
         else:
             #print('folder: ' + file)
