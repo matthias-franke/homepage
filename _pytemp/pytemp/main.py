@@ -138,7 +138,7 @@ def writeFile(path, unqualifiedFile, listOfSections):
                 file.write(section)
     return f
 
-def getTemplate(tag, actualFile):
+def getTemplate(tag, actualFile, folder):
     #print(' |-->' + fileAndXpath)
     if tag in templates:
         #print(' return form dict |-->' + templates[fileAndXpath])
@@ -148,7 +148,8 @@ def getTemplate(tag, actualFile):
         source = None;
         if tag.find(insertXPathTmp_DelimiterFileXPath) > -1:
             file, xpath = tag.split(insertXPathTmp_DelimiterFileXPath)
-            source = os.path.dirname(actualFile.name) + '\\' + file
+            #source = os.path.dirname(actualFile.name) + '\\' + file
+            source = folder + '\\' + file
         else:
             #if actualFile.name.endswith('.xml'):
             xpath = tag
@@ -217,7 +218,7 @@ def getTemplate(tag, actualFile):
 
     return None
 
-def processFile(f):
+def processFile(f, templateFolder):
     listOfSections = ['']
     with open(f, 'r') as file:
         i = 0
@@ -230,7 +231,7 @@ def processFile(f):
                 tagEnd = line.find(insertXPathTmp_TagEnd, cursor)
                 if tagEnd > -1:
                     tag = line[cursor:tagEnd]
-                    tmp = getTemplate(tag.strip(), file)
+                    tmp = getTemplate(tag.strip(), file, templateFolder)
                     cursor = tagEnd + len(insertXPathTmp_TagEnd)
                     if tmp is not None:
                         listOfSections.append(tmp)
@@ -271,7 +272,7 @@ def processFile_old(f):
                 listOfSections[i] += line
     return listOfSections
 
-def cpyFolder(inputPath, outputPath):
+def cpyFolder_obsolet(inputPath, outputPath):
     for unqualifiedFile in sorted(os.listdir(inputPath)):
         file = os.path.join(inputPath, unqualifiedFile)
         if os.path.isfile(file):
@@ -291,7 +292,7 @@ def cpyFolder(inputPath, outputPath):
                 else:
                     cpyFolder(file, outputPathChild)
     
-def processFolder(inputPath):
+def processFolder(inputPath, outputPath):
     """
     for tag in templates:
         print(' . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .')
@@ -304,22 +305,30 @@ def processFolder(inputPath):
             for ext in extentionsInput:
                 if file.endswith(ext):
                     while i <= maxLoops:
-                        result = processFile(file)
+                        result = processFile(file, outputPath)
                         if len(result) <= 1:
                             break
                         print('~ ' + file + ' loop' + str(i))
-                        file = writeFile(inputPath, unqualifiedFile, result)
+                        file = writeFile(outputPath, unqualifiedFile, result)
                         if file in templatesPerFile:
                             templatesPerFile[file].clear()
                         i = i + 1
-#                    if i == 0:
-#                        if file in templatesPerFile:
+                    if i == 0:
+                        fileCpy = cpyFile(file, outputPath, unqualifiedFile)
+#                        if file in templatesPerFile:          
 #                            templatesPerFile[fileCpy] = templatesPerFile[file]
                     break
         else:
             #print('folder: ' + file)
             if unqualifiedFile != pathExtBkp:
-                processFolder(file)
+                outputPathChild = os.path.join(outputPath, unqualifiedFile)
+                if not os.path.exists(outputPathChild):
+                    os.makedirs(outputPathChild)
+                if not os.path.exists(outputPathChild):
+                    print('ERROR: outputPath does not exist: ' + outputPathChild)
+                else:
+                    processFolder(file, outputPathChild)
+
 
 def main(basePath):
     inputPath = os.path.normpath(basePath + relativePathInput)
@@ -335,8 +344,8 @@ def main(basePath):
         return
     readTemplates(inputPath)
     backupedFiles.clear()
-    cpyFolder(inputPath, outputPath)
-    processFolder(outputPath)
+    #cpyFolder(inputPath, outputPath)
+    processFolder(inputPath, outputPath)
 
 #print (sys.version_info)
 print('')
