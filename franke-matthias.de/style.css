@@ -45,7 +45,7 @@ nav, footer
 
 /**********************************/
 /* ==> BODY ***********************/
-html{box-sizing:border-box; height: 100%}
+html{box-sizing:border-box; height: 100vh}
 *,*:before,*:after{box-sizing:inherit}
 html,body{font-family:Verdana,sans-serif;line-height:1.5}
 /*
@@ -61,7 +61,7 @@ body
 
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	height: 100vw;
 }
 
 main
@@ -318,8 +318,8 @@ footer
 main, footer
 {
 	margin: 0rem 0rem 0rem 0rem;
-	padding-left: calc((100% - 40rem) / 2);     /* abstand zum rahmen */
-	padding-right: calc((100% - 40rem) / 2);    /* abstand zum rahmen */
+	padding-left: calc((100vw - 40rem) / 2);     /* abstand zum rahmen */
+	padding-right: calc((100vw - 40rem) / 2);    /* abstand zum rahmen */
 	padding-bottom: 0;
 	z-index: inherit;
 }
