@@ -1,14 +1,139 @@
+﻿<!DOCTYPE html>
 <html>
 <head>
-<title>DaBasCo</title>
-<meta name="author" content="Franke Admin">
-<meta name="generator" content="Ulli Meybohms HTML EDITOR">
-</head>
-<body text="#000000" bgcolor="#FFFFFF" link="#FF0000" alink="#FF0000" vlink="#FF0000">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<style>
+.page
+{
+	min-height: calc(100vh - 2.6rem);
+	max-width: 100vw;
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+	border-color: black;
+}
 
-<p>
- <a href="sudoku/index.html">Sudoku Backtracker</a>
-</p>
+.page img
+{
+	
+}
+</style>
+</head>
+
+<body>
+	
+	<a class="menu" id="menu" href="javascript:void(0);" onclick="toggleDisplay('nav');">&equiv;</a>
+
+	
+	<nav id="nav">
+	<ul>
+		
+	<li><a href="index.html">&#8743;<span class="sub"> </span></a></li>
+
+	<li><a href="index.html">Conetex - Project <strong>Justus</strong> - <span class="sub"> smart contract processing</span></a></li>
+	
+	</ul>
+</nav>
+
+<main>
+
+	<h1>Smart Contract Processing</h1>
+	
+	<p>
+	White Paper: <a href="http://www.conetex.net/wiki/en/doku.php?id=justus:white_paper" target="blank" style="text-decoration: underline">wiki @ conetex</a>
+	<br/>
+	Implementation: <a href="http://github.com/conetex/Justus" target="blank" style="text-decoration: underline">Project "<strong>Justus</strong>" @ GitHub</a>
+	</p>
+	
+	<div class="page">
+		<h2>combine description and instruction </h2>
+		<img src="justus_FormAndCode.PNG" alt="" >
+	</div>
+
+	<div class="page">
+		<h2>add authentication</h2>
+		<img src="justus_Signing.PNG" alt="" >
+	</div>
+
+	<div class="page">
+		<h2>get a smart contract</h2>
+		<img src="justus_Contract.PNG" alt="" >
+		<p>Signing the state of applications executed by a distributed network</p>
+		<p>Signing the code of distributed applications</p>
+		<p>Reproduction of application state</p>
+	</div>
+	
+	<h2>freedom</h2>
+	<div class="page">
+		<h3>serverless</h3>
+		<img src="justus_Serverless.PNG" alt="" >	
+	</div>
+	
+	<div class="page">
+		<h3>p2p</h3>
+		<img src="justus_P2P.PNG" alt="" >
+	</div>	
+	
+	<div class="page">
+		<h2>Making contracts means performing processes</h2>
+		<img src="justus_Workflow.PNG" alt="" >
+		<p> </p>
+		<p> </p>
+	</div>
+	
+
+</main>
+	
+<footer>
+	<div>
+		<h3>Kontakt</h3>
+		<p class="NoneDeco">
+			Matthias Franke<br />
+			Mobile: +49 171 978 0954<br />
+			Mail: mail@franke-matthias.de
+		</p>
+	</div>
+	<div>
+		<h3>Legal Conditions</h3>
+		<ul>
+			<li><a href="impressum.html">Impressum</a></li>
+			<li><a href="datenschutz.html">Datenschutz</a></li>
+			<li><a href="disclaimer.html">Disclaimer</a></li>
+			<li><a href="lizenz.html">Lizenzbedingungen</a></li>
+			<li><a href="agb.html">AGB</a></li>
+		</ul>
+	</div>
+</footer>
+
+
+<script>
+
+	function togglePosition(id) {
+		e = document.getElementById(id);
+		if(e != null){
+			if(e.style.position == "absolute"){
+				e.style.position = "fixed";
+			}
+			else{
+				e.style.position = "absolute";
+			}
+		}
+	}
+
+	function toggleDisplay(id) {
+		e = document.getElementById(id);
+		if(e != null){
+			if(e.style.display == "none"){
+				e.style.display = "block";
+			}
+			else{
+				e.style.display = "none";
+			}
+		}
+	}
+
+</script>
+
 
 </body>
 </html>
